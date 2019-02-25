@@ -7,6 +7,20 @@
 This software is a Priority buffer intended for use in an embedded environment,
 with processors or controllers as small as 8-bit.
 
+## Purpose
+
+One use of the buffer could be to enable the rapid re-prioritisation of self-contained payloads of data, possibly compressed
+and encrypted. It makes sense to manipulate such a payload in units of payload, and being able to prioritise or re-order the
+delivery of them against time can release the business logic from being required to maintain a lot of state regarding what
+has gone, what has maybe gone, and how urgent is this payload with respect to what is already out there. By employing prioritisation
+in this way, the priorities may be worked out ahead of time, and the configuration stored as constant data for rapid use, freeing
+the user of much of the decision-making in real-time.
+
+When looked at in this way the prioritised buffer implementation makes sense - entire payloads are redirected in an instant, and yet
+maintain their self-referential integrity. Too much information of higher importance pushes lesser information 'out of the back of
+the queue in a natural pre-planned and real-time efficient way. Played against a potentially inconsistent network it makes all the
+more sense to do the work ahead of time and configure for the eventuality with payload priority.
+
 ## Configuration
 
 It is configurable at compile time by defining three definitions (found in priority_buffer.h).
