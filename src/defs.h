@@ -1,0 +1,51 @@
+/** @file */
+#ifndef DEFS_H
+#define DEFS_H
+
+#if BUFFER_SIZE < 3 || BUFFER_SIZE > 256
+# error ERROR: BUFFER_SIZE should be a value from 3 to 256
+#endif  /* BUFFER_SIZE */
+
+#define HIGH_PRI 0
+#define LOW_PRI PRIORITY_SIZE - 1
+
+typedef uint8_t element_t;
+typedef uint8_t index_t;
+typedef uint8_t activity_t;
+typedef uint8_t priority_t;
+typedef uint8_t check_t;
+
+enum {
+  INVALID_INDEX,
+  VALID_INDEX,
+  INVALID_ELEMENT,
+  VALID_ELEMENT,
+  INVALID_PRIORITY,
+  VALID_PRIORITY,
+  INVALID_WRITE,
+  VALID_WRITE,
+  INVALID_ACTIVE,
+  VALID_ACTIVE,
+  INVALID_HEAD,
+  VALID_HEAD,
+  INVALID_INSERT,
+  VALID_INSERT,
+  INACTIVE,
+  ACTIVE,
+  INSERT_FAIL,
+  INSERT_SUCCESS,
+  BUFFER_NOT_EMPTY,
+  BUFFER_EMPTY,
+  REROUTE_FAIL,
+  REROUTE_SUCCESS,
+  BUFFER_NOT_FULL,
+  BUFFER_FULL,
+  INVALID_REMAP,
+  VALID_REMAP,
+  INVALID_RETRIEVE,
+  VALID_RETRIEVE,
+  INVALID_DATA,
+  VALID_DATA,
+};
+
+#endif  /* DEFS_H */
