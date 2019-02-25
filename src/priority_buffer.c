@@ -54,7 +54,9 @@ STATIC check_t insertFull(element_t element, priority_t newPriority);
    The pbuf_t structure holds the relevant data required for operating a single buffer.
    Its size is determined at compile time and depends upon the configuration applied.
    There is a single 8-bit tail, an 8-bit head for each priority, and an 8-bit activity
-   byte for storing an activity flag per priority.
+   byte for storing an activity flag per priority. In addition there is the buffer itself,
+   each cell containing an element of data storage and an 8-bit pointer to the following
+   cell.
  */
 
 typedef struct PBUF_T {
@@ -63,11 +65,9 @@ typedef struct PBUF_T {
   {
     index_t tail;
     index_t head[PRIORITY_SIZE];
-
-
   }
   /**
-     The ptr structure holds the tail and array of heads pointers into the buffer.
+     The ptr structure holds the tail and array of heads pointers' which point into the buffer.
      these are used to ensure buffer access is very fast. The head array size is
      configured by the library user.
   */
@@ -81,16 +81,16 @@ typedef struct PBUF_T {
   /**
      The element structure is the buffer itself. It holds an element and a next variable per slot in the buffer.
      This linkage around the circular buffer enables the buffer to be re-routed or remapped easily, allowing for
-     prioritised data to be organised in order of preference. In other words, it is arranged for higher orders
-     of priority to be retrieved from the buffer quicker than lower orders of priority.
+     prioritised data to be organised in order of preference. In other words, it can be quickly re-arranged
+     to allow higher orders of priority to be retrieved from the buffer quicker than lower orders of priority.
   */
     element[BUFFER_SIZE];
 
   /**
-     The activity storage holds 8 bits of data known as activity flags - one per priority, to a maximum of 8 levels
-     of priority. If the buffer currently holds data of a given priority the appropriate bit is set to ACTIVE.
-     Once all elements of a particular quality of data are retrieved from the buffer, the relevant flag is set to
-     INACTIVE. The respective head only holds relevant data when the flag is ACTIVE.
+     The activity storage holds 8 bits of data known as activity flags - one bit per priority, to a maximum of
+     8 levels of priority. If the buffer currently holds data of a given priority, the appropriate bit is set to
+     ACTIVE. Once all elements of a particular quality of data are retrieved from the buffer, the relevant flag
+     is set to INACTIVE. The respective head only holds relevant data when the flag is ACTIVE.
   */
   activity_t activity;
 
@@ -114,7 +114,7 @@ STATIC check_t checkIndex(index_t index)
   return returnVal;
 }
 
-/***
+/**
  Advance the tail to its next position in the buffer
 */
 
@@ -132,8 +132,8 @@ STATIC check_t incTail(void)
   return returnVal;
 }
 
-/***
-  Return the index pointer to by the tail pointer
+/**
+  Return the index pointed to by the tail pointer
  */
 
 STATIC index_t tailIndex(void)
@@ -141,7 +141,7 @@ STATIC index_t tailIndex(void)
   return bf.ptr.tail;
 }
 
-/***
+/**
   Write a new index to the tail pointer
  */
 
@@ -210,7 +210,7 @@ STATIC check_t writeNextIndex(index_t current, index_t next)
 
 /**
   find the index at which we can store.
-  This is only valid when the buffer is not empty.
+  This is only valid when the buffer is not full.
   Check for buffer empty case first since this is a very fast test.
   Returns INVALID_INDEX if we cannot allocate an index (buffer full for instance).
 */
@@ -238,12 +238,10 @@ STATIC check_t firstFreeElementIndex(index_t * index)
   return returnVal;
 }
 
-/**
  /////////////////////////// priority ///////////////////////////
-*/
 
 /**
-  Returns the index pointed to by the head related with the priority passed in.
+  Return the index pointed to by the head related with the priority passed in.
  */
 
 STATIC index_t headValue(priority_t priority)
@@ -252,7 +250,7 @@ STATIC index_t headValue(priority_t priority)
 }
 
 /**
-  Returns the index pointed to by the head related with the priority passed in
+  Return the index pointed to by the head related to the priority passed in
   after following the head link.
  */
 
@@ -278,7 +276,7 @@ return returnVal;
 }
 
 /**
-  Sets the value of the head pointer associated with the priority passed
+  Set the value of the head pointer associated with the priority passed
   in with the index passed in.
  */
 
@@ -296,7 +294,7 @@ STATIC check_t setHead(index_t index, priority_t priority)
   return returnVal;
 }
 /**
-  Returns the head of the lowest active priority. Beyond this
+  Return the head of the lowest active priority. Beyond this
   point there is no valid data unless the buffer is full.
  */
 
@@ -366,8 +364,8 @@ STATIC check_t validatePriority(priority_t priority)
 }
 
 /**
-  Determines the priority that is equal to or higher than the priority passed in,
-  and assigns it to the priority storage passed in.
+  Determine the priority that is equal to or higher than the priority passed in,
+  and assign it to the priority storage passed in.
   If this priority cannot be found return INVALID_PRIORITY.
  */
 
@@ -393,7 +391,7 @@ STATIC check_t equalOrHigherPriority(priority_t * equalOrHigherPri, check_t prio
 }
 
 /**
-  Returns the active status of the priority passed in.
+  Return the active status of the priority passed in.
   If the priority is active ACTIVE is returned.
 */
 
@@ -413,8 +411,8 @@ STATIC check_t activeStatus(priority_t priority)
 }
 
 /**
-  Sets the relevant activity flag of the priority passed in.
-  Returns INVALID_ACTIVE if the priority is invalid.
+  Set the relevant activity flag of the priority passed in.
+  Return INVALID_ACTIVE if the priority is invalid.
  */
 
 STATIC check_t setActive(priority_t priority)
@@ -432,8 +430,8 @@ STATIC check_t setActive(priority_t priority)
 }
 
 /**
-  Resets the relevant activity flag of the priority passed in.
-  Returns INVALID_ACTIVE if the priority is invalid.
+  Reset the relevant activity flag of the priority passed in.
+  Return INVALID_ACTIVE if the priority is invalid.
 */
 
 STATIC check_t setInactive(priority_t priority)
@@ -452,8 +450,8 @@ STATIC check_t setInactive(priority_t priority)
 
 /**
   Determine the highest priority and assign to the priority
-  pointer passed in. Returns VALID_PRIORITY on finding a
-  relevant priority.
+  pointer passed in.
+  Returns VALID_PRIORITY on finding a relevant priority.
  */
 
 STATIC check_t highestPriority(priority_t * priority)
@@ -1002,10 +1000,7 @@ STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
                     }
                 }
             }
-//          printf("\n------------");
-//          printf("\na1 = %u", a1);
-//          printf("\na2 = %u", a2);
-//          printf("\nb = %u\n", newIndex);
+
           remap(a1, a2, newIndex);
           returnVal = VALID_REMAP;
         }
@@ -1014,7 +1009,7 @@ STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
   return returnVal;
 }
 
-///** Exposed API */
+/// Exposed API /
 
 /**
   Reset Buffer
@@ -1055,7 +1050,7 @@ uint16_t PBUF_bufferSize(void)
 
 /**
   Insert data into the buffer of the given priority.
-  Returns zero for a valid insert.
+  Return zero for a valid insert.
  */
 check_t PBUF_insert(element_t element, priority_t priority)
 {
