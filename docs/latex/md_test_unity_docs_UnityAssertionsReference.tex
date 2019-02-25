@@ -1,0 +1,544 @@
+\subsection*{Background and Overview}
+
+\subsubsection*{Super Condensed Version}
+
+
+\begin{DoxyItemize}
+\item An assertion establishes truth (i.\+e. boolean True) for a single condition. Upon boolean False, an assertion stops execution and reports the failure.
+\item Unity is mainly a rich collection of assertions and the support to gather up and easily execute those assertions.
+\item The structure of Unity allows you to easily separate test assertions from source code in, well, test code.
+\item Unity\textquotesingle{}s assertions\+:
+\item Come in many, many flavors to handle different C types and assertion cases.
+\item Use context to provide detailed and helpful failure messages.
+\item Document types, expected values, and basic behavior in your source code for free.
+\end{DoxyItemize}
+
+\subsubsection*{Unity Is Several Things But Mainly It\textquotesingle{}s Assertions}
+
+One way to think of Unity is simply as a rich collection of assertions you can use to establish whether your source code behaves the way you think it does. Unity provides a framework to easily organize and execute those assertions in test code separate from your source code.
+
+\subsubsection*{What\textquotesingle{}s an Assertion?}
+
+At their core, assertions are an establishment of truth -\/ boolean truth. Was this thing equal to that thing? Does that code doohickey have such-\/and-\/such property or not? You get the idea. Assertions are executable code (to appreciate the big picture on this read up on the difference between \mbox{[}link\+:Dynamic Verification and Static Analysis\mbox{]}). A failing assertion stops execution and reports an error through some appropriate I/O channel (e.\+g. stdout, G\+UI, file, blinky light).
+
+Fundamentally, for dynamic verification all you need is a single assertion mechanism. In fact, that\textquotesingle{}s what the \href{http://en.wikipedia.org/en/wiki/Assert.h}{\tt assert() macro in C\textquotesingle{}s standard library} is for. So why not just use it? Well, we can do far better in the reporting department. C\textquotesingle{}s {\ttfamily assert()} is pretty dumb as-\/is and is particularly poor for handling common data types like arrays, structs, etc. And, without some other support, it\textquotesingle{}s far too tempting to litter source code with C\textquotesingle{}s {\ttfamily assert()}\textquotesingle{}s. It\textquotesingle{}s generally much cleaner, manageable, and more useful to separate test and source code in the way Unity facilitates.
+
+\subsubsection*{Unity\textquotesingle{}s Assertions\+: Helpful Messages {\itshape and} Free Source Code Documentation}
+
+Asserting a simple truth condition is valuable, but using the context of the assertion is even more valuable. For instance, if you know you\textquotesingle{}re comparing bit flags and not just integers, then why not use that context to give explicit, readable, bit-\/level feedback when an assertion fails?
+
+That\textquotesingle{}s what Unity\textquotesingle{}s collection of assertions do -\/ capture context to give you helpful, meaningful assertion failure messages. In fact, the assertions themselves also serve as executable documentation about types and values in your source code. So long as your tests remain current with your source and all those tests pass, you have a detailed, up-\/to-\/date view of the intent and mechanisms in your source code. And due to a wondrous mystery, well-\/tested code usually tends to be well designed code.
+
+\subsection*{Assertion Conventions and Configurations}
+
+\subsubsection*{Naming and Parameter Conventions}
+
+The convention of assertion parameters generally follows this order\+: \begin{DoxyVerb}TEST_ASSERT_X( {modifiers}, {expected}, actual, {size/count} )
+\end{DoxyVerb}
+
+
+The very simplest assertion possible uses only a single \char`\"{}actual\char`\"{} parameter (e.\+g. a simple null check).
+
+\char`\"{}\+Actual\char`\"{} is the value being tested and unlike the other parameters in an assertion construction is the only parameter present in all assertion variants. \char`\"{}\+Modifiers\char`\"{} are masks, ranges, bit flag specifiers, floating point deltas. \char`\"{}\+Expected\char`\"{} is your expected value (duh) to compare to an \char`\"{}actual\char`\"{} value; it\textquotesingle{}s marked as an optional parameter because some assertions only need a single \char`\"{}actual\char`\"{} parameter (e.\+g. null check). \char`\"{}\+Size/count\char`\"{} refers to string lengths, number of array elements, etc.
+
+Many of Unity\textquotesingle{}s assertions are clear duplications in that the same data type is handled by several assertions. The differences among these are in how failure messages are presented. For instance, a {\ttfamily \+\_\+\+H\+EX} variant of an assertion prints the expected and actual values of that assertion formatted as hexadecimal.
+
+\paragraph*{T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+X\+\_\+\+M\+E\+S\+S\+A\+GE Variants}
+
+{\itshape All} assertions are complemented with a variant that includes a simple string message as a final parameter. The string you specify is appended to an assertion failure message in Unity output.
+
+For brevity, the assertion variants with a message parameter are not listed below. Just tack on {\ttfamily \+\_\+\+M\+E\+S\+S\+A\+GE} as the final component to any assertion name in the reference list below and add a string as the final parameter.
+
+{\itshape Example\+:} \begin{DoxyVerb}TEST_ASSERT_X( {modifiers}, {expected}, actual, {size/count} )
+\end{DoxyVerb}
+
+
+becomes messageified like thus... \begin{DoxyVerb}TEST_ASSERT_X_MESSAGE( {modifiers}, {expected}, actual, {size/count}, message )
+\end{DoxyVerb}
+
+
+Notes\+:
+\begin{DoxyItemize}
+\item The {\ttfamily \+\_\+\+M\+E\+S\+S\+A\+GE} variants intentionally do not support {\ttfamily printf} style formatting since many embedded projects don\textquotesingle{}t support or avoid {\ttfamily printf} for various reasons. It is possible to use {\ttfamily sprintf} before the assertion to assemble a complex fail message, if necessary.
+\item If you want to output a counter value within an assertion fail message (e.\+g. from a loop) , building up an array of results and then using one of the {\ttfamily \+\_\+\+A\+R\+R\+AY} assertions (see below) might be a handy alternative to {\ttfamily sprintf}.
+\end{DoxyItemize}
+
+\paragraph*{T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+X\+\_\+\+A\+R\+R\+AY Variants}
+
+Unity provides a collection of assertions for arrays containing a variety of types. These are documented in the Array section below. These are almost on par with the {\ttfamily \+\_\+\+M\+E\+S\+S\+A\+GE}variants of Unity\textquotesingle{}s Asserts in that for pretty much any Unity type assertion you can tack on {\ttfamily \+\_\+\+A\+R\+R\+AY} and run assertions on an entire block of memory. \begin{DoxyVerb}TEST_ASSERT_EQUAL_TYPEX_ARRAY( expected, actual, {size/count} )
+\end{DoxyVerb}
+
+
+\char`\"{}\+Expected\char`\"{} is an array itself. \char`\"{}\+Size/count\char`\"{} is one or two parameters necessary to establish the number of array elements and perhaps the length of elements within the array.
+
+Notes\+:
+\begin{DoxyItemize}
+\item The {\ttfamily \+\_\+\+M\+E\+S\+S\+A\+GE} variant convention still applies here to array assertions. The {\ttfamily \+\_\+\+M\+E\+S\+S\+A\+GE} variants of the {\ttfamily \+\_\+\+A\+R\+R\+AY} assertions have names ending with {\ttfamily \+\_\+\+A\+R\+R\+A\+Y\+\_\+\+M\+E\+S\+S\+A\+GE}.
+\item Assertions for handling arrays of floating point values are grouped with float and double assertions (see immediately following section).
+\end{DoxyItemize}
+
+\subsubsection*{T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+X Variants}
+
+Unity provides a collection of assertions for arrays containing a variety of types which can be compared to a single value as well. These are documented in the Each Equal section below. these are almost on par with the {\ttfamily \+\_\+\+M\+E\+S\+S\+A\+GE} variants of Unity\textquotesingle{}s Asserts in that for pretty much any Unity type assertion you can inject \+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+AL and run assertions on an entire block of memory. \begin{DoxyVerb}TEST_ASSERT_EACH_EQUAL_TYPEX( expected, actual, {size/count} )
+\end{DoxyVerb}
+
+
+\char`\"{}\+Expected\char`\"{} is a single value to compare to. \char`\"{}\+Actual\char`\"{} is an array where each element will be compared to the expected value. \char`\"{}\+Size/count\char`\"{} is one of two parameters necessary to establish the number of array elements and perhaps the length of elements within the array.
+
+Notes\+:
+\begin{DoxyItemize}
+\item The {\ttfamily \+\_\+\+M\+E\+S\+S\+A\+GE} variant convention still applies here to Each Equal assertions.
+\item Assertions for handling Each Equal of floating point values are grouped with float and double assertions (see immediately following section).
+\end{DoxyItemize}
+
+\subsubsection*{Configuration}
+
+\paragraph*{Floating Point Support Is Optional}
+
+Support for floating point types is configurable. That is, by defining the appropriate preprocessor symbols, floats and doubles can be individually enabled or disabled in Unity code. This is useful for embedded targets with no floating point math support (i.\+e. Unity compiles free of errors for fixed point only platforms). See Unity documentation for specifics.
+
+\paragraph*{Maximum Data Type Width Is Configurable}
+
+Not all targets support 64 bit wide types or even 32 bit wide types. Define the appropriate preprocessor symbols and Unity will omit all operations from compilation that exceed the maximum width of your target. See Unity documentation for specifics.
+
+\subsection*{The Assertions in All Their Blessed Glory}
+
+\subsubsection*{Basic Fail and Ignore}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+F\+A\+I\+L()}}
+
+This fella is most often used in special conditions where your test code is performing logic beyond a simple assertion. That is, in practice, {\ttfamily T\+E\+S\+T\+\_\+\+F\+A\+I\+L()} will always be found inside a conditional code block.
+
+{\itshape Examples\+:}
+\begin{DoxyItemize}
+\item Executing a state machine multiple times that increments a counter your test code then verifies as a final step.
+\item Triggering an exception and verifying it (as in Try / Catch / Throw -\/ see the \href{https://github.com/ThrowTheSwitch/CException}{\tt C\+Exception} project).
+\end{DoxyItemize}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+I\+G\+N\+O\+R\+E()}}
+
+Marks a test case (i.\+e. function meant to contain test assertions) as ignored. Usually this is employed as a breadcrumb to come back and implement a test case. An ignored test case has effects if other assertions are in the enclosing test case (see Unity documentation for more).
+
+\subsubsection*{Boolean}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+RT (condition)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+T\+R\+UE (condition)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+A\+L\+SE (condition)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+U\+N\+L\+E\+SS (condition)}}
+
+A simple wording variation on {\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+A\+L\+SE}.The semantics of {\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+U\+N\+L\+E\+SS} aid readability in certain test constructions or conditional statements.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+N\+U\+LL (pointer)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+N\+O\+T\+\_\+\+N\+U\+LL (pointer)}}
+
+\subsubsection*{Signed and Unsigned Integers (of all sizes)}
+
+Large integer sizes can be disabled for build targets that do not support them. For example, if your target only supports up to 16 bit types, by defining the appropriate symbols Unity can be configured to omit 32 and 64 bit operations that would break compilation (see Unity documentation for more). Refer to Advanced Asserting later in this document for advice on dealing with other word sizes.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+NT (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T8 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T16 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T32 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T64 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+AL (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+N\+O\+T\+\_\+\+E\+Q\+U\+AL (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+NT (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T8 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T16 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T32 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T64 (expected, actual)}}
+
+\subsubsection*{Unsigned Integers (of all sizes) in Hexadecimal}
+
+All {\ttfamily \+\_\+\+H\+EX} assertions are identical in function to unsigned integer assertions but produce failure messages with the {\ttfamily expected} and {\ttfamily actual} values formatted in hexadecimal. Unity output is big endian.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+EX (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X8 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X16 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X32 (expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X64 (expected, actual)}}
+
+\subsubsection*{Masked and Bit-\/level Assertions}
+
+Masked and bit-\/level assertions produce output formatted in hexadecimal. Unity output is big endian.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+B\+I\+TS (mask, expected, actual)}}
+
+Only compares the masked (i.\+e. high) bits of {\ttfamily expected} and {\ttfamily actual} parameters.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+B\+I\+T\+S\+\_\+\+H\+I\+GH (mask, actual)}}
+
+Asserts the masked bits of the {\ttfamily actual} parameter are high.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+B\+I\+T\+S\+\_\+\+L\+OW (mask, actual)}}
+
+Asserts the masked bits of the {\ttfamily actual} parameter are low.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+B\+I\+T\+\_\+\+H\+I\+GH (bit, actual)}}
+
+Asserts the specified bit of the {\ttfamily actual} parameter is high.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+B\+I\+T\+\_\+\+L\+OW (bit, actual)}}
+
+Asserts the specified bit of the {\ttfamily actual} parameter is low.
+
+\subsubsection*{Integer Less Than / Greater Than}
+
+These assertions verify that the {\ttfamily actual} parameter is less than or greater than {\ttfamily threshold} (exclusive). For example, if the threshold value is 0 for the greater than assertion will fail if it is 0 or less.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+AN (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+I\+NT (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+I\+N\+T8 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+I\+N\+T16 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+I\+N\+T32 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+U\+I\+NT (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+U\+I\+N\+T8 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+U\+I\+N\+T16 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+U\+I\+N\+T32 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+H\+E\+X8 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+H\+E\+X16 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+G\+R\+E\+A\+T\+E\+R\+\_\+\+T\+H\+A\+N\+\_\+\+H\+E\+X32 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+AN (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+I\+NT (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+I\+N\+T8 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+I\+N\+T16 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+I\+N\+T32 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+U\+I\+NT (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+U\+I\+N\+T8 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+U\+I\+N\+T16 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+U\+I\+N\+T32 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+H\+E\+X8 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+H\+E\+X16 (threshold, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+L\+E\+S\+S\+\_\+\+T\+H\+A\+N\+\_\+\+H\+E\+X32 (threshold, actual)}}
+
+\subsubsection*{Integer Ranges (of all sizes)}
+
+These assertions verify that the {\ttfamily expected} parameter is within +/-\/ {\ttfamily delta} (inclusive) of the {\ttfamily actual} parameter. For example, if the expected value is 10 and the delta is 3 then the assertion will fail for any value outside the range of 7 -\/ 13.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+T\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+T8\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+T16\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+T32\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+T64\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+U\+I\+N\+T\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+U\+I\+N\+T8\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+U\+I\+N\+T16\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+U\+I\+N\+T32\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+U\+I\+N\+T64\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+H\+E\+X\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+H\+E\+X8\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+H\+E\+X16\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+H\+E\+X32\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+H\+E\+X64\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+\subsubsection*{Structs and Strings}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+P\+TR (expected, actual)}}
+
+Asserts that the pointers point to the same memory location.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+S\+T\+R\+I\+NG (expected, actual)}}
+
+Asserts that the null terminated (`\textquotesingle{}\textbackslash{}0\textquotesingle{}`)strings are identical. If strings are of different lengths or any portion of the strings before their terminators differ, the assertion fails. Two N\+U\+LL strings (i.\+e. zero length) are considered equivalent.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+M\+E\+M\+O\+RY (expected, actual, len)}}
+
+Asserts that the contents of the memory specified by the {\ttfamily expected} and {\ttfamily actual} pointers is identical. The size of the memory blocks in bytes is specified by the {\ttfamily len} parameter.
+
+\subsubsection*{Arrays}
+
+{\ttfamily expected} and {\ttfamily actual} parameters are both arrays. {\ttfamily num\+\_\+elements} specifies the number of elements in the arrays to compare.
+
+{\ttfamily \+\_\+\+H\+EX} assertions produce failure messages with expected and actual array contents formatted in hexadecimal.
+
+For array of strings comparison behavior, see comments for {\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+S\+T\+R\+I\+NG} in the preceding section.
+
+Assertions fail upon the first element in the compared arrays found not to match. Failure messages specify the array index of the failed comparison.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T8\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T16\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T32\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T64\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T8\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T16\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T32\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T64\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X8\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X16\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X32\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X64\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+P\+T\+R\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+\+A\+R\+R\+AY (expected, actual, len, num\+\_\+elements)}}
+
+{\ttfamily len} is the memory in bytes to be compared at each array element.
+
+\subsubsection*{Each Equal (Arrays to Single Value)}
+
+{\ttfamily expected} are single values and {\ttfamily actual} are arrays. {\ttfamily num\+\_\+elements} specifies the number of elements in the arrays to compare.
+
+{\ttfamily \+\_\+\+H\+EX} assertions produce failure messages with expected and actual array contents formatted in hexadecimal.
+
+Assertions fail upon the first element in the compared arrays found not to match. Failure messages specify the array index of the failed comparison.
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+NT (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T8 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T16 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T32 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+I\+N\+T64 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+NT (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T8 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T16 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T32 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+U\+I\+N\+T64 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+EX (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X8 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X16 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X32 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+H\+E\+X64 (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+P\+TR (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+S\+T\+R\+I\+NG (expected, actual, num\+\_\+elements)}}
+
+\paragraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+A\+C\+H\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+M\+E\+M\+O\+RY (expected, actual, len, num\+\_\+elements)}}
+
+{\ttfamily len} is the memory in bytes to be compared at each array element.
+
+\subsubsection*{Floating Point (If enabled)}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+Asserts that the {\ttfamily actual} value is within +/-\/ {\ttfamily delta} of the {\ttfamily expected} value. The nature of floating point representation is such that exact evaluations of equality are not guaranteed.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+F\+L\+O\+AT (expected, actual)}}
+
+Asserts that the ?actual?value is \char`\"{}close enough to be considered equal\char`\"{} to the {\ttfamily expected} value. If you are curious about the details, refer to the Advanced Asserting section for more details on this. Omitting a user-\/specified delta in a floating point assertion is both a shorthand convenience and a requirement of code generation conventions for C\+Mock.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+F\+L\+O\+A\+T\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+See Array assertion section for details. Note that individual array element float comparisons are executed using T?E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+F\+L\+O\+AT?.That is, user specified delta comparison values requires a custom-\/implemented floating point array assertion.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+I\+S\+\_\+\+I\+NF (actual)}}
+
+Asserts that {\ttfamily actual} parameter is equivalent to positive infinity floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+I\+S\+\_\+\+N\+E\+G\+\_\+\+I\+NF (actual)}}
+
+Asserts that {\ttfamily actual} parameter is equivalent to negative infinity floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+I\+S\+\_\+\+N\+AN (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a Not A Number floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+I\+S\+\_\+\+D\+E\+T\+E\+R\+M\+I\+N\+A\+TE (actual)}}
+
+Asserts that ?actual?parameter is a floating point representation usable for mathematical operations. That is, the {\ttfamily actual} parameter is neither positive infinity nor negative infinity nor Not A Number floating point representations.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+I\+S\+\_\+\+N\+O\+T\+\_\+\+I\+NF (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a value other than positive infinity floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+I\+S\+\_\+\+N\+O\+T\+\_\+\+N\+E\+G\+\_\+\+I\+NF (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a value other than negative infinity floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+I\+S\+\_\+\+N\+O\+T\+\_\+\+N\+AN (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a value other than Not A Number floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+I\+S\+\_\+\+N\+O\+T\+\_\+\+D\+E\+T\+E\+R\+M\+I\+N\+A\+TE (actual)}}
+
+Asserts that {\ttfamily actual} parameter is not usable for mathematical operations. That is, the {\ttfamily actual} parameter is either positive infinity or negative infinity or Not A Number floating point representations.
+
+\subsubsection*{Double (If enabled)}
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+W\+I\+T\+H\+IN (delta, expected, actual)}}
+
+Asserts that the {\ttfamily actual} value is within +/-\/ {\ttfamily delta} of the {\ttfamily expected} value. The nature of floating point representation is such that exact evaluations of equality are not guaranteed.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+D\+O\+U\+B\+LE (expected, actual)}}
+
+Asserts that the {\ttfamily actual} value is \char`\"{}close enough to be considered equal\char`\"{} to the {\ttfamily expected} value. If you are curious about the details, refer to the Advanced Asserting section for more details. Omitting a user-\/specified delta in a floating point assertion is both a shorthand convenience and a requirement of code generation conventions for C\+Mock.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+A\+R\+R\+AY (expected, actual, num\+\_\+elements)}}
+
+See Array assertion section for details. Note that individual array element double comparisons are executed using {\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+D\+O\+U\+B\+LE}.That is, user specified delta comparison values requires a custom implemented double array assertion.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+I\+S\+\_\+\+I\+NF (actual)}}
+
+Asserts that {\ttfamily actual} parameter is equivalent to positive infinity floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+I\+S\+\_\+\+N\+E\+G\+\_\+\+I\+NF (actual)}}
+
+Asserts that {\ttfamily actual} parameter is equivalent to negative infinity floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+I\+S\+\_\+\+N\+AN (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a Not A Number floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+I\+S\+\_\+\+D\+E\+T\+E\+R\+M\+I\+N\+A\+TE (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a floating point representation usable for mathematical operations. That is, the ?actual?parameter is neither positive infinity nor negative infinity nor Not A Number floating point representations.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+I\+S\+\_\+\+N\+O\+T\+\_\+\+I\+NF (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a value other than positive infinity floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+I\+S\+\_\+\+N\+O\+T\+\_\+\+N\+E\+G\+\_\+\+I\+NF (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a value other than negative infinity floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+I\+S\+\_\+\+N\+O\+T\+\_\+\+N\+AN (actual)}}
+
+Asserts that {\ttfamily actual} parameter is a value other than Not A Number floating point representation.
+
+\subparagraph*{{\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+I\+S\+\_\+\+N\+O\+T\+\_\+\+D\+E\+T\+E\+R\+M\+I\+N\+A\+TE (actual)}}
+
+Asserts that {\ttfamily actual} parameter is not usable for mathematical operations. That is, the {\ttfamily actual} parameter is either positive infinity or negative infinity or Not A Number floating point representations.
+
+\subsection*{Advanced Asserting\+: Details On Tricky Assertions}
+
+This section helps you understand how to deal with some of the trickier assertion situations you may run into. It will give you a glimpse into some of the under-\/the-\/hood details of Unity\textquotesingle{}s assertion mechanisms. If you\textquotesingle{}re one of those people who likes to know what is going on in the background, read on. If not, feel free to ignore the rest of this document until you need it.
+
+\subsubsection*{How do the E\+Q\+U\+AL assertions work for F\+L\+O\+AT and D\+O\+U\+B\+LE?}
+
+As you may know, directly checking for equality between a pair of floats or a pair of doubles is sloppy at best and an outright no-\/no at worst. Floating point values can often be represented in multiple ways, particularly after a series of operations on a value. Initializing a variable to the value of 2.\+0 is likely to result in a floating point representation of 2 x 20,but a series of mathematical operations might result in a representation of 8 x 2-\/2 that also evaluates to a value of 2. At some point repeated operations cause equality checks to fail.
+
+So Unity doesn\textquotesingle{}t do direct floating point comparisons for equality. Instead, it checks if two floating point values are \char`\"{}really close.\char`\"{} If you leave Unity running with defaults, \char`\"{}really close\char`\"{} means \char`\"{}within a significant bit or two.\char`\"{} Under the hood, {\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+A\+L\+\_\+\+F\+L\+O\+AT} is really {\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+F\+L\+O\+A\+T\+\_\+\+W\+I\+T\+H\+IN} with the {\ttfamily delta} parameter calculated on the fly. For single precision, delta is the expected value multiplied by 0.\+00001, producing a very small proportional range around the expected value.
+
+If you are expecting a value of 20,000.\+0 the delta is calculated to be 0.\+2. So any value between 19,999.\+8 and 20,000.\+2 will satisfy the equality check. This works out to be roughly a single bit of range for a single-\/precision number, and that\textquotesingle{}s just about as tight a tolerance as you can reasonably get from a floating point value.
+
+So what happens when it\textquotesingle{}s zero? Zero -\/ even more than other floating point values -\/ can be represented many different ways. It doesn\textquotesingle{}t matter if you have 0 x 20 or 0 x 263.\+It\textquotesingle{}s still zero, right? Luckily, if you subtract these values from each other, they will always produce a difference of zero, which will still fall between 0 plus or minus a delta of 0. So it still works!
+
+Double precision floating point numbers use a much smaller multiplier, again approximating a single bit of error.
+
+If you don\textquotesingle{}t like these ranges and you want to make your floating point equality assertions less strict, you can change these multipliers to whatever you like by defining U\+N\+I\+T\+Y\+\_\+\+F\+L\+O\+A\+T\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON and U\+N\+I\+T\+Y\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON. See Unity documentation for more.
+
+\subsubsection*{How do we deal with targets with non-\/standard int sizes?}
+
+It\textquotesingle{}s \char`\"{}fun\char`\"{} that C is a standard where something as fundamental as an integer varies by target. According to the C standard, an {\ttfamily int} is to be the target\textquotesingle{}s natural register size, and it should be at least 16-\/bits and a multiple of a byte. It also guarantees an order of sizes\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{char} <= \textcolor{keywordtype}{short} <= \textcolor{keywordtype}{int} <= \textcolor{keywordtype}{long} <= \textcolor{keywordtype}{long} \textcolor{keywordtype}{long}
+\end{DoxyCode}
+
+
+Most often, {\ttfamily int} is 32-\/bits. In many cases in the embedded world, {\ttfamily int} is 16-\/bits. There are rare microcontrollers out there that have 24-\/bit integers, and this remains perfectly standard C.
+
+To make things even more interesting, there are compilers and targets out there that have a hard choice to make. What if their natural register size is 10-\/bits or 12-\/bits? Clearly they can\textquotesingle{}t fulfill {\itshape both} the requirement to be at least 16-\/bits A\+ND the requirement to match the natural register size. In these situations, they often choose the natural register size, leaving us with something like this\+:
+
+
+\begin{DoxyCode}
+char (8 bit) <= short (12 bit) <= int (12 bit) <= long (16 bit)
+\end{DoxyCode}
+
+
+Um... yikes. It\textquotesingle{}s obviously breaking a rule or two... but they had to break S\+O\+ME rules, so they made a choice.
+
+When the C99 standard rolled around, it introduced alternate standard-\/size types. It also introduced macros for pulling in M\+I\+N/\+M\+AX values for your integer types. It\textquotesingle{}s glorious! Unfortunately, many embedded compilers can\textquotesingle{}t be relied upon to use the C99 types (Sometimes because they have weird register sizes as described above. Sometimes because they don\textquotesingle{}t feel like it?).
+
+A goal of Unity from the beginning was to support every combination of microcontroller or microprocessor and C compiler. Over time, we\textquotesingle{}ve gotten really close to this. There are a few tricks that you should be aware of, though, if you\textquotesingle{}re going to do this effectively on some of these more idiosyncratic targets.
+
+First, when setting up Unity for a new target, you\textquotesingle{}re going to want to pay special attention to the macros for automatically detecting types (where available) or manually configuring them yourself. You can get information on both of these in Unity\textquotesingle{}s documentation.
+
+What about the times where you suddenly need to deal with something odd, like a 24-\/bit {\ttfamily int}? The simplest solution is to use the next size up. If you have a 24-\/bit {\ttfamily int}, configure Unity to use 32-\/bit integers. If you have a 12-\/bit {\ttfamily int}, configure Unity to use 16 bits. There are two ways this is going to affect you\+:
+
+
+\begin{DoxyEnumerate}
+\item When Unity displays errors for you, it\textquotesingle{}s going to pad the upper unused bits with zeros.
+\item You\textquotesingle{}re going to have to be careful of assertions that perform signed operations, particularly {\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+T\+\_\+\+W\+I\+T\+H\+IN}.Such assertions might wrap your {\ttfamily int} in the wrong place, and you could experience false failures. You can always back down to a simple {\ttfamily T\+E\+S\+T\+\_\+\+A\+S\+S\+E\+RT} and do the operations yourself.
+\end{DoxyEnumerate}
+
+{\itshape Find The Latest of This And More at \href{https://throwtheswitch.org}{\tt Throw\+The\+Switch.\+org}} 
