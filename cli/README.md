@@ -1,6 +1,6 @@
-** Command Line Evaluation program (cli)
+## Command Line Evaluation program (cli)
 
-*** Introduction
+### Introduction
 
 The `cli` program provides an easy way to fire up the priority buffer.
 
@@ -10,7 +10,7 @@ The `cli` may be built by running `gcc cli/cli.c src/priority_buffer.c -o./cli/o
 
 Alternatively a pre-built binary is available in the `cli` directory.
 
-*** Menu
+### Menu
 
 The user is presented with a simple menu and the following commands are made available:
 
