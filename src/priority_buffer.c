@@ -59,38 +59,39 @@ STATIC check_t insertFull(element_t element, priority_t newPriority);
 
 typedef struct PBUF_T {
 
+  struct PTR
+  {
+    index_t tail;
+    index_t head[PRIORITY_SIZE];
+
+
+  }
   /**
      The ptr structure holds the tail and array of heads pointers into the buffer.
      these are used to ensure buffer access is very fast. The head array size is
      configured by the library user.
   */
+    ptr;
 
-  struct PTR
+  struct cell_t
   {
-    index_t tail;
-    index_t head[PRIORITY_SIZE];
-  } ptr;
-
+    element_t data;
+    index_t next;
+  }
   /**
      The element structure is the buffer itself. It holds an element and a next variable per slot in the buffer.
      This linkage around the circular buffer enables the buffer to be re-routed or remapped easily, allowing for
      prioritised data to be organised in order of preference. In other words, it is arranged for higher orders
      of priority to be retrieved from the buffer quicker than lower orders of priority.
   */
-
-  struct cell_t
-  {
-    element_t data;
-    index_t next;
-  } element[BUFFER_SIZE];
+    element[BUFFER_SIZE];
 
   /**
      The activity storage holds 8 bits of data known as activity flags - one per priority, to a maximum of 8 levels
-     of priority. If the buffer currently holds data of a given priority the appropriate bit is set to *ACTIVE*.
+     of priority. If the buffer currently holds data of a given priority the appropriate bit is set to ACTIVE.
      Once all elements of a particular quality of data are retrieved from the buffer, the relevant flag is set to
-     *INACTIVE*. The respective head only holds relevant data when the flag is *ACTIVE*.
+     INACTIVE. The respective head only holds relevant data when the flag is ACTIVE.
   */
-
   activity_t activity;
 
 } pbuf_t;
