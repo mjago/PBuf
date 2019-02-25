@@ -34,9 +34,12 @@ static stateMachine_t stateMachine[] =
   };
 
 /* static local */
+
 static state_t state;
 static uint8_t priority = LOW_PRIORITY;
+
 /* main loop */
+
 int main()
 {
   int returnVal = 1;
@@ -177,7 +180,7 @@ static void stateRetrieveValue(void)
   uint8_t value;
   for(;;)
     {
-      if(PBUF_retrieve(&value) == VALID_RETRIEVE)
+      if(PBUF_retrieve(&value) == 0u)
         {
           printf("\nValue %d removed from buffer\n", value);
         }

@@ -1076,7 +1076,6 @@ check_t PBUF_retrieve(element_t * element)
   if( ! PBUF_empty())
     {
       returnVal = !(readNextElement(element) == VALID_ELEMENT);
-
     }
   return returnVal;
 }
