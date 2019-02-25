@@ -44,13 +44,13 @@ Some documentation is present in the `docs` directory, although it is not yet ex
 
 Source documentation is cross-referenced using doxygen and can be built using the command `doxygen docs/doxyfile`.
 
-This can be accessed [here](https://github.com/mjago/pbub).
+[The documentation is available here.]( http://martynjago.co.uk/PBuf/).
 
 ## Concurrency
 
 There are currently no locks or checks for concurrency, so it is the responsibility of the user to ensure
 reads and writes do not occur simultaneously. This is by design, since the user has control over their interrupts
-etc. and this library doesn't.
+etc.
 
 ## Licence
 
