@@ -16,10 +16,11 @@ has gone, what has maybe gone, and how urgent is this payload with respect to wh
 in this way, the priorities may be worked out ahead of time, and the configuration stored as constant data for rapid use, freeing
 the user of much of the decision-making in real-time.
 
-When looked at in this way the prioritised buffer implementation makes sense - entire payloads are redirected in an instant, and yet
+When looked at in this way the prioritised buffer implementation makes sense - entire payloads are re-directed in an instant, and yet
 maintain their self-referential integrity. Too much information of higher importance pushes lesser information 'out of the back of
-the queue in a natural pre-planned and real-time efficient way. Played against a potentially inconsistent network it makes all the
-more sense to do the work ahead of time and configure for the eventuality with payload priority.
+the queue' in a natural pre-planned and real-time efficient way. Played against a potentially inconsistent network it makes all the
+more sense to do the work ahead of time and configure for the eventuality with payload priority. Buffer size of 4 - priority size of
+8 - no problem.
 
 ## Configuration
 
