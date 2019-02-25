@@ -9,5 +9,5 @@ var searchData=
   ['pbuf_5fretrieve',['PBUF_retrieve',['../priority__buffer_8c.html#a2e97bac9cea25ee46dcc9b8591fc5e36',1,'priority_buffer.c']]],
   ['pbuf_5ft',['PBUF_T',['../struct_p_b_u_f___t.html',1,'PBUF_T'],['../priority__buffer_8c.html#abc92ba1e16c0155aea9c79a712305fd0',1,'pbuf_t():&#160;priority_buffer.c']]],
   ['priority_5fbuffer_2ec',['priority_buffer.c',['../priority__buffer_8c.html',1,'']]],
-  ['ptr',['PTR',['../struct_p_b_u_f___t_1_1_p_t_r.html',1,'PBUF_T']]]
+  ['ptr',['PTR',['../struct_p_b_u_f___t_1_1_p_t_r.html',1,'PBUF_T::PTR'],['../struct_p_b_u_f___t.html#a0eb23c599289f9b0c903b5718d294917',1,'PBUF_T::ptr()']]]
 ];
