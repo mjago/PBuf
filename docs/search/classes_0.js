@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cell_5ft',['cell_t',['../struct_p_b_u_f___t_1_1cell__t.html',1,'PBUF_T']]]
+  ['cell_5ft',['CELL_T',['../struct_c_e_l_l___t.html',1,'']]]
 ];

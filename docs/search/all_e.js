@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['theory_20of_20operation',['Theory of operation',['../md_docs_dox_theory_of_operation.html',1,'']]],
-  ['tailindex',['tailIndex',['../priority__buffer_8c.html#a25f69e90532a55846b77358559c3850d',1,'priority_buffer.c']]]
+  ['validatepriority',['validatePriority',['../priority__buffer_8c.html#a1d89e6a47f0d969863ebd23cf34f8ceb',1,'priority_buffer.c']]],
+  ['virtualmasterhead',['virtualMasterHead',['../priority__buffer_8c.html#a0ffbbc2cf8245d96bc97f575ac78c1a7',1,'priority_buffer.c']]]
 ];

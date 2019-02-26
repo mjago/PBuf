@@ -1,12 +1,18 @@
 var defs_8h =
 [
+    [ "CELL_T", "struct_c_e_l_l___t.html", "struct_c_e_l_l___t" ],
+    [ "PTR_T", "struct_p_t_r___t.html", "struct_p_t_r___t" ],
+    [ "PBUF_T", "struct_p_b_u_f___t.html", "struct_p_b_u_f___t" ],
     [ "HIGH_PRI", "defs_8h.html#ac266944e7b0ba21c12c603b3cb10e66c", null ],
     [ "LOW_PRI", "defs_8h.html#aa2a99df86990101331b901243bedcb48", null ],
     [ "activity_t", "defs_8h.html#a8e4dfdfbb5439926d9a9b21c13499df5", null ],
+    [ "cell_t", "defs_8h.html#acf2585a2612225f8c4bf450bd9e06b02", null ],
     [ "check_t", "defs_8h.html#a63d66f35aeb951f4087f0e3976457579", null ],
     [ "element_t", "defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0", null ],
     [ "index_t", "defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094", null ],
+    [ "pbuf_t", "defs_8h.html#abc92ba1e16c0155aea9c79a712305fd0", null ],
     [ "priority_t", "defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a", null ],
+    [ "ptr_t", "defs_8h.html#a149c12b06250855a0a29ac6f1dfafbd0", null ],
     [ "INVALID_INDEX", "defs_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8c92550c8a92a25ed11b1833fbc14f65", null ],
     [ "VALID_INDEX", "defs_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8f9e436d7fa3139a727f059c2b4cd8f9", null ],
     [ "INVALID_ELEMENT", "defs_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9076d04a6d8efceb0e2bd069c59053fa", null ],

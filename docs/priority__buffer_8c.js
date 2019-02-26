@@ -1,9 +1,5 @@
 var priority__buffer_8c =
 [
-    [ "PBUF_T", "struct_p_b_u_f___t.html", "struct_p_b_u_f___t" ],
-    [ "PTR", "struct_p_b_u_f___t_1_1_p_t_r.html", "struct_p_b_u_f___t_1_1_p_t_r" ],
-    [ "cell_t", "struct_p_b_u_f___t_1_1cell__t.html", "struct_p_b_u_f___t_1_1cell__t" ],
-    [ "pbuf_t", "priority__buffer_8c.html#abc92ba1e16c0155aea9c79a712305fd0", null ],
     [ "activeStatus", "priority__buffer_8c.html#a96a9cdf59344a92de680c2054de68d18", null ],
     [ "adjustHeads", "priority__buffer_8c.html#a3e85c888f355abcb7d3d93d69c575d9a", null ],
     [ "bufferEmpty", "priority__buffer_8c.html#a4040671ef2dccd1394038df3a9f10c6c", null ],
@@ -42,7 +38,7 @@ var priority__buffer_8c =
     [ "setActive", "priority__buffer_8c.html#a0658dbd48225de33f2906ebe3839a829", null ],
     [ "setHead", "priority__buffer_8c.html#a656f1f607c0c60b5f57a859a365b7466", null ],
     [ "setInactive", "priority__buffer_8c.html#ad6bfc10ed2b3640fbfd1ef1c485b1b82", null ],
-    [ "solePriority", "priority__buffer_8c.html#a18e982da1d04763336eebd7f77c19480", null ],
+    [ "solePriority", "priority__buffer_8c.html#a23c59c0e1224fd9bf3eed69965b3fa93", null ],
     [ "tailIndex", "priority__buffer_8c.html#a25f69e90532a55846b77358559c3850d", null ],
     [ "validatePriority", "priority__buffer_8c.html#a1d89e6a47f0d969863ebd23cf34f8ceb", null ],
     [ "virtualMasterHead", "priority__buffer_8c.html#a0ffbbc2cf8245d96bc97f575ac78c1a7", null ],
