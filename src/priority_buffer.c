@@ -10,13 +10,14 @@ STATIC check_t checkIndex(index_t index);
 STATIC check_t nextIndex(index_t * index, priority_t priority);
 STATIC check_t writeNextIndex(index_t current, index_t next);
 STATIC check_t incTail(void);
-STATIC index_t tailIndex(void);
-STATIC index_t writeTail(index_t index);
 STATIC check_t nextTailIndex(index_t * index);
 STATIC check_t firstFreeElementIndex(index_t * index);
 STATIC check_t remapNotFull(index_t newIndex, priority_t priority);
-STATIC index_t headValue(priority_t priority);
 STATIC check_t remap(index_t a1, index_t a2, index_t b);
+STATIC index_t headValue(priority_t priority);
+STATIC index_t tailIndex(void);
+STATIC index_t writeTail(index_t index);
+STATIC index_t lowestPriorityTail(void);
 
 /* priority */
 
@@ -34,7 +35,7 @@ STATIC check_t highestPriority(priority_t * priority);
 STATIC check_t setActive(priority_t priority);
 STATIC check_t setInactive(priority_t priority);
 STATIC check_t nextHighestPriority(priority_t * nextPriority, priority_t priority);
-STATIC check_t solePriority(priority_t priority);
+STATIC check_t solePriority(void);
 
 /* element */
 
@@ -50,53 +51,87 @@ STATIC check_t insertEmpty(element_t element, priority_t newPriority);
 STATIC check_t insertNotFull(element_t element, priority_t newPriority);
 STATIC check_t insertFull(element_t element, priority_t newPriority);
 
-/**
-   The pbuf_t structure holds the relevant data required for operating a single buffer.
-   Its size is determined at compile time and depends upon the configuration applied.
-   There is a single 8-bit tail, an 8-bit head for each priority, and an 8-bit activity
-   byte for storing an activity flag per priority. In addition there is the buffer itself,
-   each cell containing an element of data storage and an 8-bit pointer to the following
-   cell.
- */
-
-typedef struct PBUF_T {
-
-  struct PTR
-  {
-    index_t tail;
-    index_t head[PRIORITY_SIZE];
-  }
-  /**
-     The ptr structure holds the tail and array of heads pointers' which point into the buffer.
-     these are used to ensure buffer access is very fast. The head array size is
-     configured by the library user.
-  */
-    ptr;
-
-  struct cell_t
-  {
-    element_t data;
-    index_t next;
-  }
-  /**
-     The element structure is the buffer itself. It holds an element and a next variable per slot in the buffer.
-     This linkage around the circular buffer enables the buffer to be re-routed or remapped easily, allowing for
-     prioritised data to be organised in order of preference. In other words, it can be quickly re-arranged
-     to allow higher orders of priority to be retrieved from the buffer quicker than lower orders of priority.
-  */
-    element[BUFFER_SIZE];
-
-  /**
-     The activity storage holds 8 bits of data known as activity flags - one bit per priority, to a maximum of
-     8 levels of priority. If the buffer currently holds data of a given priority, the appropriate bit is set to
-     ACTIVE. Once all elements of a particular quality of data are retrieved from the buffer, the relevant flag
-     is set to INACTIVE. The respective head only holds relevant data when the flag is ACTIVE.
-  */
-  activity_t activity;
-
-} pbuf_t;
-
 STATIC pbuf_t bf;
+
+STATIC check_t overwriteElement(element_t element, priority_t lowestPri, priority_t newPriority)
+{
+
+  check_t returnVal = INVALID_WRITE;
+  index_t tailIdx;
+  index_t lowestPriTailIdx = lowestPriorityTail();
+  index_t nextHighestHeadIdx;
+  index_t equalOrHigherPriHead;
+  priority_t nextHighestPri;
+  priority_t equalOrHigherPri;
+
+  nextTailIndex(&tailIdx);
+
+
+  // is buffer full of single priority?
+  if(solePriority() == VALID_PRIORITY)
+    {
+      // buffer full of identical priority
+      writeData(element, tailIdx);
+      setHead(tailIdx, newPriority);
+      //      incTail();
+
+      // if single priority is same as new priority,
+      // advance tail
+      if(activeStatus(newPriority) == ACTIVE)
+        {
+          incTail();
+        }
+      else
+        {
+          setActive(newPriority);
+        }
+
+      returnVal = VALID_WRITE;
+    }
+  else
+    {
+      printf("\nhere\n");
+      // buffer full of multiple priorities
+      nextHighestPriority(&nextHighestPri, lowestPri);
+      nextHighestHeadIdx = headValue(nextHighestPri);
+      equalOrHigherPriority(&equalOrHigherPri, newPriority);
+      equalOrHigherPriHead = headValue(equalOrHigherPri);
+      writeData(element, lowestPriTailIdx);
+
+      // is there a single element of the lowest priority and we are higher?
+      if((headValue(lowestPri) == lowestPriTailIdx) &&
+         (lowestPri != newPriority))
+        {
+          // overwrite single element and set inactive
+          setInactive(lowestPri);
+          setHead(lowestPriTailIdx, newPriority);
+          setActive(newPriority);
+          remap(equalOrHigherPriHead,nextHighestHeadIdx,headValue(newPriority));
+          writeTail(nextHighestHeadIdx);
+        }
+      else if((activeStatus(newPriority) == ACTIVE) &&
+              (lowestPri == newPriority))
+        {
+          // are there already entries of the same priority as the new entry
+          //  where we are the lowest priority?
+          remap(nextHighestHeadIdx, lowestPriTailIdx, headValue(newPriority));
+          setHead(lowestPriTailIdx, newPriority);
+          writeTail(lowestPriTailIdx);
+        }
+      else
+        {
+          // we are adding the highest priority so insert after tail
+          nextHighestPriority(&nextHighestPri, lowestPri);
+          nextTailIndex(&tailIdx);
+          setHead(lowestPriTailIdx, newPriority);
+          remap(tailIndex(), nextHighestHeadIdx, lowestPriTailIdx);
+        }
+
+      returnVal = VALID_WRITE;
+    }
+
+  return returnVal;
+}
 
 /**
   Check the index is a valid Index
@@ -156,7 +191,6 @@ STATIC index_t writeTail(index_t index)
 
   return returnVal;
 }
-
 
 /**
   Update the passed in index with the index pointed to
@@ -573,26 +607,33 @@ check_t nextHighestPriority(priority_t * nextPriority, priority_t priority)
   return returnVal;
 }
 
-/** overwrite oldest element at given priority */
+/**
+   Returns VALID_PRIORITY where buffer contains a single priority
+*/
 
-STATIC check_t solePriority(priority_t priority)
+STATIC check_t solePriority(void)
 {
   check_t returnVal = INVALID_PRIORITY;
+  priority_t count;
 
-  if(validatePriority(priority) == VALID_PRIORITY)
+  for(count = HIGH_PRI; count < PRIORITY_SIZE; count++){
     {
-      if((bf.activity) == (1 << priority))
+      if((bf.activity) == (1 << count))
         {
           returnVal = VALID_PRIORITY;
+          break;
         }
     }
+  }
 
   return returnVal;
 }
 
-/** Returns the index of the lowest priority tail */
+  /**
+     Returns the index of the lowest priority tail
+  */
 
-STATIC index_t lowestPriorityTail(void)
+  STATIC index_t lowestPriorityTail(void)
 {
   priority_t lowestButOnePri;
   priority_t lowPri;
@@ -602,79 +643,6 @@ STATIC index_t lowestPriorityTail(void)
   nextHighestPriority(&lowestButOnePri, lowPri);
   nextIndex(&lowestTail, headValue(lowestButOnePri));
   return lowestTail;
-}
-
-/**
-  Used when the buffer is full.
-  Overwrite the oldest lowest priority element with the element passed in.
-  The lowest priority is passed in since it is to hand, and the new priority
-  is passed in and used to determine wheter we need to remap the buffer to
-  re-prioritise the data. Returns VALID_WRITE on a successful write.
- */
-
-STATIC check_t overwriteElement(element_t element, priority_t lowestPri, priority_t newPriority)
-{
-  check_t returnVal = INVALID_WRITE;
-  index_t tailIdx;
-  index_t lowestPriTailIdx = lowestPriorityTail();
-  index_t nextHighestHeadIdx;
-  index_t equalOrHigherPriHead;
-  priority_t nextHighestPri;
-  priority_t equalOrHigherPri;
-
-  nextTailIndex(&tailIdx);
-
-  // is buffer full of single priority?
-  if(solePriority(newPriority) == VALID_PRIORITY)
-    {
-      // buffer full of same priority
-      writeData(element, tailIdx);
-      setHead(tailIdx, newPriority);
-      incTail();
-      returnVal = VALID_WRITE;
-    }
-  else
-    {
-      // buffer full of multiple priorities
-      nextHighestPriority(&nextHighestPri, lowestPri);
-      nextHighestHeadIdx = headValue(nextHighestPri);
-      equalOrHigherPriority(&equalOrHigherPri, newPriority);
-      equalOrHigherPriHead = headValue(equalOrHigherPri);
-      writeData(element, lowestPriTailIdx);
-
-      // is there a single element of the lowest priority and we are higher?
-      if((headValue(lowestPri) == lowestPriTailIdx) &&
-         (lowestPri != newPriority))
-        {
-          // overwrite single element and set inactive
-          setInactive(lowestPri);
-          setHead(lowestPriTailIdx, newPriority);
-          setActive(newPriority);
-          remap(equalOrHigherPriHead,nextHighestHeadIdx,headValue(newPriority));
-          writeTail(nextHighestHeadIdx);
-        }
-      else if((activeStatus(newPriority) == ACTIVE) &&
-              (lowestPri == newPriority))
-        {
-          // are there already entries of the same priority as the new entry
-          //  where we are the lowest priority?
-          remap(nextHighestHeadIdx, lowestPriTailIdx, headValue(newPriority));
-          setHead(lowestPriTailIdx, newPriority);
-          writeTail(lowestPriTailIdx);
-        }
-      else
-        {
-          // we are adding the highest priority so insert after tail
-          nextHighestPriority(&nextHighestPri, lowestPri);
-          nextTailIndex(&tailIdx);
-          setHead(lowestPriTailIdx, newPriority);
-          remap(tailIndex(), nextHighestHeadIdx, lowestPriTailIdx);
-        }
-
-      returnVal = VALID_WRITE;
-    }
-
-  return returnVal;
 }
 
 /**

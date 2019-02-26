@@ -39,7 +39,7 @@
  check_t setActive(priority_t priority);
  check_t setInactive(priority_t priority);
  check_t nextHighestPriority(priority_t * nextPriority, priority_t priority);
- check_t solePriority(priority_t priority);
+ check_t solePriority(void);
 
 /* element */
 

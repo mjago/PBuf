@@ -62,8 +62,14 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, saturation_sequence_low_priority);
   RUN_TEST_CASE(pBuf, saturation_sequence_mid_priority);
   RUN_TEST_CASE(pBuf, saturation_sequence_high_priority);
-  RUN_TEST_CASE(pBuf, active_is_readable);
   RUN_TEST_CASE(pBuf, insertFull_should_insert_over_lower_priority_data);
+  RUN_TEST_CASE(pBuf, solePriority_should_return_VALID_PRIORITY_if_single_priority_in_buffer);
+  RUN_TEST_CASE(pBuf, add_high_priority_to_buffer_full_of_low);
+  RUN_TEST_CASE(pBuf, add_mid_priority_to_buffer_full_of_low);
+  RUN_TEST_CASE(pBuf, add_high_priority_to_buffer_full_of_mid);
+  RUN_TEST_CASE(pBuf, add_mid_priority_to_buffer_full_of_high_returns_INVALID_INSERT);
+  RUN_TEST_CASE(pBuf, add_low_priority_to_buffer_full_of_mid_returns_INVALID_INSERT);
+  // RUN_TEST_CASE(pBuf, pL_pL_pL_pL_pL_pH_pH_should_resequence_correctly);
 }
 
 
