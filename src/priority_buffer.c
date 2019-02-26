@@ -1139,7 +1139,10 @@ void PBUF_print(void)
   printf("\nhead[high]: %u,\thead[mid]: %u,\thead[low]: %u,\ttail: %u,",
          headValue(0), headValue(1), headValue(2), tailIndex());
   printf("\nactive.high: %u,\tactive.mid: %u,\tactive.low: %u, \tempty: %u",
-         activeStatus(0), activeStatus(1), activeStatus(2), PBUF_empty());
+         (activeStatus(0) == ACTIVE),
+         (activeStatus(1) == ACTIVE),
+         (activeStatus(2) == ACTIVE),
+         PBUF_empty());
   printf("\n");
   printf("  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .\n");
 }
