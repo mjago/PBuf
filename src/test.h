@@ -11,17 +11,18 @@
 
 /* index */
 
- check_t checkIndex(index_t index);
- check_t nextIndex(index_t * index, priority_t priority);
- check_t writeNextIndex(index_t current, index_t next);
- check_t incTail(void);
- index_t tailIndex(void);
- index_t writeTail(index_t index);
- check_t nextTailIndex(index_t * index);
- check_t firstFreeElementIndex(index_t * index);
- check_t remapNotFull(index_t newIndex, priority_t priority);
- index_t headValue(priority_t priority);
- check_t remap(index_t a1, index_t a2, index_t b);
+check_t checkIndex(index_t index);
+check_t nextIndex(index_t * index, priority_t priority);
+check_t writeNextIndex(index_t current, index_t next);
+check_t incTail(void);
+check_t nextTailIndex(index_t * index);
+check_t firstFreeElementIndex(index_t * index);
+check_t remapNotFull(index_t newIndex, priority_t priority);
+check_t remap(index_t a1, index_t a2, index_t b);
+index_t tailIndex(void);
+index_t writeTail(index_t index);
+index_t headValue(priority_t priority);
+index_t insertPoint(priority_t priority);
 
 /* priority */
 
@@ -32,19 +33,18 @@
  check_t setHead(index_t index, priority_t priority);
  check_t lowestPriority(priority_t * priority);
  check_t validatePriority(priority_t priority);
- check_t equalOrHigherPriority(priority_t * equalOrHigherPri, check_t priority);
  check_t activeStatus(priority_t priority);
  priority_t virtualMasterHead(priority_t * priority);
  check_t highestPriority(priority_t * priority);
  check_t setActive(priority_t priority);
  check_t setInactive(priority_t priority);
  check_t nextHighestPriority(priority_t * nextPriority, priority_t priority);
- check_t solePriority(void);
+ uint8_t activePriorityCount(void);
 
 /* element */
 
  check_t writeElement(element_t element, priority_t priority);
- check_t overwriteElement(element_t element, priority_t priority, priority_t newPriority);
+ check_t overwriteElement(element_t element, priority_t newPriority);
  check_t readElement(element_t * element);
  check_t readNextElement(element_t * element);
  check_t insert(element_t element, priority_t priority);
