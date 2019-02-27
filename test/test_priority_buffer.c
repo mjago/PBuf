@@ -1129,15 +1129,10 @@ TEST(pBuf, pL_pM_pH_pL_pH_should_resequence_correctly)
   uint8_t value;
 
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(20, LOW_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, MID_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(22, HIGH_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(23, LOW_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(24, HIGH_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
   TEST_ASSERT_EQUAL(22, value);
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
@@ -1147,4 +1142,19 @@ TEST(pBuf, pL_pM_pH_pL_pH_should_resequence_correctly)
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
   TEST_ASSERT_EQUAL(23, value);
   TEST_ASSERT_TRUE(PBUF_empty());
+}
+
+TEST(pBuf, pL_pL_pM_pM_pL_should_resequence_correctly)
+{
+  uint8_t value;
+
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(20, LOW_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, LOW_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(22, MID_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(23, MID_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(24, LOW_PRI));
+  TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
+  TEST_ASSERT_EQUAL(22, value);
+  TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
+  TEST_ASSERT_EQUAL(23, value);
 }

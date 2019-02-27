@@ -524,6 +524,13 @@ STATIC check_t overwriteElement(element_t element, priority_t newPriority)
                       nextHighestHeadIdx = headValue(nextHighestPri);
                       remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
                     }
+                  else
+                    {
+//                      lowestPriority(&lowPri);
+//                      nextHighestPriority(&nextHighestPri, lowPri);
+//                      nextHighestHeadIdx = headValue(nextHighestPri);
+//                      remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
+                    }
 
                   returnVal = VALID_WRITE;
                 }
@@ -877,6 +884,12 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
   return returnVal;
 }
 
+/**
+   Return the index of the valid insert point to be used when remapping the buffer. The priority
+   passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document
+   for more information.
+*/
+
 index_t insertPoint(priority_t priority)
 {
   index_t returnVal = 0;
@@ -1042,8 +1055,8 @@ void PBUF_print(void)
           nextIndex(&index, index);
           printf("%u", bf.element[index].data);
           count++;
-        } while(count < 4);
-      //    } while(index != lastIndex);
+          //    } while(count < 4);
+    } while(index != lastIndex);
     }
 
   printf("\n data: ");

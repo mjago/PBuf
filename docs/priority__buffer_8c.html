@@ -130,8 +130,7 @@ Functions</h2></td></tr>
 <tr class="separator:ae1d6cf89c1d2cecc5b27e8b1da9e9a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3450cb30f7e5348606ca09709f210e15"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a3450cb30f7e5348606ca09709f210e15">lowestPriorityTail</a> (void)</td></tr>
 <tr class="separator:a3450cb30f7e5348606ca09709f210e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d8cb66573e57486ba7e3b97c50ab28c"><td class="memItemLeft" align="right" valign="top"><a id="a3d8cb66573e57486ba7e3b97c50ab28c"></a>
-STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>insertPoint</b> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
+<tr class="memitem:a3d8cb66573e57486ba7e3b97c50ab28c"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a3d8cb66573e57486ba7e3b97c50ab28c">insertPoint</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
 <tr class="separator:a3d8cb66573e57486ba7e3b97c50ab28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d4593747d9fbd06dc48ba3f7a99fdb5"><td class="memItemLeft" align="right" valign="top">STATIC void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a9d4593747d9fbd06dc48ba3f7a99fdb5">resetBufferPointers</a> (void)</td></tr>
 <tr class="separator:a9d4593747d9fbd06dc48ba3f7a99fdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,7 +225,7 @@ STATIC <a class="el" href="defs_8h.html#abc92ba1e16c0155aea9c79a712305fd0">pbuf_
 </div><div class="memdoc">
 <p>Return number of active priorities </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00568">568</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00575">575</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -268,7 +267,7 @@ STATIC <a class="el" href="defs_8h.html#abc92ba1e16c0155aea9c79a712305fd0">pbuf_
 </div><div class="memdoc">
 <p>Adjust the tail, and make any depleted priorities inactive. Returns VALID_HEAD with success. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00791">791</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00798">798</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -289,7 +288,7 @@ STATIC <a class="el" href="defs_8h.html#abc92ba1e16c0155aea9c79a712305fd0">pbuf_
 </div><div class="memdoc">
 <p>Check whether the buffer is empty. Returns either BUFFER_EMPTY or BUFFER_NOT_EMPTY. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00709">709</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00716">716</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -319,7 +318,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Buffer Full checks whether there is any room left in the buffer for a new insertion. A full buffer is indicated by an active priority buffer having the same value as the tail pointer since the tail buffer indicates the final possible element of the buffer. parameter: none returns: BUFFER_FULL if the buffer is full returns: BUFFER_NOT_FULL if the buffer is not full </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00686">686</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00693">693</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -428,6 +427,14 @@ Here is the caller graph for this function:</div>
 <p>Determine the highest priority and assign to the priority pointer passed in. Returns VALID_PRIORITY on finding a relevant priority. </p>
 
 <p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00384">384</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="priority__buffer_8c_a0d9ce6cc5db1bfe9b195180fc40db057_icgraph.png" border="0" usemap="#priority__buffer_8c_a0d9ce6cc5db1bfe9b195180fc40db057_icgraph" alt=""/></div>
+<map name="priority__buffer_8c_a0d9ce6cc5db1bfe9b195180fc40db057_icgraph" id="priority__buffer_8c_a0d9ce6cc5db1bfe9b195180fc40db057_icgraph">
+<area shape="rect" id="node2" href="priority__buffer_8c.html#a3d8cb66573e57486ba7e3b97c50ab28c" title="insertPoint" alt="" coords="159,5,243,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -500,7 +507,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Insert an element into the buffer of a given priority and adjust the buffer to correct the prioritisation if required. Returns VALID_INSERT if the insert is valid. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00626">626</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00633">633</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -531,7 +538,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Insert the passed in element of the passed in priority to an empty buffer. Returns VALID_INSERT if successful. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00726">726</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00733">733</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -562,7 +569,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Insert into a full buffer the passed in element of the passed in priority. Remaps the buffer to correct the prioritisation. Returns VALID_INSERT if successful. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00766">766</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00773">773</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -593,7 +600,36 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Insert into a not empty not full buffer the passed in element of the passed in priority. Remaps the buffer to correct the prioritisation. Returns VALID_INSERT if successful. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00744">744</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00751">751</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+
+</div>
+</div>
+<a id="a3d8cb66573e57486ba7e3b97c50ab28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d8cb66573e57486ba7e3b97c50ab28c">&#9670;&nbsp;</a></span>insertPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> insertPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
+          <td class="paramname"><em>priority</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the index of the valid insert point to be used when remapping the buffer. The priority passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document for more information. </p>
+
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00893">893</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="priority__buffer_8c_a3d8cb66573e57486ba7e3b97c50ab28c_cgraph.png" border="0" usemap="#priority__buffer_8c_a3d8cb66573e57486ba7e3b97c50ab28c_cgraph" alt=""/></div>
+<map name="priority__buffer_8c_a3d8cb66573e57486ba7e3b97c50ab28c_cgraph" id="priority__buffer_8c_a3d8cb66573e57486ba7e3b97c50ab28c_cgraph">
+<area shape="rect" id="node2" href="priority__buffer_8c.html#a0d9ce6cc5db1bfe9b195180fc40db057" title="highestPriority" alt="" coords="137,5,243,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -643,7 +679,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Returns the index of the lowest priority tail </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00589">589</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00596">596</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -706,7 +742,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Find the next highest priority to the priority we wish to insert - used to find where to store the new priority </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00542">542</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00549">549</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -795,7 +831,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Return the size of the buffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00977">977</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00990">990</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -816,7 +852,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Return non-zero if buffer is empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00959">959</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00972">972</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -845,7 +881,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Return non-zero if the buffer is full. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00968">968</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00981">981</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -884,7 +920,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Insert data into the buffer of the given priority. Return zero for a valid insert. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00986">986</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00999">999</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -905,7 +941,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Print debug output of the buffer and pointer contents. Requires DEBUG to be defined at compile time. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01021">1021</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01034">1034</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -936,7 +972,7 @@ Here is the call graph for this function:</div>
 <p>Exposed API /. </p>
 <p>Reset Buffer </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00949">949</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00962">962</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -966,7 +1002,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Retrieve an element from the tail of the buffer and assign to the element pointer passed in. Returns zero on success. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01003">1003</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01016">1016</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -987,7 +1023,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Read element from the buffer and assign to the element pointer passed in. Returns VALID_ELEMENT on successful read. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00824">824</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00831">831</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1008,7 +1044,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Read the next element and assign to the element pointer passed in. Checks that there is data to read. Returns VALID_ELEMENT on success. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00605">605</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00612">612</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1046,7 +1082,7 @@ Here is the call graph for this function:</div>
 <p>Remap the links of the indexes passed in. These refer to buffer elements and cause the buffer to be remapped or re-routed. We modify three links as follows: save a1* a1* = b a2* = b* b* = saved a1*</p>
 <p>Returns VALID_REMAP on success. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00859">859</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00866">866</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1113,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Remap buffer for a not full buffer for the index of priority passed in. Return VALID_PRIORITY on success. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00910">910</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00923">923</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1302,7 +1338,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Write the element passed in to the index passed in. Checks the index is within the bounds of the buffer. Returns VALID_INDEX for a valid write. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00665">665</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00672">672</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
