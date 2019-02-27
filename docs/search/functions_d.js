@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['validatepriority',['validatePriority',['../priority__buffer_8c.html#a1d89e6a47f0d969863ebd23cf34f8ceb',1,'priority_buffer.c']]],
-  ['virtualmasterhead',['virtualMasterHead',['../priority__buffer_8c.html#a0ffbbc2cf8245d96bc97f575ac78c1a7',1,'priority_buffer.c']]]
+  ['writedata',['writeData',['../priority__buffer_8c.html#a094a72d34fb14e52ab82ec100e398d32',1,'priority_buffer.c']]],
+  ['writeelement',['writeElement',['../priority__buffer_8c.html#abe189820c7e0ccfea576ea30ef3150e3',1,'priority_buffer.c']]],
+  ['writenextindex',['writeNextIndex',['../priority__buffer_8c.html#a6e7e1ec9b159f6251ea7b301b3f3e1a2',1,'priority_buffer.c']]],
+  ['writetail',['writeTail',['../priority__buffer_8c.html#ae1d6cf89c1d2cecc5b27e8b1da9e9a18',1,'priority_buffer.c']]]
 ];
