@@ -460,7 +460,6 @@ STATIC check_t writeElement(element_t element, priority_t priority)
       else
         {
           nextIndex(&index, headValue(virtualHead));
-          //          index = tailIndex();
         }
       if(writeData(element, index) == VALID_INDEX)
         {
@@ -899,9 +898,6 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
 index_t insertPoint(priority_t priority)
 {
   index_t returnVal = 255;
-  index_t tailIdx;
-  index_t a1ptr;
-  index_t lowestPriHeadIdx;
   index_t higherPriHeadIdx;
   index_t higherPriHeadIdxNext;
   priority_t lowestPri;
@@ -1083,8 +1079,8 @@ void PBUF_print(void)
           nextIndex(&index, index);
           printf("%u", bf.element[index].data);
           count++;
-              } while(count < 4);
-      //    } while(index != lastIndex);
+          //          } while(count < 4);
+        } while(index != lastIndex);
     }
 
   printf("\n data: ");

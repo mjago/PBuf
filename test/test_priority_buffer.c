@@ -366,9 +366,7 @@ TEST(pBuf, insert_pL_pM_sequence_should_be_reprioritised)
   uint8_t value;
 
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(42, LOW_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(43, MID_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
   TEST_ASSERT_EQUAL(43, value);
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
@@ -442,11 +440,8 @@ TEST(pBuf, insert_pH_pM_pH_sequence_should_be_in_order)
   uint8_t value;
 
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(42, HIGH_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(43, MID_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(44, HIGH_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
   TEST_ASSERT_EQUAL(42, value);
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
@@ -1156,11 +1151,8 @@ TEST(pBuf, pL_pL_pM_pM_pL_should_resequence_correctly)
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(20, LOW_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, LOW_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(22, MID_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(23, MID_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(24, LOW_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
   TEST_ASSERT_EQUAL(22, value);
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
@@ -1170,6 +1162,11 @@ TEST(pBuf, pL_pL_pM_pM_pL_should_resequence_correctly)
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
   TEST_ASSERT_EQUAL(24, value);
   TEST_ASSERT_TRUE(PBUF_empty());
+}
+
+TEST(pBuf, pH_pM_pM_pL_pH_should_resequence_correctly)
+{
+
 }
 
 TEST(pBuf, insertPoint_should_return_next_highest_head_adding_pH_to_pH_pH_pH_pL)
