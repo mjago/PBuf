@@ -3,11 +3,17 @@
 #define DEFS_H
 
 #if BUFFER_SIZE < 3 || BUFFER_SIZE > 256
+
 # error ERROR: BUFFER_SIZE should be a value from 3 to 256
+
 #endif  /* BUFFER_SIZE */
 
-#define HIGH_PRI 0
-#define LOW_PRI PRIORITY_SIZE - 1
+#define HIGH_PRI PRIORITY_SIZE - 1
+#define LOW_PRI 0
+
+/**
+   The element_t type holds a buffer element;
+*/
 
 typedef uint8_t element_t;
 

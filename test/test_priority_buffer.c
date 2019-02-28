@@ -3,7 +3,7 @@
 #include "unity.h"
 #include "unity_fixture.h"
 
-#define MID_PRI 1
+#define MID_PRI (LOW_PRI + 1u)
 #define TEST_ASSERT_ZERO TEST_ASSERT_FALSE
 
 TEST_GROUP(pBuf);
@@ -64,7 +64,7 @@ TEST(pBuf, activeStatus_should_return_INACTIVE_for_all_priorities_after_reset)
 {
   uint8_t count;
 
-  for(count = 0; count < PRIORITY_SIZE; count++)
+  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
       TEST_ASSERT_EQUAL(INACTIVE, activeStatus(count));
     }
@@ -74,7 +74,7 @@ TEST(pBuf, activeStatus_should_return_ACTIVE_for_all_priorities_after_they_are_s
 {
   uint8_t count;
 
-  for(count = 0; count < PRIORITY_SIZE; count++)
+  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
       TEST_ASSERT_EQUAL(VALID_ACTIVE, setActive(count));
       TEST_ASSERT_EQUAL(ACTIVE, activeStatus(count));
@@ -83,20 +83,46 @@ TEST(pBuf, activeStatus_should_return_ACTIVE_for_all_priorities_after_they_are_s
 
 TEST(pBuf, setAactive_should_return_INVALID_ACTIVE_when_passed_an_invalid_priority)
 {
+  TEST_ASSERT_EQUAL(INVALID_ACTIVE, setActive(PRIORITY_SIZE));
+}
+
+TEST(pBuf, setAactive_should_set_the_relevant_activity_flag_when_passed_a_valid_priority)
+{
   uint8_t count;
 
-  for(count = 0; count < PRIORITY_SIZE; count++)
+  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
+      TEST_ASSERT_EQUAL(INACTIVE, activeStatus(count));
       TEST_ASSERT_EQUAL(VALID_ACTIVE, setActive(count));
       TEST_ASSERT_EQUAL(ACTIVE, activeStatus(count));
     }
+}
+
+TEST(pBuf, setInactive_should_reset_the_relevant_activity_flag_when_passed_a_valid_priority)
+{
+  uint8_t count;
+
+  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
+    {
+      TEST_ASSERT_EQUAL(VALID_ACTIVE, setActive(count));
+    }
+  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
+    {
+      TEST_ASSERT_EQUAL(VALID_ACTIVE, setInactive(count));
+      TEST_ASSERT_EQUAL(INACTIVE, activeStatus(count));
+    }
+}
+
+TEST(pBuf, setInactive_should_return_INVALID_ACTIVE_when_passed_an_invalid_priority)
+{
+  TEST_ASSERT_EQUAL(INVALID_ACTIVE, setInactive(PRIORITY_SIZE));
 }
 
 TEST(pBuf, validatePriority_should_return_VALID_PRIORITY_when_passed_valid_priority)
 {
   uint8_t count;
 
-  for(count = 0; count < PRIORITY_SIZE; count++)
+  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
       TEST_ASSERT_EQUAL(VALID_PRIORITY, validatePriority(count));
     }
@@ -117,20 +143,6 @@ TEST(pBuf, PBUF_bufferSize_should_return_correct_buffer_size)
 TEST(pBuf, setHead_should_set_head)
 {
   TEST_ASSERT_EQUAL(INVALID_HEAD, setHead(0, PRIORITY_SIZE));
-}
-
-TEST(pBuf, incHead_should_increment_head)
-{
-  TEST_ASSERT_EQUAL(VALID_HEAD, incHead(0));
-  TEST_ASSERT_EQUAL(0, headValue(0));
-  TEST_ASSERT_EQUAL(VALID_HEAD, incHead(0));
-  TEST_ASSERT_EQUAL(1, headValue(0));
-  TEST_ASSERT_EQUAL(VALID_HEAD, incHead(0));
-  TEST_ASSERT_EQUAL(2, headValue(0));
-  TEST_ASSERT_EQUAL(VALID_HEAD, incHead(1));
-  TEST_ASSERT_EQUAL(0, headValue(1));
-  TEST_ASSERT_EQUAL(VALID_HEAD, incHead(1));
-  TEST_ASSERT_EQUAL(1, headValue(1));
 }
 
 TEST(pBuf, firstfreeElementIndex_should_return_next_tail_with_an_empty_buffer)
@@ -1079,9 +1091,8 @@ TEST(pBuf, pL_pL_pL_pH_pH_pH_pH_should_resequence_correctly)
   TEST_ASSERT_EQUAL(25, value);
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
   TEST_ASSERT_EQUAL(26, value);
-  TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
-  TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
-  TEST_ASSERT_TRUE(PBUF_empty());
+  //  TEST_ASSERT_EQUAL(INVALID_ELEMENT, readElement(&value));
+  //  TEST_ASSERT_TRUE(PBUF_empty());
 }
 
 TEST(pBuf, pL_pL_pL_pM_pH_should_resequence_correctly)
@@ -1203,4 +1214,21 @@ TEST(pBuf, insertPoint_should_return_new_pri_head_adding_pL_to_pH_pH_pL_pL)
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(22, LOW_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(23, LOW_PRI));
   TEST_ASSERT_EQUAL(3, insertPoint(LOW_PRI));
+}
+
+TEST(pBuf, headValue_should_return_the_correct_head_value)
+{
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(20, HIGH_PRI));
+  TEST_ASSERT_EQUAL(0, headValue(HIGH_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, LOW_PRI));
+  TEST_ASSERT_EQUAL(1, headValue(LOW_PRI));
+  TEST_ASSERT_EQUAL(BUFFER_SIZE - 1u, headValue(MID_PRI));
+}
+
+TEST(pBuf, nextHeadValue_should_return_the_correct_next_head_value)
+{
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(20, HIGH_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, LOW_PRI));
+  TEST_ASSERT_EQUAL(1, nextHeadValue(HIGH_PRI));
+  TEST_ASSERT_EQUAL(2, nextHeadValue(LOW_PRI));
 }
