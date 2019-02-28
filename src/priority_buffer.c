@@ -53,6 +53,8 @@ STATIC check_t insertFull(element_t element, priority_t newPriority);
 
 STATIC pbuf_t bf;
 
+/////////////////////////// index ///////////////////////////
+
 /**
    Check the index is a valid Index
 */
@@ -526,10 +528,11 @@ STATIC check_t overwriteElement(element_t element, priority_t newPriority)
                     }
                   else
                     {
-//                      lowestPriority(&lowPri);
-//                      nextHighestPriority(&nextHighestPri, lowPri);
-//                      nextHighestHeadIdx = headValue(nextHighestPri);
-//                      remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
+                      lowestPriority(&lowPri);
+                      remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
+                      setHead(lowestPriTailIdx, newPriority);
+                      lowestPriority(&lowPri);
+                      writeTail(headValue(lowPri));
                     }
 
                   returnVal = VALID_WRITE;
@@ -874,11 +877,14 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
      (checkIndex(b) == VALID_INDEX))
     {
       nextIndex(&a1ptr, a1);
-      writeNextIndex(a1, b);
-      nextIndex(&bptr, b);
-      writeNextIndex(a2, bptr);
-      writeNextIndex(b, a1ptr);
-      returnVal = VALID_REMAP;
+      if(a1ptr != b)
+        {
+          writeNextIndex(a1, b);
+          nextIndex(&bptr, b);
+          writeNextIndex(a2, bptr);
+          writeNextIndex(b, a1ptr);
+          returnVal = VALID_REMAP;
+        }
     }
 
   return returnVal;
@@ -892,23 +898,45 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
 
 index_t insertPoint(priority_t priority)
 {
-  index_t returnVal = 0;
+  index_t returnVal = 255;
   index_t tailIdx;
   index_t a1ptr;
+  index_t lowestPriHeadIdx;
+  index_t higherPriHeadIdx;
+  index_t higherPriHeadIdxNext;
+  priority_t lowestPri;
+  priority_t higherPri;
   priority_t highestPri;
 
   if(highestPriority(&highestPri) == VALID_PRIORITY)
     {
-      if(highestPri <= priority)
+      // priority higher to highest pri in use?
+      if(priority < highestPri)
         {
-          nextIndex(&a1ptr, headValue(highestPri));
-          returnVal = headValue(highestPri);
-        }
-      else
-        {
-          nextIndex(&tailIdx, tailIndex());
-          a1ptr = tailIdx;
           returnVal = tailIndex();
+        }
+      else if(bufferFull() == BUFFER_NOT_FULL)
+        {
+          {
+            returnVal = headValue(highestPri);
+          }
+        }
+      else if((highestPriority(&highestPri) == VALID_PRIORITY) &&
+              (lowestPriority(&lowestPri) == VALID_PRIORITY) &&
+              (nextHighestPriority(&higherPri, lowestPri) == VALID_PRIORITY))
+        {
+          higherPriHeadIdx = headValue(higherPri);
+          if(nextIndex(&higherPriHeadIdxNext, higherPriHeadIdx) == VALID_INDEX)
+            {
+              if(higherPriHeadIdxNext == tailIndex())
+                {
+                  returnVal = headValue(higherPri);
+                }
+              else
+                {
+                  returnVal = headValue(priority);
+                }
+            }
         }
     }
 
@@ -1055,8 +1083,8 @@ void PBUF_print(void)
           nextIndex(&index, index);
           printf("%u", bf.element[index].data);
           count++;
-          //    } while(count < 4);
-    } while(index != lastIndex);
+              } while(count < 4);
+      //    } while(index != lastIndex);
     }
 
   printf("\n data: ");
