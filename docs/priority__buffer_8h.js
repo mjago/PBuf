@@ -1,6 +1,5 @@
 var priority__buffer_8h =
 [
-    [ "BUFFER_COUNT", "priority__buffer_8h.html#a56c7105b7a827ead9f36384370c90f00", null ],
     [ "BUFFER_SIZE", "priority__buffer_8h.html#a6b20d41d6252e9871430c242cb1a56e7", null ],
     [ "ELEMENT_SIZE", "priority__buffer_8h.html#afbf7eb32266433cead9d5dac419643c0", null ],
     [ "PRIORITY_SIZE", "priority__buffer_8h.html#a665702c3665b73a962997d9140724dcc", null ],

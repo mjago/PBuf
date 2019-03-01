@@ -8,11 +8,6 @@
 #define BUFFER_SIZE 4
 
 /**
-   Set Buffer Count Here (256 max) */
-
-#define BUFFER_COUNT 1
-
-/**
    Set Number of priority levels Here (8 max) */
 
 #define PRIORITY_SIZE 3
