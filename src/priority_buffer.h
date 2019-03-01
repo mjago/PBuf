@@ -38,7 +38,7 @@ typedef uint16_t element_t;
 
 typedef uint32_t element_t;
 
-#elif ELEMENT_SIZE == 32
+#elif ELEMENT_SIZE == 64
 
 typedef uint64_t element_t;
 
