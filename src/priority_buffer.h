@@ -42,6 +42,10 @@ typedef uint32_t element_t;
 
 typedef uint64_t element_t;
 
+#else
+
+# error ERROR! ELEMENT_SIZE must be one of 8, 16, 32 or 64
+
 #endif
 
 /**
