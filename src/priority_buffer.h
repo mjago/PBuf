@@ -2,23 +2,47 @@
 #define PRIORITY_BUFFER_H
 #include <inttypes.h>
 
-/* Set Buffer Size Here - Size may be anything between 3 and 256 buffer elements */
+/**
+   Set Buffer Size Here - Size may be anything between 3 and 256 buffer elements */
 
 #define BUFFER_SIZE 4
 
-/* Set Buffer Count Here (256 max) */
+/**
+   Set Buffer Count Here (256 max) */
 
 #define BUFFER_COUNT 1
 
-/* Set Number of priority levels Here (8 max) */
+/**
+   Set Number of priority levels Here (8 max) */
 
 #define PRIORITY_SIZE 3
+
+/**
+   Set the element size here (8, 16, 32, 0r 64) */
+
+#define ELEMENT_SIZE 8
 
 /**
    The element_t type holds a buffer element.
 */
 
+#if ELEMENT_SIZE == 8
+
 typedef uint8_t element_t;
+
+#elif ELEMENT_SIZE == 16
+
+typedef uint16_t element_t;
+
+#elif ELEMENT_SIZE == 32
+
+typedef uint32_t element_t;
+
+#elif ELEMENT_SIZE == 32
+
+typedef uint64_t element_t;
+
+#endif
 
 /**
    The priority_t type holds a priority value.
