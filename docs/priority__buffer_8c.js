@@ -19,7 +19,6 @@ var priority__buffer_8c =
     [ "lowestPriorityTail", "group__Internal.html#ga3450cb30f7e5348606ca09709f210e15", null ],
     [ "nextHeadValue", "group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72", null ],
     [ "nextHighestPriority", "group__Internal.html#ga2e2c888184119622170bfb83453e322d", null ],
-    [ "nextIndex", "priority__buffer_8c.html#a9f3387e4330e5db92c7c9b5a4d66624d", null ],
     [ "nextIndex", "group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6", null ],
     [ "nextTailIndex", "group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec", null ],
     [ "overwriteElement", "group__Internal.html#gac2c4b841f7547fad647c0cf01ecd3c77", null ],

@@ -17,7 +17,7 @@ var test_8h =
     [ "lowestPriority", "group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07", null ],
     [ "nextHeadValue", "group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72", null ],
     [ "nextHighestPriority", "group__Internal.html#ga2e2c888184119622170bfb83453e322d", null ],
-    [ "nextIndex", "test_8h.html#af93c4d19b84b6117c5cb156579e76b4a", null ],
+    [ "nextIndex", "group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6", null ],
     [ "nextTailIndex", "group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec", null ],
     [ "overwriteElement", "group__Internal.html#gac2c4b841f7547fad647c0cf01ecd3c77", null ],
     [ "readElement", "group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a", null ],

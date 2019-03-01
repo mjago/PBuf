@@ -2,8 +2,11 @@ var priority__buffer_8h =
 [
     [ "BUFFER_COUNT", "priority__buffer_8h.html#a56c7105b7a827ead9f36384370c90f00", null ],
     [ "BUFFER_SIZE", "priority__buffer_8h.html#a6b20d41d6252e9871430c242cb1a56e7", null ],
+    [ "ELEMENT_SIZE", "priority__buffer_8h.html#afbf7eb32266433cead9d5dac419643c0", null ],
     [ "PRIORITY_SIZE", "priority__buffer_8h.html#a665702c3665b73a962997d9140724dcc", null ],
     [ "STATIC", "priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb", null ],
+    [ "element_t", "priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0", null ],
+    [ "priority_t", "priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a", null ],
     [ "PBUF_bufferSize", "group__API.html#ga7fb353a7665a3fb53568819efaa00964", null ],
     [ "PBUF_ElementSize", "priority__buffer_8h.html#ac9a84088c86f36650ac43c378b9fd31b", null ],
     [ "PBUF_empty", "group__API.html#ga6f5ebd5522a2614c8473d44789b4a6fe", null ],

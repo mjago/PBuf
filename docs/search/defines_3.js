@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['low_5fpri',['LOW_PRI',['../defs_8h.html#aa2a99df86990101331b901243bedcb48',1,'defs.h']]]
+  ['high_5fpri',['HIGH_PRI',['../defs_8h.html#ac266944e7b0ba21c12c603b3cb10e66c',1,'defs.h']]]
 ];
