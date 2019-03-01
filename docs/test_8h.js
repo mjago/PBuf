@@ -13,7 +13,7 @@ var test_8h =
     [ "insertEmpty", "group__Internal.html#gaf8c08c3ee7157baffca08c117e4acfc0", null ],
     [ "insertFull", "group__Internal.html#gadc21ddb94c801e986fe0b2a09105e92c", null ],
     [ "insertNotFull", "group__Internal.html#ga2eb147495f07075555fc116fcff223c4", null ],
-    [ "insertPoint", "group__Internal.html#ga3d8cb66573e57486ba7e3b97c50ab28c", null ],
+    [ "insertPointFull", "group__Internal.html#ga986f710d787e019094f88e166212fae1", null ],
     [ "lowestPriority", "group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07", null ],
     [ "nextHeadValue", "group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72", null ],
     [ "nextHighestPriority", "group__Internal.html#ga2e2c888184119622170bfb83453e322d", null ],
