@@ -32,12 +32,12 @@ var group__Internal =
     [ "resetBuffer", "group__Internal.html#gab1baff7186b72c8f0683db8af3302da5", null ],
     [ "resetBufferPointers", "group__Internal.html#ga9d4593747d9fbd06dc48ba3f7a99fdb5", null ],
     [ "setActive", "group__Internal.html#ga0658dbd48225de33f2906ebe3839a829", null ],
-    [ "setHead", "group__Internal.html#ga656f1f607c0c60b5f57a859a365b7466", null ],
     [ "setInactive", "group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82", null ],
     [ "tailIndex", "group__Internal.html#ga25f69e90532a55846b77358559c3850d", null ],
     [ "validatePriority", "group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb", null ],
     [ "writeData", "group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32", null ],
     [ "writeElement", "group__Internal.html#gabe189820c7e0ccfea576ea30ef3150e3", null ],
+    [ "writeHead", "group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b", null ],
     [ "writeNextIndex", "group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2", null ],
     [ "writeTail", "group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18", null ]
 ];

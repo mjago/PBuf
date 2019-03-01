@@ -1,7 +1,6 @@
 var searchData=
 [
   ['setactive',['setActive',['../group__Internal.html#ga0658dbd48225de33f2906ebe3839a829',1,'setActive(priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#ga0658dbd48225de33f2906ebe3839a829',1,'setActive(priority_t priority):&#160;priority_buffer.c']]],
-  ['sethead',['setHead',['../group__Internal.html#ga656f1f607c0c60b5f57a859a365b7466',1,'setHead(index_t index, priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#ga656f1f607c0c60b5f57a859a365b7466',1,'setHead(index_t index, priority_t priority):&#160;priority_buffer.c']]],
   ['setinactive',['setInactive',['../group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82',1,'setInactive(priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82',1,'setInactive(priority_t priority):&#160;priority_buffer.c']]],
   ['state',['state',['../structstateMachine__t.html#a9f499c095594429c8e34ae5c27107b5a',1,'stateMachine_t::state()'],['../cli_8c.html#a499e7824037af983d0524a98081e7f0b',1,'state():&#160;cli.c']]],
   ['state_5fenter_5faction',['STATE_ENTER_ACTION',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a512245e0bf48ec2fe29d1493dac5c1da',1,'cli.h']]],

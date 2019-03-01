@@ -1,7 +1,6 @@
 var searchData=
 [
   ['setactive',['setActive',['../group__Internal.html#ga0658dbd48225de33f2906ebe3839a829',1,'setActive(priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#ga0658dbd48225de33f2906ebe3839a829',1,'setActive(priority_t priority):&#160;priority_buffer.c']]],
-  ['sethead',['setHead',['../group__Internal.html#ga656f1f607c0c60b5f57a859a365b7466',1,'setHead(index_t index, priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#ga656f1f607c0c60b5f57a859a365b7466',1,'setHead(index_t index, priority_t priority):&#160;priority_buffer.c']]],
   ['setinactive',['setInactive',['../group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82',1,'setInactive(priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82',1,'setInactive(priority_t priority):&#160;priority_buffer.c']]],
   ['stateenteraction',['stateEnterAction',['../cli_8c.html#a511cb6b3c2747997209a76c82a576a1e',1,'cli.c']]],
   ['stateenterpriority',['stateEnterPriority',['../cli_8c.html#a9d5ae5c572cf1be41686bdb481d35984',1,'cli.c']]],
