@@ -33,10 +33,10 @@ static stateMachine_t stateMachine[] =
     {STATE_EXIT, stateExit},
   };
 
-/* static local */
+/* static local state */
 
 static state_t state;
-static uint8_t priority = LOW_PRIORITY;
+static uint8_t priority;
 
 /* main loop */
 
@@ -87,10 +87,10 @@ static void stateEnterPriority(void)
   uint8_t value;
   for(;;)
     {
-      printf("\nEnter a Priority between 1 and 3 (1 is highest)...\n\n");
+      printf("\nEnter a Priority between 0 and 2 \n (0 is lowest, 2 is highest)...\n\n");
       if(readNumber(&value) == VALID_NUMBER)
         {
-          if((value >= 1) && (value <= 3))
+          if(value < 3)
             {
               priority = (uint8_t) value;
               printPriority();
@@ -113,10 +113,10 @@ static void stateEnterValue(void)
       value = 255;
       if(readNumber(&value) == VALID_NUMBER)
         {
-          if((value >= 0) && (value <= 255))
+          if(value <= 255)
             {
               printf("\ninserting %u (priority %u)\n", value, priority);
-              PBUF_insert((uint8_t) value, priority - 1);
+              PBUF_insert((uint8_t) value, priority);
               printBuffer();
             }
         }
@@ -217,14 +217,14 @@ static void printPriority(void)
   printf("\nPriority %u ", priority);
   switch(priority)
     {
-    case 1:
-      printf("(%s).\n", "high"); break;
     case 2:
+      printf("(%s).\n", "high"); break;
+    case 1:
       printf("(%s).\n", "medium"); break;
-    case 3:
+    case 0:
       printf("(%s).\n", "low"); break;
     default:
-      priority = 3;
+      priority = 0;
       break;
     }
 }

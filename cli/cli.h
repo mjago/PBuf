@@ -22,19 +22,20 @@ typedef struct {
   void (*func)(void);
 } stateMachine_t;
 
-enum priority_t {
-  HIGH_PRIORITY = 1,
+enum {
+  LOW_PRIORITY = 0,
   MID_PRIORITY,
-  LOW_PRIORITY,
-} priority_t;
+  HIGH_PRIORITY,
+  PRIORITY_SIZE
+};
 
-enum other_t {
+enum {
   VALID_NUMBER = 0,
   INVALID_NUMBER,
   VALID_RETRIEVE,
   INVALID_RETRIEVE,
   MENU_SIZE = 7
-} other_t;
+};
 
 #define CLI_H
 #endif /* CLI_H */
