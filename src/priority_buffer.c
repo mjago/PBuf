@@ -415,8 +415,7 @@ STATIC check_t writeElement(element_t element, priority_t priority)
   index_t index;
   priority_t virtualHead;
 
-  if((validatePriority(priority) == VALID_PRIORITY) &&
-     (bufferFull() == BUFFER_NOT_FULL))
+  if(bufferFull() == BUFFER_NOT_FULL)
     {
       if(lowestPriority(&virtualHead) != VALID_PRIORITY)
         {
