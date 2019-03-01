@@ -17,7 +17,9 @@ STATIC index_t headValue(priority_t priority);
 STATIC index_t tailIndex(void);
 STATIC index_t writeTail(index_t index);
 STATIC index_t lowestPriorityTail(void);
-STATIC index_t insertPoint(priority_t priority);
+STATIC index_t insertPointFull(priority_t priority);
+STATIC index_t insertPointNotFull(priority_t priority);
+STATIC index_t bridgePoint(void);
 
 //////////////////////////////// priority ////////////////////////////////
 
@@ -441,7 +443,7 @@ STATIC check_t writeElement(element_t element, priority_t priority)
 /**
    Overwrite without remapping if buffer is full and only
    a single priority exists on the buffer
-   \return VALID_WRITE ro INVALID_WRITE */
+   \return VALID_WRITE or INVALID_WRITE */
 
 STATIC check_t overwriteSinglePriority(element_t element, priority_t newPriority)
 {
@@ -472,18 +474,14 @@ STATIC check_t overwriteSinglePriority(element_t element, priority_t newPriority
 STATIC check_t overwriteElement(element_t element, priority_t newPriority)
 {
   check_t returnVal = INVALID_WRITE;
-  index_t tailIdx;
-  index_t nextHighestHeadIdx;
   index_t lowestPriTailIdx = lowestPriorityTail();
-  index_t insertPt = insertPoint(newPriority);
+  index_t insertPt = insertPointFull(newPriority);
+  index_t bridgePt = bridgePoint();
   priority_t priorityCount = activePriorityCount();
   priority_t highestPri;
-  priority_t nextHighestPri;
   priority_t lowPri;
+  index_t tailIdx;
 
-  nextTailIndex(&tailIdx);
-
-  // is buffer currently full of single priority?
   if(priorityCount == 1)
     {
       returnVal = overwriteSinglePriority(element,newPriority);
@@ -491,26 +489,20 @@ STATIC check_t overwriteElement(element_t element, priority_t newPriority)
   else
     {
       highestPriority(&highestPri);
+      nextTailIndex(&tailIdx);
       writeData(element, lowestPriTailIdx);
       setHead(lowestPriTailIdx, newPriority);
-      lowestPriority(&lowPri);
-      nextHighestPriority(&nextHighestPri, lowPri);
-      nextHighestHeadIdx = headValue(nextHighestPri);
-      setActive(newPriority);
       if(lowestPriTailIdx == tailIndex())
         {
+          lowestPriority(&lowPri);
           setInactive(lowPri);
         }
-      if(newPriority <= highestPri)
-        {
-          remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
-          writeTail(headValue(lowPri));
-        }
-      else
-        {
-          remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
-        }
 
+      setActive(newPriority);
+      remap(insertPt, bridgePt, lowestPriTailIdx);
+      setHead(lowestPriTailIdx, newPriority);
+      lowestPriority(&lowPri);
+      writeTail(headValue(lowPri));
       returnVal = VALID_WRITE;
     }
 
@@ -850,7 +842,8 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
       nextIndex(&a1ptr, a1);
       nextIndex(&bptr, b);
       nextIndex(&a2ptr, a2);
-      if(a1ptr != b)// && (a2ptr != bptr))
+      // don't remap if it is not needed
+      if(a1ptr != b)
         {
           writeNextIndex(a1, b);
           nextIndex(&bptr, b);
@@ -864,18 +857,15 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
 }
 
 /**
-   Return the index of the valid insert point to be used when remapping the buffer. The priority
-   passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document
+   insertPointNotFull() calculates the index of the valid insert point to be used when remapping the buffer.
+   This routine is particularly used when the buffer is not full and an overwrite hasn't taken place.
+   The priority passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document
    for more information.
    \return VALID_PRIORITY or INVALID_PRIORITY */
 
-index_t insertPoint(priority_t priority)
+STATIC index_t insertPointNotFull(priority_t priority)
 {
   index_t returnVal = 255;
-  index_t higherPriHeadIdx;
-  index_t higherPriHeadIdxNext;
-  priority_t lowestPri;
-  priority_t higherPri;
   priority_t highestPri;
 
   if(highestPriority(&highestPri) == VALID_PRIORITY)
@@ -885,31 +875,54 @@ index_t insertPoint(priority_t priority)
         {
           returnVal = tailIndex();
         }
-      else if(bufferFull() == BUFFER_NOT_FULL)
+      else
         {
-          {
-            returnVal = headValue(highestPri);
-          }
-        }
-      else if((highestPriority(&highestPri) == VALID_PRIORITY) &&
-              (lowestPriority(&lowestPri) == VALID_PRIORITY) &&
-              (nextHighestPriority(&higherPri, lowestPri) == VALID_PRIORITY))
-        {
-          higherPriHeadIdx = headValue(higherPri);
-          if(nextIndex(&higherPriHeadIdxNext, higherPriHeadIdx) == VALID_INDEX)
-            {
-              if(higherPriHeadIdxNext == tailIndex())
-                {
-                  returnVal = headValue(higherPri);
-                }
-              else
-                {
-                  returnVal = headValue(priority);
-                }
-            }
+          returnVal = headValue(highestPri);
         }
     }
 
+  return returnVal;
+}
+
+/**
+   insertPointFull() calculates the index of the valid insert point to be used when remapping the buffer.
+   This routine is particularly used when an overwrite has taken place due to a full buffer.
+   The priority passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document
+   for more information.
+   \return VALID_PRIORITY or INVALID_PRIORITY */
+
+index_t insertPointFull(priority_t priority)
+{
+  index_t returnVal = tailIndex();
+  priority_t count;
+
+  for(count = priority; count < PRIORITY_SIZE; count++)
+    {
+      if(activeStatus(count) == ACTIVE)
+        {
+          returnVal = headValue(priority);
+          break;
+        }
+    }
+  return returnVal;
+}
+
+index_t bridgePoint(void)
+{
+  index_t returnVal = tailIndex();
+  priority_t count;
+  priority_t lowestPri;
+
+  lowestPriority(&lowestPri);
+
+  for(count = lowestPri + 1; count < PRIORITY_SIZE; count++)
+    {
+      if(activeStatus(count) == ACTIVE)
+        {
+          returnVal = headValue(count);
+          break;
+        }
+    }
   return returnVal;
 }
 
@@ -921,12 +934,10 @@ index_t insertPoint(priority_t priority)
 STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
 {
   check_t returnVal = INVALID_REMAP;
+  index_t insertPt = insertPointNotFull(priority);
   index_t tailIdx;
-  index_t insertionPt;
   index_t a2;
   priority_t virtualPriority;
-
-  insertionPt = insertPoint(priority);
 
   if(lowestPriority(&virtualPriority) == VALID_PRIORITY)
     {
@@ -943,7 +954,7 @@ STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
                 }
             }
         }
-      remap(insertionPt, a2, newIndex);
+      remap(insertPt, a2, newIndex);
       returnVal = VALID_REMAP;
     }
 
@@ -1057,7 +1068,7 @@ void PBUF_print(void)
           nextIndex(&index, index);
           printf("%u", bf.element[index].data);
           count++;
-          //          } while(count < 4);
+          //} while(count < 4);
         } while(index != lastIndex);
     }
 
