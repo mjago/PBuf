@@ -1,10 +1,9 @@
-/** @file */
 #include <stdio.h>
 #include <inttypes.h>
 #include "priority_buffer.h"
 #include "defs.h"
 
-/* index */
+//////////////////////////////// index ////////////////////////////////
 
 STATIC check_t checkIndex(index_t index);
 STATIC check_t nextIndex(index_t * index, priority_t priority);
@@ -20,7 +19,7 @@ STATIC index_t writeTail(index_t index);
 STATIC index_t lowestPriorityTail(void);
 STATIC index_t insertPoint(priority_t priority);
 
-/* priority */
+//////////////////////////////// priority ////////////////////////////////
 
 STATIC void resetBufferPointers(void);
 STATIC void resetBuffer(void);
@@ -35,7 +34,7 @@ STATIC check_t setInactive(priority_t priority);
 STATIC check_t nextHighestPriority(priority_t * nextPriority, priority_t priority);
 STATIC uint8_t activePriorityCount(void);
 
-/* element */
+//////////////////////////////// element ////////////////////////////////
 
 STATIC check_t writeElement(element_t element, priority_t priority);
 STATIC check_t overwriteElement(element_t element, priority_t newPriority);
@@ -49,13 +48,21 @@ STATIC check_t insertEmpty(element_t element, priority_t newPriority);
 STATIC check_t insertNotFull(element_t element, priority_t newPriority);
 STATIC check_t insertFull(element_t element, priority_t newPriority);
 
+  /**
+     Array of buffer composite elements */
+
 STATIC pbuf_t bf;
 
-/////////////////////////// index ///////////////////////////
+//////////////////////////////// index ////////////////////////////////
+
+/**
+   @defgroup Internal Internal
+   Internal Static Functionality
+   @{ */
 
 /**
    Check the index is a valid Index
-*/
+   \return VALID_INDEX or INVALID_INDEX */
 
 STATIC check_t checkIndex(index_t index)
 {
@@ -71,7 +78,7 @@ STATIC check_t checkIndex(index_t index)
 
 /**
    Advance the tail to its next position in the buffer
-*/
+   \return VALID_INDEX or INVALID_INDEX */
 
 STATIC check_t incTail(void)
 {
@@ -88,8 +95,8 @@ STATIC check_t incTail(void)
 }
 
 /**
-   Return the index pointed to by the tail pointer
-*/
+   Returns the index value referenced by the tail
+   \return tail index */
 
 STATIC index_t tailIndex(void)
 {
@@ -98,7 +105,8 @@ STATIC index_t tailIndex(void)
 
 /**
    Write a new index to the tail pointer
-*/
+   \return VALID_INDEX or INVALID_INDEX */
+
 
 STATIC index_t writeTail(index_t index)
 {
@@ -116,7 +124,7 @@ STATIC index_t writeTail(index_t index)
    Update the passed in index with the index pointed to
    by the tail pointer after advancing it. Returns index
    validity.
-*/
+   \return VALID_INDEX or INVALID_INDEX */
 
 STATIC check_t nextTailIndex(index_t * index)
 {
@@ -127,7 +135,7 @@ STATIC check_t nextTailIndex(index_t * index)
 /**
    Update the passed in index with the next index linked
    from the current index passed in. Returns index validity.
-*/
+   \return VALID_INDEX or INVALID_INDEX */
 
 STATIC check_t nextIndex(index_t * next, index_t current)
 {
@@ -144,8 +152,9 @@ STATIC check_t nextIndex(index_t * next, index_t current)
 
 /**
    Writes the index passed in to the element referenced by
-   the current index passed in. Returns index validity.
-*/
+   the current index passed in.
+   \return VALID_INDEX or INVALID_INDEX */
+
 
 STATIC check_t writeNextIndex(index_t current, index_t next)
 {
@@ -161,13 +170,11 @@ STATIC check_t writeNextIndex(index_t current, index_t next)
   return returnVal;
 }
 
-
 /**
    find the index at which we can store.
    This is only valid when the buffer is not full.
    Check for buffer empty case first since this is a very fast test.
-   Returns INVALID_INDEX if we cannot allocate an index (buffer full for instance).
-*/
+   \return VALID_INDEX or INVALID_INDEX */
 
 STATIC check_t firstFreeElementIndex(index_t * index)
 {
@@ -192,11 +199,11 @@ STATIC check_t firstFreeElementIndex(index_t * index)
   return returnVal;
 }
 
-/////////////////////////// priority ///////////////////////////
+//////////////////////////////// priority ////////////////////////////////
 
 /**
    Return the index pointed to by the head related with the priority passed in.
-*/
+   \return the index referenced by the relevant priority head */
 
 STATIC index_t headValue(priority_t priority)
 {
@@ -206,7 +213,7 @@ STATIC index_t headValue(priority_t priority)
 /**
    Return the index pointed to by the head related to the priority passed in
    after following the head link.
-*/
+   \return the index linked to by the relevant priority head */
 
 STATIC index_t nextHeadValue(priority_t priority)
 {
@@ -216,7 +223,7 @@ STATIC index_t nextHeadValue(priority_t priority)
 /**
    Set the value of the head pointer associated with the priority passed
    in with the index passed in.
-*/
+   \return VALID_HEAD or INVALID_HEAD */
 
 STATIC check_t setHead(index_t index, priority_t priority)
 {
@@ -234,7 +241,7 @@ STATIC check_t setHead(index_t index, priority_t priority)
 
 /**
    Determine the lowest priority in the buffer.
-*/
+   \return VALID_PRIORITY or INVALID_PRIORITY */
 
 STATIC check_t lowestPriority(priority_t * priority)
 {
@@ -259,7 +266,7 @@ STATIC check_t lowestPriority(priority_t * priority)
 
 /**
    Check the priority is a valid one.
-*/
+   \return VALID_PRIORITY or INVALID_PRIORITY */
 
 STATIC check_t validatePriority(priority_t priority)
 {
@@ -276,7 +283,7 @@ STATIC check_t validatePriority(priority_t priority)
 /**
    Return the active status of the priority passed in.
    If the priority is active ACTIVE is returned.
-*/
+   \return ACTIVE or INACTIVE */
 
 STATIC check_t activeStatus(priority_t priority)
 {
@@ -295,8 +302,8 @@ STATIC check_t activeStatus(priority_t priority)
 
 /**
    Set the relevant activity flag of the priority passed in.
-   Return INVALID_ACTIVE if the priority is invalid.
-*/
+   \param[in] priority to set
+   \return VALID_ACTIVE or INVALID_ACTIVE */
 
 STATIC check_t setActive(priority_t priority)
 {
@@ -314,8 +321,8 @@ STATIC check_t setActive(priority_t priority)
 
 /**
    Reset the relevant activity flag of the priority passed in.
-   Return INVALID_ACTIVE if the priority is invalid.
-*/
+   \param[in] priority to reset
+   \return VALID_ACTIVE or INVALID_ACTIVE */
 
 STATIC check_t setInactive(priority_t priority)
 {
@@ -334,8 +341,7 @@ STATIC check_t setInactive(priority_t priority)
 /**
    Determine the highest priority and assign to the priority
    pointer passed in.
-   Returns VALID_PRIORITY on finding a relevant priority.
-*/
+   Returns VALID_PRIORITY or INVALID_PRIORITY */
 
 STATIC check_t highestPriority(priority_t * priority)
 {
@@ -360,7 +366,7 @@ STATIC check_t highestPriority(priority_t * priority)
 }
 
 /**
-   Reset head and tail pointers.
+   Reset Heads and Tail
 */
 
 STATIC void resetBufferPointers(void)
@@ -375,7 +381,7 @@ STATIC void resetBufferPointers(void)
 }
 
 /**
-   Reset the Buffer.
+   Reset the Buffer
 */
 
 STATIC void resetBuffer(void)
@@ -394,13 +400,12 @@ STATIC void resetBuffer(void)
     }
 }
 
-/////////////////////////// element ///////////////////////////
+//////////////////////////////// element ////////////////////////////////
 
 /**
    Write an element to the buffer at the next empty position in the
-   linked buffer and adjust the relevant priority head. Returns VALID_WRITE
-   on success;
-*/
+   linked buffer and adjust the relevant priority head.
+   \return VALID_WRITE or INVALID_WRITE */
 
 STATIC check_t writeElement(element_t element, priority_t priority)
 {
@@ -433,147 +438,80 @@ STATIC check_t writeElement(element_t element, priority_t priority)
   return returnVal;
 }
 
+/**
+   Overwrite without remapping if buffer is full and only
+   a single priority exists on the buffer
+   \return VALID_WRITE ro INVALID_WRITE */
+
+STATIC check_t overwriteSinglePriority(element_t element, priority_t newPriority)
+{
+  check_t returnVal = INVALID_WRITE;
+  index_t nextTailIdx;
+
+  nextTailIndex(&nextTailIdx);
+  writeData(element, nextTailIdx);
+  setHead(nextTailIdx, newPriority);
+  if(activeStatus(newPriority) == ACTIVE)
+    {
+      incTail();
+    }
+  else
+    {
+      setActive(newPriority);
+    }
+
+  returnVal = VALID_WRITE;
+
+  return returnVal;
+}
+
+/**
+   Overwrite element since buffer is full and there are no unused elements.
+   \return VALID_WRITE or INVALID_WRITE */
+
 STATIC check_t overwriteElement(element_t element, priority_t newPriority)
 {
   check_t returnVal = INVALID_WRITE;
   index_t tailIdx;
-  index_t nextTailIdx;
-  index_t highestHeadIdx;
   index_t nextHighestHeadIdx;
   index_t lowestPriTailIdx = lowestPriorityTail();
   index_t insertPt = insertPoint(newPriority);
-  index_t ourPriorityNext;
   priority_t priorityCount = activePriorityCount();
   priority_t highestPri;
   priority_t nextHighestPri;
   priority_t lowPri;
 
-  if(nextTailIndex(&tailIdx))
+  nextTailIndex(&tailIdx);
+
+  // is buffer currently full of single priority?
+  if(priorityCount == 1)
     {
-      // is buffer currently full of single priority?
-      if(priorityCount == 1u)
+      returnVal = overwriteSinglePriority(element,newPriority);
+    }
+  else
+    {
+      highestPriority(&highestPri);
+      writeData(element, lowestPriTailIdx);
+      setHead(lowestPriTailIdx, newPriority);
+      lowestPriority(&lowPri);
+      nextHighestPriority(&nextHighestPri, lowPri);
+      nextHighestHeadIdx = headValue(nextHighestPri);
+      setActive(newPriority);
+      if(lowestPriTailIdx == tailIndex())
         {
-          // buffer full of identical priority
-          writeData(element, tailIdx);
-          setHead(tailIdx, newPriority);
-
-          if(activeStatus(newPriority) == ACTIVE)
-            {
-              incTail();
-            }
-          else
-            {
-              setActive(newPriority);
-            }
-
-          returnVal = VALID_WRITE;
+          setInactive(lowPri);
+        }
+      if(newPriority <= highestPri)
+        {
+          remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
+          writeTail(headValue(lowPri));
         }
       else
         {
-          highestPriority(&highestPri);
-          if(newPriority > highestPri)
-            {
-              if((writeData(element, lowestPriTailIdx) == VALID_INDEX) &&
-                 (setHead(lowestPriTailIdx, newPriority) == VALID_HEAD))
-                {
-                  nextHighestPriority(&nextHighestPri, lowPri);
-                  nextHighestHeadIdx = headValue(nextHighestPri);
-                  if(headValue(nextHighestPri) == lowestPriTailIdx)
-                    {
-                      setInactive(nextHighestPri);
-                    }
-                  setActive(newPriority);
-                  if(activePriorityCount() > 2)
-                    {
-                      lowestPriority(&lowPri);
-                      nextHighestPriority(&nextHighestPri, lowPri);
-                      nextHighestHeadIdx = headValue(nextHighestPri);
-                      remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
-                    }
-                  else
-                    {
-                      lowestPriority(&lowPri);
-                      remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
-                      setHead(lowestPriTailIdx, newPriority);
-                      lowestPriority(&lowPri);
-                      writeTail(headValue(lowPri));
-                    }
-
-                  returnVal = VALID_WRITE;
-                }
-            }
-          else
-            {
-              if(newPriority == highestPri)
-                {
-                  // is there already an active priority of our value?
-                  if(activeStatus(newPriority) == ACTIVE)
-                    {
-                      nextIndex(&ourPriorityNext, headValue(newPriority));
-
-                      if((writeData(element, lowestPriTailIdx) == VALID_INDEX) &&
-                         (setHead(lowestPriTailIdx, newPriority) == VALID_HEAD))
-                        {
-                          remap(insertPt,ourPriorityNext,lowestPriTailIdx);
-                          //                      remap(insertPt,nextTailIdx,lowestPriTailIdx);
-                          lowestPriority(&lowPri);
-                          writeTail(headValue(lowPri));
-                          returnVal = VALID_WRITE;
-                        }
-                      else if(nextTailIndex(&nextTailIdx) == VALID_INDEX)
-                        {
-                          remap(insertPt,nextTailIdx,lowestPriTailIdx);
-                          setHead(lowestPriTailIdx, newPriority);
-                          lowestPriority(&lowPri);
-                          writeTail(headValue(lowPri));
-                          returnVal = VALID_WRITE;
-                        }
-                    }
-                }
-              else
-                {
-                  if(writeData(element, lowestPriTailIdx) == VALID_INDEX)
-                    {
-                      if(lowestPriTailIdx == tailIndex())
-                        {
-                          if(setHead(lowestPriTailIdx, newPriority) == VALID_HEAD)
-                            {
-                              returnVal = VALID_WRITE;
-                            }
-                        }
-                      else
-                        {
-                          // we are amongst the lower priorities so we go behind higherpri
-
-                          setHead(lowestPriTailIdx, newPriority);
-                          if(headValue(nextHighestPri) == lowestPriTailIdx)
-                            {
-                              setInactive(nextHighestPri);
-                            }
-                          setActive(newPriority);
-                          if(activePriorityCount() > 2)
-                            {
-                              lowestPriority(&lowPri);
-                              nextHighestPriority(&nextHighestPri, lowPri);
-                              nextHighestHeadIdx = headValue(nextHighestPri);
-                              remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
-                            }
-                          else
-                            {
-                              nextHighestPriority(&nextHighestPri, newPriority);
-                              nextHighestHeadIdx = headValue(nextHighestPri);
-                              lowestPriority(&lowPri);
-                              remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
-                              lowestPriority(&lowPri);
-                              writeTail(headValue(lowPri));
-                            }
-
-                          returnVal = VALID_WRITE;
-                        }
-                    }
-                }
-            }
+          remap(insertPt, nextHighestHeadIdx, lowestPriTailIdx);
         }
+
+      returnVal = VALID_WRITE;
     }
 
   return returnVal;
@@ -582,7 +520,7 @@ STATIC check_t overwriteElement(element_t element, priority_t newPriority)
 /**
    Find the next highest priority to the priority we wish to insert - used to find
    where to store the new priority
-*/
+   \return VALID_PRIORITY or INVALID_PRIORITY */
 
 check_t nextHighestPriority(priority_t * nextPriority, priority_t priority)
 {
@@ -603,8 +541,8 @@ check_t nextHighestPriority(priority_t * nextPriority, priority_t priority)
 }
 
 /**
-   Return number of active priorities
-*/
+   Counts the number of active priorities
+   \return number of active priorities */
 
 STATIC uint8_t activePriorityCount(void)
 {
@@ -624,8 +562,8 @@ STATIC uint8_t activePriorityCount(void)
 }
 
 /**
-   Returns the index of the lowest priority tail
-*/
+   Determines the lowest priority tail index
+   \return index of the lowest priority tail */
 
 STATIC index_t lowestPriorityTail(void)
 {
@@ -642,7 +580,8 @@ STATIC index_t lowestPriorityTail(void)
 /**
    Read the next element and assign to the element pointer passed in.
    Checks that there is data to read. Returns VALID_ELEMENT on success.
-*/
+   \return VALID_ELEMENT or INVALID_ELEMENT */
+
 STATIC check_t readNextElement(element_t * element)
 {
   check_t returnVal = INVALID_ELEMENT;
@@ -661,8 +600,7 @@ STATIC check_t readNextElement(element_t * element)
 /**
    Insert an element into the buffer of a given priority and
    adjust the buffer to correct the prioritisation if required.
-   Returns VALID_INSERT if the insert is valid.
-*/
+   \return VALID_INSERT or INVALID_INSERT */
 
 STATIC check_t insert(element_t element, priority_t newPriority)
 {
@@ -698,10 +636,12 @@ STATIC check_t insert(element_t element, priority_t newPriority)
 }
 
 /**
-   Write the element passed in to the index passed in. Checks
-   the index is within the bounds of the buffer. Returns VALID_INDEX
-   for a valid write.
-*/
+   Write the element passed in to the index passed in.
+   Check the index is within the bounds of the buffer.
+
+   \param[in] element Element to be written
+   \param[in] index Index in the buffer to write to
+   \return VALID_INDEX or INVALID_INDEX */
 
 STATIC check_t writeData(element_t element, index_t index)
 {
@@ -719,10 +659,7 @@ STATIC check_t writeData(element_t element, index_t index)
    Buffer Full checks whether there is any room left in the buffer for a new insertion.
    A full buffer is indicated by an active priority buffer having the same value as the
    tail pointer since the tail buffer indicates the final possible element of the buffer.
-   parameter: none
-   returns: BUFFER_FULL if the buffer is full
-   returns: BUFFER_NOT_FULL if the buffer is not full
-*/
+   \return BUFFER_FULL or BUFFER_NOT_FULL */
 
 STATIC check_t bufferFull(void)
 {
@@ -743,9 +680,8 @@ STATIC check_t bufferFull(void)
 }
 
 /**
-   Check whether the buffer is empty. Returns either BUFFER_EMPTY or
-   BUFFER_NOT_EMPTY.
-*/
+   Check whether the buffer is empty.
+   \return BUFFER_EMPTY or BUFFER_NOT_EMPTY */
 
 STATIC check_t bufferEmpty(void)
 {
@@ -761,8 +697,8 @@ STATIC check_t bufferEmpty(void)
 
 /**
    Insert the passed in element of the passed in priority to an empty
-   buffer. Returns VALID_INSERT if successful.
-*/
+   buffer.
+   \return VALID_INSERT or INVALID_INSERT */
 
 STATIC check_t insertEmpty(element_t element, priority_t newPriority)
 {
@@ -779,8 +715,8 @@ STATIC check_t insertEmpty(element_t element, priority_t newPriority)
 /**
    Insert into a not empty not full buffer the passed in element
    of the passed in priority. Remaps the buffer to correct the
-   prioritisation. Returns VALID_INSERT if successful.
-*/
+   prioritisation.
+   \return VALID_INSERT or INVALID_INSERT */
 
 STATIC check_t insertNotFull(element_t element, priority_t newPriority)
 {
@@ -801,8 +737,8 @@ STATIC check_t insertNotFull(element_t element, priority_t newPriority)
 /**
    Insert into a full buffer the passed in element
    of the passed in priority. Remaps the buffer to correct the
-   prioritisation. Returns VALID_INSERT if successful.
-*/
+   prioritisation.
+   \return VALID_INSERT or INVALID_INSERT */
 
 STATIC check_t insertFull(element_t element, priority_t priority)
 {
@@ -826,8 +762,7 @@ STATIC check_t insertFull(element_t element, priority_t priority)
 
 /**
    Adjust the tail, and make any depleted priorities inactive.
-   Returns VALID_HEAD with success.
-*/
+   \return VALID_INSERT or INVALID_INSERT */
 
 STATIC check_t adjustHeads(void)
 {
@@ -860,9 +795,8 @@ STATIC check_t adjustHeads(void)
 
 /**
    Read element from the buffer and assign to the
-   element pointer passed in. Returns VALID_ELEMENT on
-   successful read.
-*/
+   element pointer passed in.
+   \return VALID_ELEMENT or INVALID_ELEMENT */
 
 STATIC check_t readElement(element_t * element)
 {
@@ -891,18 +825,22 @@ STATIC check_t readElement(element_t * element)
    These refer to buffer elements and cause the buffer
    to be remapped or re-routed.
    We modify three links as follows:
+
+   ```
    save a1*
    a1* = b
    a2* = b*
    b* = saved a1*
+   ```
 
-   Returns VALID_REMAP on success.
-*/
+   \return VALID_REMAP or INVALID_REMAP */
+
 
 STATIC check_t remap(index_t a1, index_t a2, index_t b)
 {
   check_t returnVal = INVALID_REMAP;
   index_t a1ptr;
+  index_t a2ptr;
   index_t bptr;
 
   if((checkIndex(a1) == VALID_INDEX) &&
@@ -910,7 +848,9 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
      (checkIndex(b) == VALID_INDEX))
     {
       nextIndex(&a1ptr, a1);
-      if(a1ptr != b)
+      nextIndex(&bptr, b);
+      nextIndex(&a2ptr, a2);
+      if(a1ptr != b)// && (a2ptr != bptr))
         {
           writeNextIndex(a1, b);
           nextIndex(&bptr, b);
@@ -927,7 +867,7 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
    Return the index of the valid insert point to be used when remapping the buffer. The priority
    passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document
    for more information.
-*/
+   \return VALID_PRIORITY or INVALID_PRIORITY */
 
 index_t insertPoint(priority_t priority)
 {
@@ -975,8 +915,8 @@ index_t insertPoint(priority_t priority)
 
 /**
    Remap buffer for a not full buffer for the index of priority
-   passed in. Return VALID_PRIORITY on success.
-*/
+   passed in.
+   \return VALID_PRIORITY or INVALID_PRIORITY */
 
 STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
 {
@@ -1003,7 +943,6 @@ STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
                 }
             }
         }
-
       remap(insertionPt, a2, newIndex);
       returnVal = VALID_REMAP;
     }
@@ -1011,11 +950,18 @@ STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
   return returnVal;
 }
 
-/// Exposed API /
+/** @} */
+/* end of Internal group */
+
+//////////////////////////////// Exposed API ////////////////////////////////
 
 /**
-   Reset Buffer
-*/
+   @defgroup API API
+   This is the exposed API
+   @{ */
+
+/**
+   Reset Buffer */
 
 void PBUF_reset(void)
 {
@@ -1027,7 +973,7 @@ void PBUF_reset(void)
    Return non-zero if buffer is empty.
 */
 
-check_t PBUF_empty(void)
+int PBUF_empty(void)
 {
   return (bufferEmpty() == BUFFER_EMPTY);
 }
@@ -1036,7 +982,7 @@ check_t PBUF_empty(void)
    Return non-zero if the buffer is full.
 */
 
-check_t PBUF_full(void)
+int PBUF_full(void)
 {
   return bufferFull() == BUFFER_FULL;
 }
@@ -1045,33 +991,28 @@ check_t PBUF_full(void)
    Return the size of the buffer.
 */
 
-uint16_t PBUF_bufferSize(void)
+int PBUF_bufferSize(void)
 {
   return BUFFER_SIZE;
 }
 
 /**
    Insert data into the buffer of the given priority.
-   Return zero for a valid insert.
-*/
-check_t PBUF_insert(element_t element, priority_t priority)
+   \return zero for a valid insert.
+   \return non-zero for an invalid insert. */
+
+int PBUF_insert(element_t element, priority_t priority)
 {
-  check_t returnVal = INVALID_INSERT;
-
-  if(validatePriority(priority) == VALID_PRIORITY)
-    {
-      returnVal = !(insert(element, priority) == VALID_INSERT);
-    }
-
-  return returnVal;
+  return !(insert(element, priority) == VALID_INSERT);
 }
 
 /**
    Retrieve an element from the tail of the buffer and assign to
    the element pointer passed in.
-   Returns zero on success.
-*/
-check_t PBUF_retrieve(element_t * element)
+   \return zero on successful retrieve.
+   \return non-zero on failed retrieve. */
+
+int PBUF_retrieve(element_t * element)
 {
   check_t returnVal = INVALID_RETRIEVE;
 
@@ -1081,6 +1022,9 @@ check_t PBUF_retrieve(element_t * element)
     }
   return returnVal;
 }
+
+/** @} */
+/* end of API group */
 
 /**
    Print debug output of the buffer and pointer contents.

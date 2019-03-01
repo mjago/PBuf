@@ -1232,3 +1232,26 @@ TEST(pBuf, nextHeadValue_should_return_the_correct_next_head_value)
   TEST_ASSERT_EQUAL(1, nextHeadValue(HIGH_PRI));
   TEST_ASSERT_EQUAL(2, nextHeadValue(LOW_PRI));
 }
+
+TEST(pBuf, pL_pM_pM_pH_pH_should_resequence_correctly)
+{
+  uint8_t value;
+
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(20, LOW_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, MID_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(22, MID_PRI));
+  PBUF_print();
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(23, HIGH_PRI));
+  PBUF_print();
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(24, HIGH_PRI));
+  PBUF_print();
+  TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
+  TEST_ASSERT_EQUAL(23, value);
+  TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
+  TEST_ASSERT_EQUAL(24, value);
+  TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
+  TEST_ASSERT_EQUAL(21, value);
+  TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&value));
+  TEST_ASSERT_EQUAL(22, value);
+  TEST_ASSERT_TRUE(PBUF_empty());
+}

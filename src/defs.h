@@ -8,29 +8,22 @@
 
 #endif  /* BUFFER_SIZE */
 
-#define HIGH_PRI PRIORITY_SIZE - 1
-#define LOW_PRI 0
+/**
+   The highest priority in the system. */
+#define HIGH_PRI PRIORITY_SIZE - 1u
 
 /**
-   The element_t type holds a buffer element;
-*/
-
-typedef uint8_t element_t;
+   The lowest priority in the system. */
+#define LOW_PRI 0u
 
 /**
-   The priority_t type holds an index value;
+   The index_t type holds an index value.
 */
 
 typedef uint8_t index_t;
 
 /**
-   The priority_t type holds a priority value;
-*/
-
-typedef uint8_t priority_t;
-
-/**
-   The check_t type holds the result of a check;
+   The check_t type holds the result of a check.
 */
 
 typedef uint8_t check_t;
@@ -53,7 +46,13 @@ typedef uint8_t activity_t;
 
 typedef struct CELL_T
 {
+
+  /**
+     data holds the data of the element. */
   element_t data;
+
+  /**
+     next is a link pointing to the next element in the buffer. */
   index_t next;
 } cell_t;
 
@@ -65,7 +64,14 @@ typedef struct CELL_T
 
 typedef struct PTR_T
 {
+  /**
+     tail is a pointer to the buffer element to be read next.
+     This is the element having the highest priority in the buffer. */
   index_t tail;
+
+  /**
+     head is an array of pointers to the respective heads of the priorities on the buffer.
+     These are required to know where to insert future prioritised data. */
   index_t head[PRIORITY_SIZE];
 } ptr_t;
 
@@ -79,9 +85,20 @@ typedef struct PTR_T
 */
 
 typedef struct PBUF_T {
+
+  /**
+     Tail and Head pointers */
   ptr_t ptr;
+
+  /**
+     Array of buffer composite elements */
   cell_t element[BUFFER_SIZE];
+
+  /**
+     Storage for activity statuses of priorities in use.
+     Activity status may be ACTIVE or INACTIVE. */
   activity_t activity;
+
 } pbuf_t;
 
 enum {

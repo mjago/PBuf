@@ -85,7 +85,8 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, pL_pL_pL_pH_pH_pH_pH_should_resequence_correctly);
   RUN_TEST_CASE(pBuf, pL_pL_pL_pM_pM_pH_should_resequence_correctly);
   RUN_TEST_CASE(pBuf, pL_pM_pH_pL_pH_should_resequence_correctly);
-
   RUN_TEST_CASE(pBuf, pL_pL_pM_pM_pL_should_resequence_correctly);
+
+  //  RUN_TEST_CASE(pBuf, pL_pM_pM_pH_pH_should_resequence_correctly);
 
 }
