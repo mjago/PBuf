@@ -20,7 +20,7 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, validatePriority_should_return_VALID_PRIORITY_when_passed_valid_priority);
   RUN_TEST_CASE(pBuf, validatePriority_should_return_INVALID_PRIORITY_when_passed_an_invalid_priority);
   RUN_TEST_CASE(pBuf, PBUF_bufferSize_should_return_correct_buffer_size);
-  RUN_TEST_CASE(pBuf, setHead_should_set_head);
+  RUN_TEST_CASE(pBuf, writeHead_should_write_head);
   RUN_TEST_CASE(pBuf, firstfreeElementIndex_should_return_next_tail_with_an_empty_buffer);
   RUN_TEST_CASE(pBuf, firstfreeElementIndex_should_return_the_correct_index_when_elements_in_buffer);
   RUN_TEST_CASE(pBuf, readElement_should_read_the_next_element);

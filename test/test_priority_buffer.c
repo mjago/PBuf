@@ -140,9 +140,9 @@ TEST(pBuf, PBUF_bufferSize_should_return_correct_buffer_size)
   TEST_ASSERT_EQUAL(BUFFER_SIZE, size);
 }
 
-TEST(pBuf, setHead_should_set_head)
+TEST(pBuf, writeHead_should_write_head)
 {
-  TEST_ASSERT_EQUAL(INVALID_HEAD, setHead(0, PRIORITY_SIZE));
+  TEST_ASSERT_EQUAL(INVALID_HEAD, writeHead(0, PRIORITY_SIZE));
 }
 
 TEST(pBuf, firstfreeElementIndex_should_return_next_tail_with_an_empty_buffer)

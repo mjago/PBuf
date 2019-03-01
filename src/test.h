@@ -29,7 +29,7 @@ index_t insertPointFull(priority_t priority);
 void resetBufferPointers(void);
 void resetBuffer(void);
 index_t nextHeadValue(priority_t priority);
-check_t setHead(index_t index, priority_t priority);
+check_t writeHead(index_t index, priority_t priority);
 check_t lowestPriority(priority_t * priority);
 check_t validatePriority(priority_t priority);
 check_t activeStatus(priority_t priority);

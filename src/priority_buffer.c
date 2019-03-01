@@ -26,7 +26,7 @@ STATIC index_t bridgePoint(void);
 STATIC void resetBufferPointers(void);
 STATIC void resetBuffer(void);
 STATIC index_t nextHeadValue(priority_t priority);
-STATIC check_t setHead(index_t index, priority_t priority);
+STATIC check_t writeHead(index_t index, priority_t priority);
 STATIC check_t lowestPriority(priority_t * priority);
 STATIC check_t validatePriority(priority_t priority);
 STATIC check_t activeStatus(priority_t priority);
@@ -227,7 +227,7 @@ STATIC index_t nextHeadValue(priority_t priority)
    in with the index passed in.
    \return VALID_HEAD or INVALID_HEAD */
 
-STATIC check_t setHead(index_t index, priority_t priority)
+STATIC check_t writeHead(index_t index, priority_t priority)
 {
   check_t returnVal = INVALID_HEAD;
 
@@ -428,7 +428,7 @@ STATIC check_t writeElement(element_t element, priority_t priority)
 
       if(writeData(element, index) == VALID_INDEX)
         {
-          if((setHead(index, priority)) &&
+          if((writeHead(index, priority)) &&
              (setActive(priority) == VALID_ACTIVE))
             {
               returnVal = VALID_WRITE;
@@ -451,7 +451,7 @@ STATIC check_t overwriteSinglePriority(element_t element, priority_t newPriority
 
   nextTailIndex(&nextTailIdx);
   writeData(element, nextTailIdx);
-  setHead(nextTailIdx, newPriority);
+  writeHead(nextTailIdx, newPriority);
   if(activeStatus(newPriority) == ACTIVE)
     {
       incTail();
@@ -490,7 +490,7 @@ STATIC check_t overwriteElement(element_t element, priority_t newPriority)
       highestPriority(&highestPri);
       nextTailIndex(&tailIdx);
       writeData(element, lowestPriTailIdx);
-      setHead(lowestPriTailIdx, newPriority);
+      writeHead(lowestPriTailIdx, newPriority);
       if(lowestPriTailIdx == tailIndex())
         {
           lowestPriority(&lowPri);
@@ -499,7 +499,7 @@ STATIC check_t overwriteElement(element_t element, priority_t newPriority)
 
       setActive(newPriority);
       remap(insertPt, bridgePt, lowestPriTailIdx);
-      setHead(lowestPriTailIdx, newPriority);
+      writeHead(lowestPriTailIdx, newPriority);
       lowestPriority(&lowPri);
       writeTail(headValue(lowPri));
       returnVal = VALID_WRITE;
@@ -942,7 +942,7 @@ STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
     {
       a2 = headValue(virtualPriority);
 
-      if(setHead(newIndex, priority) == VALID_HEAD)
+      if(writeHead(newIndex, priority) == VALID_HEAD)
         {
           if((setActive(priority) == VALID_ACTIVE) &&
              (nextTailIndex(&tailIdx) == VALID_INDEX))
