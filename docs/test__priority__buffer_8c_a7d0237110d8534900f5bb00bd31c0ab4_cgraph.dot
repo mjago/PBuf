@@ -1,0 +1,11 @@
+digraph "TEST"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node26 [label="TEST",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node26 -> Node27 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node27 [label="PBUF_empty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__API.html#ga6f5ebd5522a2614c8473d44789b4a6fe",tooltip="Return non-zero if buffer is empty. "];
+  Node27 -> Node28 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node28 [label="bufferEmpty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c",tooltip="Check whether the buffer is empty. "];
+}

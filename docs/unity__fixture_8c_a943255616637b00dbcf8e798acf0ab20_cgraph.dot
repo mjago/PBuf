@@ -1,0 +1,13 @@
+digraph "unity_realloc"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node23 [label="unity_realloc",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node23 -> Node24 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node24 [label="unity_malloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture_8c.html#a93ff6fda0f975eb47b8d828bd084f411"];
+  Node23 -> Node25 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 [label="isOverrun",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture_8c.html#a6f3beab996c5abbecb5d9ed6950cf13d"];
+  Node23 -> Node26 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node26 [label="release_memory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture_8c.html#a074a56afb3ebceadda65ee87911e4b68"];
+}

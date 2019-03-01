@@ -1,0 +1,36 @@
+digraph "test/unity/src/unity_internals.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node8 [label="test/unity/src/unity\l_internals.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="test/unity/extras/fixture\l/src/unity_fixture.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture_8h.html"];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="test/test_priority\l_buffer.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test__priority__buffer_8c.html"];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="test/test_priority\l_buffer_runner.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test__priority__buffer__runner_8c.html"];
+  Node9 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="test/test_runners/all\l_tests.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$all__tests_8c.html"];
+  Node9 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="test/unity/extras/fixture\l/src/unity_fixture.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture_8c.html"];
+  Node9 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="test/unity/extras/fixture\l/test/main/AllTests.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$AllTests_8c.html"];
+  Node9 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="test/unity/extras/fixture\l/test/template_fixture\l_tests.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$template__fixture__tests_8c.html"];
+  Node9 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="test/unity/extras/fixture\l/test/unity_fixture_Test.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture__Test_8c.html"];
+  Node9 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="test/unity/extras/fixture\l/test/unity_fixture_TestRunner.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture__TestRunner_8c.html"];
+  Node9 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="test/unity/extras/fixture\l/test/unity_output_Spy.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__output__Spy_8c.html"];
+  Node8 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 [label="test/unity/src/unity.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8h.html"];
+  Node19 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node20 [label="src/test.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test_8h.html"];
+  Node19 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 -> Node21 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node21 [label="test/unity/src/unity.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html"];
+}

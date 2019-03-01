@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['writedata',['writeData',['../priority__buffer_8c.html#a094a72d34fb14e52ab82ec100e398d32',1,'priority_buffer.c']]],
-  ['writeelement',['writeElement',['../priority__buffer_8c.html#abe189820c7e0ccfea576ea30ef3150e3',1,'priority_buffer.c']]],
-  ['writenextindex',['writeNextIndex',['../priority__buffer_8c.html#a6e7e1ec9b159f6251ea7b301b3f3e1a2',1,'priority_buffer.c']]],
-  ['writetail',['writeTail',['../priority__buffer_8c.html#ae1d6cf89c1d2cecc5b27e8b1da9e9a18',1,'priority_buffer.c']]]
+  ['theory_20of_20operation',['Theory of operation',['../md_docs_dox_theory_of_operation.html',1,'']]],
+  ['tail',['tail',['../structPTR__T.html#a7b1987ebc94f67069dde3380805e09d5',1,'PTR_T']]],
+  ['tailindex',['tailIndex',['../group__Internal.html#ga25f69e90532a55846b77358559c3850d',1,'tailIndex(void):&#160;priority_buffer.c'],['../group__Internal.html#ga25f69e90532a55846b77358559c3850d',1,'tailIndex(void):&#160;priority_buffer.c']]],
+  ['test_2eh',['test.h',['../test_8h.html',1,'']]],
+  ['theory_5fof_5foperation_2emd',['theory_of_operation.md',['../theory__of__operation_8md.html',1,'']]]
 ];

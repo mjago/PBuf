@@ -1,8 +1,8 @@
 var defs_8h =
 [
-    [ "CELL_T", "struct_c_e_l_l___t.html", "struct_c_e_l_l___t" ],
-    [ "PTR_T", "struct_p_t_r___t.html", "struct_p_t_r___t" ],
-    [ "PBUF_T", "struct_p_b_u_f___t.html", "struct_p_b_u_f___t" ],
+    [ "CELL_T", "structCELL__T.html", "structCELL__T" ],
+    [ "PTR_T", "structPTR__T.html", "structPTR__T" ],
+    [ "PBUF_T", "structPBUF__T.html", "structPBUF__T" ],
     [ "HIGH_PRI", "defs_8h.html#ac266944e7b0ba21c12c603b3cb10e66c", null ],
     [ "LOW_PRI", "defs_8h.html#aa2a99df86990101331b901243bedcb48", null ],
     [ "activity_t", "defs_8h.html#a8e4dfdfbb5439926d9a9b21c13499df5", null ],

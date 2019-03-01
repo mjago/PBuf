@@ -90,14 +90,14 @@ $(document).ready(function(){initNavTree('priority__buffer_8c.html','');});
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;inttypes.h&gt;</code><br />
-<code>#include &quot;priority_buffer.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="defs_8h_source.html">defs.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for priority_buffer.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="priority__buffer_8c__incl.png" border="0" usemap="#src_2priority__buffer_8c" alt=""/></div>
 <map name="src_2priority__buffer_8c" id="src_2priority__buffer_8c">
-<area shape="rect" id="node4" href="priority__buffer_8h_source.html" title="priority_buffer.h" alt="" coords="195,80,307,107"/>
+<area shape="rect" id="node4" href="priority__buffer_8h.html" title="priority_buffer.h" alt="" coords="195,80,307,107"/>
 <area shape="rect" id="node5" href="defs_8h.html" title="defs.h" alt="" coords="331,80,389,107"/>
 </map>
 </div>
@@ -106,654 +106,151 @@ Include dependency graph for priority_buffer.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae61bd49f018987359c0c7af18baaccad"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#ae61bd49f018987359c0c7af18baaccad">checkIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index)</td></tr>
-<tr class="separator:ae61bd49f018987359c0c7af18baaccad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f3387e4330e5db92c7c9b5a4d66624d"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a9f3387e4330e5db92c7c9b5a4d66624d">nextIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *index, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
+<tr class="memitem:gae61bd49f018987359c0c7af18baaccad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad">checkIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index)</td></tr>
+<tr class="memdesc:gae61bd49f018987359c0c7af18baaccad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check the index is a valid Index.  <a href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad">More...</a><br /></td></tr>
+<tr class="separator:gae61bd49f018987359c0c7af18baaccad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f3387e4330e5db92c7c9b5a4d66624d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a9f3387e4330e5db92c7c9b5a4d66624d">nextIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *index, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
 <tr class="separator:a9f3387e4330e5db92c7c9b5a4d66624d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e7e1ec9b159f6251ea7b301b3f3e1a2"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a6e7e1ec9b159f6251ea7b301b3f3e1a2">writeNextIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> current, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> next)</td></tr>
-<tr class="separator:a6e7e1ec9b159f6251ea7b301b3f3e1a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64722337ab1ab6db7ba1eee6e510e890"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a64722337ab1ab6db7ba1eee6e510e890">incTail</a> (void)</td></tr>
-<tr class="separator:a64722337ab1ab6db7ba1eee6e510e890"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ff9ed75bb6e4b8b09b58069b5b8a6ec"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a9ff9ed75bb6e4b8b09b58069b5b8a6ec">nextTailIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *index)</td></tr>
-<tr class="separator:a9ff9ed75bb6e4b8b09b58069b5b8a6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaca0205ce96bb4ed7d421595d5e7309"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#aaaca0205ce96bb4ed7d421595d5e7309">firstFreeElementIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *index)</td></tr>
-<tr class="separator:aaaca0205ce96bb4ed7d421595d5e7309"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70be83e9ffcbbdc0472e146ad49a8781"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a70be83e9ffcbbdc0472e146ad49a8781">remapNotFull</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> newIndex, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a70be83e9ffcbbdc0472e146ad49a8781"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef16038e1f9438af30a74f142d390814"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#aef16038e1f9438af30a74f142d390814">remap</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> a1, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> a2, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> b)</td></tr>
-<tr class="separator:aef16038e1f9438af30a74f142d390814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55454ce12d8fbbc635fddc48d7a26891"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a55454ce12d8fbbc635fddc48d7a26891">headValue</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a55454ce12d8fbbc635fddc48d7a26891"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25f69e90532a55846b77358559c3850d"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a25f69e90532a55846b77358559c3850d">tailIndex</a> (void)</td></tr>
-<tr class="separator:a25f69e90532a55846b77358559c3850d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1d6cf89c1d2cecc5b27e8b1da9e9a18"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#ae1d6cf89c1d2cecc5b27e8b1da9e9a18">writeTail</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index)</td></tr>
-<tr class="separator:ae1d6cf89c1d2cecc5b27e8b1da9e9a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3450cb30f7e5348606ca09709f210e15"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a3450cb30f7e5348606ca09709f210e15">lowestPriorityTail</a> (void)</td></tr>
-<tr class="separator:a3450cb30f7e5348606ca09709f210e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d8cb66573e57486ba7e3b97c50ab28c"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a3d8cb66573e57486ba7e3b97c50ab28c">insertPoint</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a3d8cb66573e57486ba7e3b97c50ab28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d4593747d9fbd06dc48ba3f7a99fdb5"><td class="memItemLeft" align="right" valign="top">STATIC void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a9d4593747d9fbd06dc48ba3f7a99fdb5">resetBufferPointers</a> (void)</td></tr>
-<tr class="separator:a9d4593747d9fbd06dc48ba3f7a99fdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1baff7186b72c8f0683db8af3302da5"><td class="memItemLeft" align="right" valign="top">STATIC void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#ab1baff7186b72c8f0683db8af3302da5">resetBuffer</a> (void)</td></tr>
-<tr class="separator:ab1baff7186b72c8f0683db8af3302da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af51ec5b943679d5a7e7a903a1ebc2e72"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#af51ec5b943679d5a7e7a903a1ebc2e72">nextHeadValue</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:af51ec5b943679d5a7e7a903a1ebc2e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2f3da451647db87da2f05b4ab6cbf4d"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#ac2f3da451647db87da2f05b4ab6cbf4d">incHead</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:ac2f3da451647db87da2f05b4ab6cbf4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a656f1f607c0c60b5f57a859a365b7466"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a656f1f607c0c60b5f57a859a365b7466">setHead</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a656f1f607c0c60b5f57a859a365b7466"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c99e6cbaab9c7ce05f08a52baf11b07"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a5c99e6cbaab9c7ce05f08a52baf11b07">lowestPriority</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *priority)</td></tr>
-<tr class="separator:a5c99e6cbaab9c7ce05f08a52baf11b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d89e6a47f0d969863ebd23cf34f8ceb"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a1d89e6a47f0d969863ebd23cf34f8ceb">validatePriority</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a1d89e6a47f0d969863ebd23cf34f8ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96a9cdf59344a92de680c2054de68d18"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a96a9cdf59344a92de680c2054de68d18">activeStatus</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a96a9cdf59344a92de680c2054de68d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d9ce6cc5db1bfe9b195180fc40db057"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a0d9ce6cc5db1bfe9b195180fc40db057">highestPriority</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *priority)</td></tr>
-<tr class="separator:a0d9ce6cc5db1bfe9b195180fc40db057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0658dbd48225de33f2906ebe3839a829"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a0658dbd48225de33f2906ebe3839a829">setActive</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a0658dbd48225de33f2906ebe3839a829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6bfc10ed2b3640fbfd1ef1c485b1b82"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#ad6bfc10ed2b3640fbfd1ef1c485b1b82">setInactive</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:ad6bfc10ed2b3640fbfd1ef1c485b1b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e2c888184119622170bfb83453e322d"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a2e2c888184119622170bfb83453e322d">nextHighestPriority</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *nextPriority, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a2e2c888184119622170bfb83453e322d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f2fdb52bce7fcd5c8c9ab603c62938a"><td class="memItemLeft" align="right" valign="top">STATIC uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a6f2fdb52bce7fcd5c8c9ab603c62938a">activePriorityCount</a> (void)</td></tr>
-<tr class="separator:a6f2fdb52bce7fcd5c8c9ab603c62938a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ffbbc2cf8245d96bc97f575ac78c1a7"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a0ffbbc2cf8245d96bc97f575ac78c1a7">virtualMasterHead</a> (<a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *priority)</td></tr>
-<tr class="separator:a0ffbbc2cf8245d96bc97f575ac78c1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe189820c7e0ccfea576ea30ef3150e3"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#abe189820c7e0ccfea576ea30ef3150e3">writeElement</a> (element_t element, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:abe189820c7e0ccfea576ea30ef3150e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2c4b841f7547fad647c0cf01ecd3c77"><td class="memItemLeft" align="right" valign="top"><a id="ac2c4b841f7547fad647c0cf01ecd3c77"></a>
-STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>overwriteElement</b> (element_t element, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> newPriority)</td></tr>
-<tr class="separator:ac2c4b841f7547fad647c0cf01ecd3c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e940de75d9a9058d8e6d7612807351a"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a2e940de75d9a9058d8e6d7612807351a">readElement</a> (element_t *element)</td></tr>
-<tr class="separator:a2e940de75d9a9058d8e6d7612807351a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f4c086d9cc6c9d8b2d19d0d8622afaa"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a8f4c086d9cc6c9d8b2d19d0d8622afaa">readNextElement</a> (element_t *element)</td></tr>
-<tr class="separator:a8f4c086d9cc6c9d8b2d19d0d8622afaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a01ff20bf1fcc26a7778b54a2356866"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a2a01ff20bf1fcc26a7778b54a2356866">insert</a> (element_t element, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:a2a01ff20bf1fcc26a7778b54a2356866"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a094a72d34fb14e52ab82ec100e398d32"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a094a72d34fb14e52ab82ec100e398d32">writeData</a> (element_t element, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index)</td></tr>
-<tr class="separator:a094a72d34fb14e52ab82ec100e398d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fb5f15ae23ea536c404c99f27d8bdf2"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a3fb5f15ae23ea536c404c99f27d8bdf2">bufferFull</a> (void)</td></tr>
-<tr class="separator:a3fb5f15ae23ea536c404c99f27d8bdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4040671ef2dccd1394038df3a9f10c6c"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a4040671ef2dccd1394038df3a9f10c6c">bufferEmpty</a> (void)</td></tr>
-<tr class="separator:a4040671ef2dccd1394038df3a9f10c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8c08c3ee7157baffca08c117e4acfc0"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#af8c08c3ee7157baffca08c117e4acfc0">insertEmpty</a> (element_t element, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> newPriority)</td></tr>
-<tr class="separator:af8c08c3ee7157baffca08c117e4acfc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb147495f07075555fc116fcff223c4"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a2eb147495f07075555fc116fcff223c4">insertNotFull</a> (element_t element, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> newPriority)</td></tr>
-<tr class="separator:a2eb147495f07075555fc116fcff223c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0583c0ac1980ef99d394cb64421fb8eb"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a0583c0ac1980ef99d394cb64421fb8eb">insertFull</a> (element_t element, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> newPriority)</td></tr>
-<tr class="separator:a0583c0ac1980ef99d394cb64421fb8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e85c888f355abcb7d3d93d69c575d9a"><td class="memItemLeft" align="right" valign="top">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a3e85c888f355abcb7d3d93d69c575d9a">adjustHeads</a> (void)</td></tr>
-<tr class="separator:a3e85c888f355abcb7d3d93d69c575d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08f7f1b6ee73b655ad96344da0e9c0c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a08f7f1b6ee73b655ad96344da0e9c0c5">PBUF_reset</a> (void)</td></tr>
-<tr class="memdesc:a08f7f1b6ee73b655ad96344da0e9c0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposed API /.  <a href="#a08f7f1b6ee73b655ad96344da0e9c0c5">More...</a><br /></td></tr>
-<tr class="separator:a08f7f1b6ee73b655ad96344da0e9c0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf964c0b39dbd78e5644b2c2e96cd0df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#adf964c0b39dbd78e5644b2c2e96cd0df">PBUF_empty</a> (void)</td></tr>
-<tr class="separator:adf964c0b39dbd78e5644b2c2e96cd0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f458f4eb89e8824ed5baa16fe4f7441"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a2f458f4eb89e8824ed5baa16fe4f7441">PBUF_full</a> (void)</td></tr>
-<tr class="separator:a2f458f4eb89e8824ed5baa16fe4f7441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a471a403267c74e1d4c216ab07e23157c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a471a403267c74e1d4c216ab07e23157c">PBUF_bufferSize</a> (void)</td></tr>
-<tr class="separator:a471a403267c74e1d4c216ab07e23157c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbb281bddaf2699c6cb606bcb1e611b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#adbb281bddaf2699c6cb606bcb1e611b2">PBUF_insert</a> (element_t element, <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> priority)</td></tr>
-<tr class="separator:adbb281bddaf2699c6cb606bcb1e611b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e97bac9cea25ee46dcc9b8591fc5e36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a2e97bac9cea25ee46dcc9b8591fc5e36">PBUF_retrieve</a> (element_t *element)</td></tr>
-<tr class="separator:a2e97bac9cea25ee46dcc9b8591fc5e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e7e1ec9b159f6251ea7b301b3f3e1a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2">writeNextIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> current, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> next)</td></tr>
+<tr class="memdesc:ga6e7e1ec9b159f6251ea7b301b3f3e1a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the index passed in to the element referenced by the current index passed in.  <a href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2">More...</a><br /></td></tr>
+<tr class="separator:ga6e7e1ec9b159f6251ea7b301b3f3e1a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64722337ab1ab6db7ba1eee6e510e890"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga64722337ab1ab6db7ba1eee6e510e890">incTail</a> (void)</td></tr>
+<tr class="memdesc:ga64722337ab1ab6db7ba1eee6e510e890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the tail to its next position in the buffer.  <a href="group__Internal.html#ga64722337ab1ab6db7ba1eee6e510e890">More...</a><br /></td></tr>
+<tr class="separator:ga64722337ab1ab6db7ba1eee6e510e890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ff9ed75bb6e4b8b09b58069b5b8a6ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec">nextTailIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *index)</td></tr>
+<tr class="memdesc:ga9ff9ed75bb6e4b8b09b58069b5b8a6ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the passed in index with the index pointed to by the tail pointer after advancing it.  <a href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec">More...</a><br /></td></tr>
+<tr class="separator:ga9ff9ed75bb6e4b8b09b58069b5b8a6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaaca0205ce96bb4ed7d421595d5e7309"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gaaaca0205ce96bb4ed7d421595d5e7309">firstFreeElementIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *index)</td></tr>
+<tr class="memdesc:gaaaca0205ce96bb4ed7d421595d5e7309"><td class="mdescLeft">&#160;</td><td class="mdescRight">find the index at which we can store.  <a href="group__Internal.html#gaaaca0205ce96bb4ed7d421595d5e7309">More...</a><br /></td></tr>
+<tr class="separator:gaaaca0205ce96bb4ed7d421595d5e7309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70be83e9ffcbbdc0472e146ad49a8781"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga70be83e9ffcbbdc0472e146ad49a8781">remapNotFull</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> newIndex, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga70be83e9ffcbbdc0472e146ad49a8781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remap buffer for a not full buffer for the index of priority passed in.  <a href="group__Internal.html#ga70be83e9ffcbbdc0472e146ad49a8781">More...</a><br /></td></tr>
+<tr class="separator:ga70be83e9ffcbbdc0472e146ad49a8781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef16038e1f9438af30a74f142d390814"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814">remap</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> a1, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> a2, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> b)</td></tr>
+<tr class="memdesc:gaef16038e1f9438af30a74f142d390814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remap the links of the indexes passed in.  <a href="group__Internal.html#gaef16038e1f9438af30a74f142d390814">More...</a><br /></td></tr>
+<tr class="separator:gaef16038e1f9438af30a74f142d390814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55454ce12d8fbbc635fddc48d7a26891"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891">headValue</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga55454ce12d8fbbc635fddc48d7a26891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index pointed to by the head related with the priority passed in.  <a href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891">More...</a><br /></td></tr>
+<tr class="separator:ga55454ce12d8fbbc635fddc48d7a26891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25f69e90532a55846b77358559c3850d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d">tailIndex</a> (void)</td></tr>
+<tr class="memdesc:ga25f69e90532a55846b77358559c3850d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index value referenced by the tail.  <a href="group__Internal.html#ga25f69e90532a55846b77358559c3850d">More...</a><br /></td></tr>
+<tr class="separator:ga25f69e90532a55846b77358559c3850d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae1d6cf89c1d2cecc5b27e8b1da9e9a18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18">writeTail</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index)</td></tr>
+<tr class="memdesc:gae1d6cf89c1d2cecc5b27e8b1da9e9a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a new index to the tail pointer.  <a href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18">More...</a><br /></td></tr>
+<tr class="separator:gae1d6cf89c1d2cecc5b27e8b1da9e9a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3450cb30f7e5348606ca09709f210e15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga3450cb30f7e5348606ca09709f210e15">lowestPriorityTail</a> (void)</td></tr>
+<tr class="memdesc:ga3450cb30f7e5348606ca09709f210e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the lowest priority tail index.  <a href="group__Internal.html#ga3450cb30f7e5348606ca09709f210e15">More...</a><br /></td></tr>
+<tr class="separator:ga3450cb30f7e5348606ca09709f210e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d8cb66573e57486ba7e3b97c50ab28c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga3d8cb66573e57486ba7e3b97c50ab28c">insertPoint</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga3d8cb66573e57486ba7e3b97c50ab28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index of the valid insert point to be used when remapping the buffer.  <a href="group__Internal.html#ga3d8cb66573e57486ba7e3b97c50ab28c">More...</a><br /></td></tr>
+<tr class="separator:ga3d8cb66573e57486ba7e3b97c50ab28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d4593747d9fbd06dc48ba3f7a99fdb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga9d4593747d9fbd06dc48ba3f7a99fdb5">resetBufferPointers</a> (void)</td></tr>
+<tr class="memdesc:ga9d4593747d9fbd06dc48ba3f7a99fdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset Heads and Tail.  <a href="group__Internal.html#ga9d4593747d9fbd06dc48ba3f7a99fdb5">More...</a><br /></td></tr>
+<tr class="separator:ga9d4593747d9fbd06dc48ba3f7a99fdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1baff7186b72c8f0683db8af3302da5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gab1baff7186b72c8f0683db8af3302da5">resetBuffer</a> (void)</td></tr>
+<tr class="memdesc:gab1baff7186b72c8f0683db8af3302da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the Buffer.  <a href="group__Internal.html#gab1baff7186b72c8f0683db8af3302da5">More...</a><br /></td></tr>
+<tr class="separator:gab1baff7186b72c8f0683db8af3302da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf51ec5b943679d5a7e7a903a1ebc2e72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72">nextHeadValue</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:gaf51ec5b943679d5a7e7a903a1ebc2e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index pointed to by the head related to the priority passed in after following the head link.  <a href="group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72">More...</a><br /></td></tr>
+<tr class="separator:gaf51ec5b943679d5a7e7a903a1ebc2e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga656f1f607c0c60b5f57a859a365b7466"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga656f1f607c0c60b5f57a859a365b7466">setHead</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga656f1f607c0c60b5f57a859a365b7466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the head pointer associated with the priority passed in with the index passed in.  <a href="group__Internal.html#ga656f1f607c0c60b5f57a859a365b7466">More...</a><br /></td></tr>
+<tr class="separator:ga656f1f607c0c60b5f57a859a365b7466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5c99e6cbaab9c7ce05f08a52baf11b07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07">lowestPriority</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> *<a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga5c99e6cbaab9c7ce05f08a52baf11b07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the lowest priority in the buffer.  <a href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07">More...</a><br /></td></tr>
+<tr class="separator:ga5c99e6cbaab9c7ce05f08a52baf11b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d89e6a47f0d969863ebd23cf34f8ceb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb">validatePriority</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga1d89e6a47f0d969863ebd23cf34f8ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check the priority is a valid one.  <a href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb">More...</a><br /></td></tr>
+<tr class="separator:ga1d89e6a47f0d969863ebd23cf34f8ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96a9cdf59344a92de680c2054de68d18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18">activeStatus</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga96a9cdf59344a92de680c2054de68d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the active status of the priority passed in.  <a href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18">More...</a><br /></td></tr>
+<tr class="separator:ga96a9cdf59344a92de680c2054de68d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d9ce6cc5db1bfe9b195180fc40db057"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057">highestPriority</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> *<a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga0d9ce6cc5db1bfe9b195180fc40db057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the highest priority and assign to the priority pointer passed in.  <a href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057">More...</a><br /></td></tr>
+<tr class="separator:ga0d9ce6cc5db1bfe9b195180fc40db057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0658dbd48225de33f2906ebe3839a829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829">setActive</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga0658dbd48225de33f2906ebe3839a829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the relevant activity flag of the priority passed in.  <a href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829">More...</a><br /></td></tr>
+<tr class="separator:ga0658dbd48225de33f2906ebe3839a829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6bfc10ed2b3640fbfd1ef1c485b1b82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82">setInactive</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:gad6bfc10ed2b3640fbfd1ef1c485b1b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the relevant activity flag of the priority passed in.  <a href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82">More...</a><br /></td></tr>
+<tr class="separator:gad6bfc10ed2b3640fbfd1ef1c485b1b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e2c888184119622170bfb83453e322d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d">nextHighestPriority</a> (<a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> *nextPriority, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga2e2c888184119622170bfb83453e322d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the next highest priority to the priority we wish to insert - used to find where to store the new priority.  <a href="group__Internal.html#ga2e2c888184119622170bfb83453e322d">More...</a><br /></td></tr>
+<tr class="separator:ga2e2c888184119622170bfb83453e322d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f2fdb52bce7fcd5c8c9ab603c62938a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga6f2fdb52bce7fcd5c8c9ab603c62938a">activePriorityCount</a> (void)</td></tr>
+<tr class="memdesc:ga6f2fdb52bce7fcd5c8c9ab603c62938a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of active priorities.  <a href="group__Internal.html#ga6f2fdb52bce7fcd5c8c9ab603c62938a">More...</a><br /></td></tr>
+<tr class="separator:ga6f2fdb52bce7fcd5c8c9ab603c62938a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe189820c7e0ccfea576ea30ef3150e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gabe189820c7e0ccfea576ea30ef3150e3">writeElement</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:gabe189820c7e0ccfea576ea30ef3150e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an element to the buffer at the next empty position in the linked buffer and adjust the relevant priority head.  <a href="group__Internal.html#gabe189820c7e0ccfea576ea30ef3150e3">More...</a><br /></td></tr>
+<tr class="separator:gabe189820c7e0ccfea576ea30ef3150e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2c4b841f7547fad647c0cf01ecd3c77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gac2c4b841f7547fad647c0cf01ecd3c77">overwriteElement</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> newPriority)</td></tr>
+<tr class="memdesc:gac2c4b841f7547fad647c0cf01ecd3c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite element since buffer is full and there are no unused elements.  <a href="group__Internal.html#gac2c4b841f7547fad647c0cf01ecd3c77">More...</a><br /></td></tr>
+<tr class="separator:gac2c4b841f7547fad647c0cf01ecd3c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e940de75d9a9058d8e6d7612807351a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a">readElement</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> *element)</td></tr>
+<tr class="memdesc:ga2e940de75d9a9058d8e6d7612807351a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read element from the buffer and assign to the element pointer passed in.  <a href="group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a">More...</a><br /></td></tr>
+<tr class="separator:ga2e940de75d9a9058d8e6d7612807351a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f4c086d9cc6c9d8b2d19d0d8622afaa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga8f4c086d9cc6c9d8b2d19d0d8622afaa">readNextElement</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> *element)</td></tr>
+<tr class="memdesc:ga8f4c086d9cc6c9d8b2d19d0d8622afaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the next element and assign to the element pointer passed in.  <a href="group__Internal.html#ga8f4c086d9cc6c9d8b2d19d0d8622afaa">More...</a><br /></td></tr>
+<tr class="separator:ga8f4c086d9cc6c9d8b2d19d0d8622afaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63ad097411c7e90c201b2d94a2ab3162"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga63ad097411c7e90c201b2d94a2ab3162">insert</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> newPriority)</td></tr>
+<tr class="memdesc:ga63ad097411c7e90c201b2d94a2ab3162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert an element into the buffer of a given priority and adjust the buffer to correct the prioritisation if required.  <a href="group__Internal.html#ga63ad097411c7e90c201b2d94a2ab3162">More...</a><br /></td></tr>
+<tr class="separator:ga63ad097411c7e90c201b2d94a2ab3162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga094a72d34fb14e52ab82ec100e398d32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32">writeData</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index)</td></tr>
+<tr class="memdesc:ga094a72d34fb14e52ab82ec100e398d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the element passed in to the index passed in.  <a href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32">More...</a><br /></td></tr>
+<tr class="separator:ga094a72d34fb14e52ab82ec100e398d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3fb5f15ae23ea536c404c99f27d8bdf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2">bufferFull</a> (void)</td></tr>
+<tr class="memdesc:ga3fb5f15ae23ea536c404c99f27d8bdf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer Full checks whether there is any room left in the buffer for a new insertion.  <a href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2">More...</a><br /></td></tr>
+<tr class="separator:ga3fb5f15ae23ea536c404c99f27d8bdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4040671ef2dccd1394038df3a9f10c6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c">bufferEmpty</a> (void)</td></tr>
+<tr class="memdesc:ga4040671ef2dccd1394038df3a9f10c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the buffer is empty.  <a href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c">More...</a><br /></td></tr>
+<tr class="separator:ga4040671ef2dccd1394038df3a9f10c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8c08c3ee7157baffca08c117e4acfc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gaf8c08c3ee7157baffca08c117e4acfc0">insertEmpty</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> newPriority)</td></tr>
+<tr class="memdesc:gaf8c08c3ee7157baffca08c117e4acfc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the passed in element of the passed in priority to an empty buffer.  <a href="group__Internal.html#gaf8c08c3ee7157baffca08c117e4acfc0">More...</a><br /></td></tr>
+<tr class="separator:gaf8c08c3ee7157baffca08c117e4acfc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2eb147495f07075555fc116fcff223c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga2eb147495f07075555fc116fcff223c4">insertNotFull</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> newPriority)</td></tr>
+<tr class="memdesc:ga2eb147495f07075555fc116fcff223c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert into a not empty not full buffer the passed in element of the passed in priority.  <a href="group__Internal.html#ga2eb147495f07075555fc116fcff223c4">More...</a><br /></td></tr>
+<tr class="separator:ga2eb147495f07075555fc116fcff223c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc21ddb94c801e986fe0b2a09105e92c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gadc21ddb94c801e986fe0b2a09105e92c">insertFull</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:gadc21ddb94c801e986fe0b2a09105e92c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert into a full buffer the passed in element of the passed in priority.  <a href="group__Internal.html#gadc21ddb94c801e986fe0b2a09105e92c">More...</a><br /></td></tr>
+<tr class="separator:gadc21ddb94c801e986fe0b2a09105e92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga366ccea549bbc6a19953eaa3c6b4a9d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6">nextIndex</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *next, <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> current)</td></tr>
+<tr class="memdesc:ga366ccea549bbc6a19953eaa3c6b4a9d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the passed in index with the next index linked from the current index passed in.  <a href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6">More...</a><br /></td></tr>
+<tr class="separator:ga366ccea549bbc6a19953eaa3c6b4a9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga721b108b9ec49215f03f165fbc05ea05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05">overwriteSinglePriority</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> newPriority)</td></tr>
+<tr class="memdesc:ga721b108b9ec49215f03f165fbc05ea05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite without remapping if buffer is full and only a single priority exists on the buffer.  <a href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05">More...</a><br /></td></tr>
+<tr class="separator:ga721b108b9ec49215f03f165fbc05ea05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e85c888f355abcb7d3d93d69c575d9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga3e85c888f355abcb7d3d93d69c575d9a">adjustHeads</a> (void)</td></tr>
+<tr class="memdesc:ga3e85c888f355abcb7d3d93d69c575d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust the tail, and make any depleted priorities inactive.  <a href="group__Internal.html#ga3e85c888f355abcb7d3d93d69c575d9a">More...</a><br /></td></tr>
+<tr class="separator:ga3e85c888f355abcb7d3d93d69c575d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga08f7f1b6ee73b655ad96344da0e9c0c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga08f7f1b6ee73b655ad96344da0e9c0c5">PBUF_reset</a> (void)</td></tr>
+<tr class="memdesc:ga08f7f1b6ee73b655ad96344da0e9c0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset Buffer.  <a href="group__API.html#ga08f7f1b6ee73b655ad96344da0e9c0c5">More...</a><br /></td></tr>
+<tr class="separator:ga08f7f1b6ee73b655ad96344da0e9c0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f5ebd5522a2614c8473d44789b4a6fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga6f5ebd5522a2614c8473d44789b4a6fe">PBUF_empty</a> (void)</td></tr>
+<tr class="memdesc:ga6f5ebd5522a2614c8473d44789b4a6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return non-zero if buffer is empty.  <a href="group__API.html#ga6f5ebd5522a2614c8473d44789b4a6fe">More...</a><br /></td></tr>
+<tr class="separator:ga6f5ebd5522a2614c8473d44789b4a6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga049d97a7e64a55aed7b0b0b547cee763"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga049d97a7e64a55aed7b0b0b547cee763">PBUF_full</a> (void)</td></tr>
+<tr class="memdesc:ga049d97a7e64a55aed7b0b0b547cee763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return non-zero if the buffer is full.  <a href="group__API.html#ga049d97a7e64a55aed7b0b0b547cee763">More...</a><br /></td></tr>
+<tr class="separator:ga049d97a7e64a55aed7b0b0b547cee763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7fb353a7665a3fb53568819efaa00964"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga7fb353a7665a3fb53568819efaa00964">PBUF_bufferSize</a> (void)</td></tr>
+<tr class="memdesc:ga7fb353a7665a3fb53568819efaa00964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of the buffer.  <a href="group__API.html#ga7fb353a7665a3fb53568819efaa00964">More...</a><br /></td></tr>
+<tr class="separator:ga7fb353a7665a3fb53568819efaa00964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d1b9e336494e7121aeb2d33790e8778"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga9d1b9e336494e7121aeb2d33790e8778">PBUF_insert</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga9d1b9e336494e7121aeb2d33790e8778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert data into the buffer of the given priority.  <a href="group__API.html#ga9d1b9e336494e7121aeb2d33790e8778">More...</a><br /></td></tr>
+<tr class="separator:ga9d1b9e336494e7121aeb2d33790e8778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b29980e7f7f1d7adbc8c01d14ea3c56"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga3b29980e7f7f1d7adbc8c01d14ea3c56">PBUF_retrieve</a> (<a class="el" href="defs_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> *element)</td></tr>
+<tr class="memdesc:ga3b29980e7f7f1d7adbc8c01d14ea3c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve an element from the tail of the buffer and assign to the element pointer passed in.  <a href="group__API.html#ga3b29980e7f7f1d7adbc8c01d14ea3c56">More...</a><br /></td></tr>
+<tr class="separator:ga3b29980e7f7f1d7adbc8c01d14ea3c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42f7ae7d9339a792ed6685b06b19ced1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a42f7ae7d9339a792ed6685b06b19ced1">PBUF_print</a> (void)</td></tr>
+<tr class="memdesc:a42f7ae7d9339a792ed6685b06b19ced1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print debug output of the buffer and pointer contents.  <a href="#a42f7ae7d9339a792ed6685b06b19ced1">More...</a><br /></td></tr>
 <tr class="separator:a42f7ae7d9339a792ed6685b06b19ced1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a244c54f59b41d36f2aac77b7d0a47281"><td class="memItemLeft" align="right" valign="top"><a id="a244c54f59b41d36f2aac77b7d0a47281"></a>
-STATIC <a class="el" href="defs_8h.html#abc92ba1e16c0155aea9c79a712305fd0">pbuf_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bf</b></td></tr>
+<tr class="memitem:a244c54f59b41d36f2aac77b7d0a47281"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#abc92ba1e16c0155aea9c79a712305fd0">pbuf_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8c.html#a244c54f59b41d36f2aac77b7d0a47281">bf</a></td></tr>
+<tr class="memdesc:a244c54f59b41d36f2aac77b7d0a47281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of buffer composite elements.  <a href="#a244c54f59b41d36f2aac77b7d0a47281">More...</a><br /></td></tr>
 <tr class="separator:a244c54f59b41d36f2aac77b7d0a47281"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a6f2fdb52bce7fcd5c8c9ab603c62938a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f2fdb52bce7fcd5c8c9ab603c62938a">&#9670;&nbsp;</a></span>activePriorityCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC uint8_t activePriorityCount </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return number of active priorities </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00577">577</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a96a9cdf59344a92de680c2054de68d18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96a9cdf59344a92de680c2054de68d18">&#9670;&nbsp;</a></span>activeStatus()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> activeStatus </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return the active status of the priority passed in. If the priority is active ACTIVE is returned. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00327">327</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a3e85c888f355abcb7d3d93d69c575d9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e85c888f355abcb7d3d93d69c575d9a">&#9670;&nbsp;</a></span>adjustHeads()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> adjustHeads </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Adjust the tail, and make any depleted priorities inactive. Returns VALID_HEAD with success. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00800">800</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a4040671ef2dccd1394038df3a9f10c6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4040671ef2dccd1394038df3a9f10c6c">&#9670;&nbsp;</a></span>bufferEmpty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> bufferEmpty </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Check whether the buffer is empty. Returns either BUFFER_EMPTY or BUFFER_NOT_EMPTY. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00718">718</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a4040671ef2dccd1394038df3a9f10c6c_icgraph.png" border="0" usemap="#priority__buffer_8c_a4040671ef2dccd1394038df3a9f10c6c_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_a4040671ef2dccd1394038df3a9f10c6c_icgraph" id="priority__buffer_8c_a4040671ef2dccd1394038df3a9f10c6c_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#adf964c0b39dbd78e5644b2c2e96cd0df" title="PBUF_empty" alt="" coords="147,5,248,32"/>
-<area shape="rect" id="node3" href="priority__buffer_8c.html#a42f7ae7d9339a792ed6685b06b19ced1" title="PBUF_print" alt="" coords="152,56,243,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a3fb5f15ae23ea536c404c99f27d8bdf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fb5f15ae23ea536c404c99f27d8bdf2">&#9670;&nbsp;</a></span>bufferFull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> bufferFull </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Buffer Full checks whether there is any room left in the buffer for a new insertion. A full buffer is indicated by an active priority buffer having the same value as the tail pointer since the tail buffer indicates the final possible element of the buffer. parameter: none returns: BUFFER_FULL if the buffer is full returns: BUFFER_NOT_FULL if the buffer is not full </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00695">695</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a3fb5f15ae23ea536c404c99f27d8bdf2_icgraph.png" border="0" usemap="#priority__buffer_8c_a3fb5f15ae23ea536c404c99f27d8bdf2_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_a3fb5f15ae23ea536c404c99f27d8bdf2_icgraph" id="priority__buffer_8c_a3fb5f15ae23ea536c404c99f27d8bdf2_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a2f458f4eb89e8824ed5baa16fe4f7441" title="PBUF_full" alt="" coords="129,5,212,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae61bd49f018987359c0c7af18baaccad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae61bd49f018987359c0c7af18baaccad">&#9670;&nbsp;</a></span>checkIndex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> checkIndex </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Check the index is a valid Index </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00062">62</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_ae61bd49f018987359c0c7af18baaccad_icgraph.png" border="0" usemap="#priority__buffer_8c_ae61bd49f018987359c0c7af18baaccad_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_ae61bd49f018987359c0c7af18baaccad_icgraph" id="priority__buffer_8c_ae61bd49f018987359c0c7af18baaccad_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#ae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="writeTail" alt="" coords="143,5,213,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aaaca0205ce96bb4ed7d421595d5e7309"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaaca0205ce96bb4ed7d421595d5e7309">&#9670;&nbsp;</a></span>firstFreeElementIndex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> firstFreeElementIndex </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>find the index at which we can store. This is only valid when the buffer is not full. Check for buffer empty case first since this is a very fast test. Returns INVALID_INDEX if we cannot allocate an index (buffer full for instance). </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00174">174</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a55454ce12d8fbbc635fddc48d7a26891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55454ce12d8fbbc635fddc48d7a26891">&#9670;&nbsp;</a></span>headValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> headValue </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return the index pointed to by the head related with the priority passed in. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00203">203</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a55454ce12d8fbbc635fddc48d7a26891_icgraph.png" border="0" usemap="#priority__buffer_8c_a55454ce12d8fbbc635fddc48d7a26891_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_a55454ce12d8fbbc635fddc48d7a26891_icgraph" id="priority__buffer_8c_a55454ce12d8fbbc635fddc48d7a26891_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a3450cb30f7e5348606ca09709f210e15" title="lowestPriorityTail" alt="" coords="136,5,259,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a0d9ce6cc5db1bfe9b195180fc40db057"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d9ce6cc5db1bfe9b195180fc40db057">&#9670;&nbsp;</a></span>highestPriority()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> highestPriority </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Determine the highest priority and assign to the priority pointer passed in. Returns VALID_PRIORITY on finding a relevant priority. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00386">386</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a0d9ce6cc5db1bfe9b195180fc40db057_icgraph.png" border="0" usemap="#priority__buffer_8c_a0d9ce6cc5db1bfe9b195180fc40db057_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_a0d9ce6cc5db1bfe9b195180fc40db057_icgraph" id="priority__buffer_8c_a0d9ce6cc5db1bfe9b195180fc40db057_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a3d8cb66573e57486ba7e3b97c50ab28c" title="insertPoint" alt="" coords="159,5,243,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ac2f3da451647db87da2f05b4ab6cbf4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2f3da451647db87da2f05b4ab6cbf4d">&#9670;&nbsp;</a></span>incHead()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> incHead </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Advances the head to the next head value by following the buffer pointers </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00222">222</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a64722337ab1ab6db7ba1eee6e510e890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64722337ab1ab6db7ba1eee6e510e890">&#9670;&nbsp;</a></span>incTail()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> incTail </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Advance the tail to its next position in the buffer </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00078">78</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a2a01ff20bf1fcc26a7778b54a2356866"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a01ff20bf1fcc26a7778b54a2356866">&#9670;&nbsp;</a></span>insert()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> insert </td>
-          <td>(</td>
-          <td class="paramtype">element_t&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>newPriority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Insert an element into the buffer of a given priority and adjust the buffer to correct the prioritisation if required. Returns VALID_INSERT if the insert is valid. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00635">635</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="af8c08c3ee7157baffca08c117e4acfc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8c08c3ee7157baffca08c117e4acfc0">&#9670;&nbsp;</a></span>insertEmpty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> insertEmpty </td>
-          <td>(</td>
-          <td class="paramtype">element_t&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>newPriority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Insert the passed in element of the passed in priority to an empty buffer. Returns VALID_INSERT if successful. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00735">735</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a0583c0ac1980ef99d394cb64421fb8eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0583c0ac1980ef99d394cb64421fb8eb">&#9670;&nbsp;</a></span>insertFull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> insertFull </td>
-          <td>(</td>
-          <td class="paramtype">element_t&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Insert into a full buffer the passed in element of the passed in priority. Remaps the buffer to correct the prioritisation. Returns VALID_INSERT if successful. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00775">775</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a2eb147495f07075555fc116fcff223c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2eb147495f07075555fc116fcff223c4">&#9670;&nbsp;</a></span>insertNotFull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> insertNotFull </td>
-          <td>(</td>
-          <td class="paramtype">element_t&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>newPriority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Insert into a not empty not full buffer the passed in element of the passed in priority. Remaps the buffer to correct the prioritisation. Returns VALID_INSERT if successful. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00753">753</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a3d8cb66573e57486ba7e3b97c50ab28c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d8cb66573e57486ba7e3b97c50ab28c">&#9670;&nbsp;</a></span>insertPoint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> insertPoint </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return the index of the valid insert point to be used when remapping the buffer. The priority passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document for more information. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00898">898</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a3d8cb66573e57486ba7e3b97c50ab28c_cgraph.png" border="0" usemap="#priority__buffer_8c_a3d8cb66573e57486ba7e3b97c50ab28c_cgraph" alt=""/></div>
-<map name="priority__buffer_8c_a3d8cb66573e57486ba7e3b97c50ab28c_cgraph" id="priority__buffer_8c_a3d8cb66573e57486ba7e3b97c50ab28c_cgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a0d9ce6cc5db1bfe9b195180fc40db057" title="highestPriority" alt="" coords="137,5,243,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a5c99e6cbaab9c7ce05f08a52baf11b07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c99e6cbaab9c7ce05f08a52baf11b07">&#9670;&nbsp;</a></span>lowestPriority()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> lowestPriority </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Determine the lowest priority in the buffer. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00286">286</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a5c99e6cbaab9c7ce05f08a52baf11b07_icgraph.png" border="0" usemap="#priority__buffer_8c_a5c99e6cbaab9c7ce05f08a52baf11b07_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_a5c99e6cbaab9c7ce05f08a52baf11b07_icgraph" id="priority__buffer_8c_a5c99e6cbaab9c7ce05f08a52baf11b07_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a3450cb30f7e5348606ca09709f210e15" title="lowestPriorityTail" alt="" coords="155,5,277,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a3450cb30f7e5348606ca09709f210e15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3450cb30f7e5348606ca09709f210e15">&#9670;&nbsp;</a></span>lowestPriorityTail()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> lowestPriorityTail </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns the index of the lowest priority tail </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00598">598</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a3450cb30f7e5348606ca09709f210e15_cgraph.png" border="0" usemap="#priority__buffer_8c_a3450cb30f7e5348606ca09709f210e15_cgraph" alt=""/></div>
-<map name="priority__buffer_8c_a3450cb30f7e5348606ca09709f210e15_cgraph" id="priority__buffer_8c_a3450cb30f7e5348606ca09709f210e15_cgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a5c99e6cbaab9c7ce05f08a52baf11b07" title="lowestPriority" alt="" coords="192,5,293,32"/>
-<area shape="rect" id="node3" href="priority__buffer_8c.html#a2e2c888184119622170bfb83453e322d" title="nextHighestPriority" alt="" coords="176,56,309,83"/>
-<area shape="rect" id="node4" href="priority__buffer_8c.html#a9f3387e4330e5db92c7c9b5a4d66624d" title="nextIndex" alt="" coords="203,107,282,133"/>
-<area shape="rect" id="node5" href="priority__buffer_8c.html#a55454ce12d8fbbc635fddc48d7a26891" title="headValue" alt="" coords="201,157,284,184"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="af51ec5b943679d5a7e7a903a1ebc2e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af51ec5b943679d5a7e7a903a1ebc2e72">&#9670;&nbsp;</a></span>nextHeadValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> nextHeadValue </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return the index pointed to by the head related to the priority passed in after following the head link. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00213">213</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a2e2c888184119622170bfb83453e322d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e2c888184119622170bfb83453e322d">&#9670;&nbsp;</a></span>nextHighestPriority()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> nextHighestPriority </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *&#160;</td>
-          <td class="paramname"><em>nextPriority</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Find the next highest priority to the priority we wish to insert - used to find where to store the new priority </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00551">551</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a2e2c888184119622170bfb83453e322d_icgraph.png" border="0" usemap="#priority__buffer_8c_a2e2c888184119622170bfb83453e322d_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_a2e2c888184119622170bfb83453e322d_icgraph" id="priority__buffer_8c_a2e2c888184119622170bfb83453e322d_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a3450cb30f7e5348606ca09709f210e15" title="lowestPriorityTail" alt="" coords="187,5,309,32"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a9f3387e4330e5db92c7c9b5a4d66624d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f3387e4330e5db92c7c9b5a4d66624d">&#9670;&nbsp;</a></span>nextIndex()</h2>
 
@@ -761,154 +258,15 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> nextIndex </td>
+          <td class="memname"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> nextIndex </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *&#160;</td>
-          <td class="paramname"><em>next</em>, </td>
+          <td class="paramname"><em>index</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>current</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Update the passed in index with the next index linked from the current index passed in. Returns index validity. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00134">134</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a9f3387e4330e5db92c7c9b5a4d66624d_icgraph.png" border="0" usemap="#priority__buffer_8c_a9f3387e4330e5db92c7c9b5a4d66624d_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_a9f3387e4330e5db92c7c9b5a4d66624d_icgraph" id="priority__buffer_8c_a9f3387e4330e5db92c7c9b5a4d66624d_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a3450cb30f7e5348606ca09709f210e15" title="lowestPriorityTail" alt="" coords="132,5,255,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9ff9ed75bb6e4b8b09b58069b5b8a6ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ff9ed75bb6e4b8b09b58069b5b8a6ec">&#9670;&nbsp;</a></span>nextTailIndex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> nextTailIndex </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> *&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Update the passed in index with the index pointed to by the tail pointer after advancing it. Returns index validity. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00123">123</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a471a403267c74e1d4c216ab07e23157c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a471a403267c74e1d4c216ab07e23157c">&#9670;&nbsp;</a></span>PBUF_bufferSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t PBUF_bufferSize </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return the size of the buffer. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01014">1014</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="adf964c0b39dbd78e5644b2c2e96cd0df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf964c0b39dbd78e5644b2c2e96cd0df">&#9670;&nbsp;</a></span>PBUF_empty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> PBUF_empty </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return non-zero if buffer is empty. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00996">996</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_adf964c0b39dbd78e5644b2c2e96cd0df_cgraph.png" border="0" usemap="#priority__buffer_8c_adf964c0b39dbd78e5644b2c2e96cd0df_cgraph" alt=""/></div>
-<map name="priority__buffer_8c_adf964c0b39dbd78e5644b2c2e96cd0df_cgraph" id="priority__buffer_8c_adf964c0b39dbd78e5644b2c2e96cd0df_cgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a4040671ef2dccd1394038df3a9f10c6c" title="bufferEmpty" alt="" coords="155,5,248,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a2f458f4eb89e8824ed5baa16fe4f7441"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f458f4eb89e8824ed5baa16fe4f7441">&#9670;&nbsp;</a></span>PBUF_full()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> PBUF_full </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return non-zero if the buffer is full. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01005">1005</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a2f458f4eb89e8824ed5baa16fe4f7441_cgraph.png" border="0" usemap="#priority__buffer_8c_a2f458f4eb89e8824ed5baa16fe4f7441_cgraph" alt=""/></div>
-<map name="priority__buffer_8c_a2f458f4eb89e8824ed5baa16fe4f7441_cgraph" id="priority__buffer_8c_a2f458f4eb89e8824ed5baa16fe4f7441_cgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a3fb5f15ae23ea536c404c99f27d8bdf2" title="bufferFull" alt="" coords="136,5,212,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="adbb281bddaf2699c6cb606bcb1e611b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbb281bddaf2699c6cb606bcb1e611b2">&#9670;&nbsp;</a></span>PBUF_insert()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> PBUF_insert </td>
-          <td>(</td>
-          <td class="paramtype">element_t&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="cli_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a>&#160;</td>
           <td class="paramname"><em>priority</em>&#160;</td>
         </tr>
         <tr>
@@ -918,9 +276,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Insert data into the buffer of the given priority. Return zero for a valid insert. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01023">1023</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -939,497 +294,45 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Print debug output of the buffer and pointer contents. Requires DEBUG to be defined at compile time. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01058">1058</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p>Print debug output of the buffer and pointer contents. </p>
+<p>Requires DEBUG to be defined at compile time. </p>
+
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01036">1036</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="priority__buffer_8c_a42f7ae7d9339a792ed6685b06b19ced1_cgraph.png" border="0" usemap="#priority__buffer_8c_a42f7ae7d9339a792ed6685b06b19ced1_cgraph" alt=""/></div>
 <map name="priority__buffer_8c_a42f7ae7d9339a792ed6685b06b19ced1_cgraph" id="priority__buffer_8c_a42f7ae7d9339a792ed6685b06b19ced1_cgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a4040671ef2dccd1394038df3a9f10c6c" title="bufferEmpty" alt="" coords="144,5,237,32"/>
+<area shape="rect" id="node2" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="294,107,387,133"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="159,56,230,83"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="144,157,245,184"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="293,233,388,260"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="153,208,236,235"/>
+<area shape="rect" id="node8" href="priority__buffer_8c.html#a9f3387e4330e5db92c7c9b5a4d66624d" title="nextIndex" alt="" coords="155,259,234,285"/>
+<area shape="rect" id="node9" href="group__API.html#ga6f5ebd5522a2614c8473d44789b4a6fe" title="Return non&#45;zero if buffer is empty. " alt="" coords="144,5,245,32"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="436,233,544,260"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a08f7f1b6ee73b655ad96344da0e9c0c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08f7f1b6ee73b655ad96344da0e9c0c5">&#9670;&nbsp;</a></span>PBUF_reset()</h2>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a244c54f59b41d36f2aac77b7d0a47281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a244c54f59b41d36f2aac77b7d0a47281">&#9670;&nbsp;</a></span>bf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PBUF_reset </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#abc92ba1e16c0155aea9c79a712305fd0">pbuf_t</a> bf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Exposed API /. </p>
-<p>Reset Buffer </p>
+<p>Array of buffer composite elements. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00986">986</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a08f7f1b6ee73b655ad96344da0e9c0c5_cgraph.png" border="0" usemap="#priority__buffer_8c_a08f7f1b6ee73b655ad96344da0e9c0c5_cgraph" alt=""/></div>
-<map name="priority__buffer_8c_a08f7f1b6ee73b655ad96344da0e9c0c5_cgraph" id="priority__buffer_8c_a08f7f1b6ee73b655ad96344da0e9c0c5_cgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a9d4593747d9fbd06dc48ba3f7a99fdb5" title="resetBufferPointers" alt="" coords="148,5,283,32"/>
-<area shape="rect" id="node3" href="priority__buffer_8c.html#ab1baff7186b72c8f0683db8af3302da5" title="resetBuffer" alt="" coords="172,56,259,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a2e97bac9cea25ee46dcc9b8591fc5e36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e97bac9cea25ee46dcc9b8591fc5e36">&#9670;&nbsp;</a></span>PBUF_retrieve()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> PBUF_retrieve </td>
-          <td>(</td>
-          <td class="paramtype">element_t *&#160;</td>
-          <td class="paramname"><em>element</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Retrieve an element from the tail of the buffer and assign to the element pointer passed in. Returns zero on success. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01040">1040</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a2e940de75d9a9058d8e6d7612807351a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e940de75d9a9058d8e6d7612807351a">&#9670;&nbsp;</a></span>readElement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> readElement </td>
-          <td>(</td>
-          <td class="paramtype">element_t *&#160;</td>
-          <td class="paramname"><em>element</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read element from the buffer and assign to the element pointer passed in. Returns VALID_ELEMENT on successful read. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00833">833</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a8f4c086d9cc6c9d8b2d19d0d8622afaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f4c086d9cc6c9d8b2d19d0d8622afaa">&#9670;&nbsp;</a></span>readNextElement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> readNextElement </td>
-          <td>(</td>
-          <td class="paramtype">element_t *&#160;</td>
-          <td class="paramname"><em>element</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read the next element and assign to the element pointer passed in. Checks that there is data to read. Returns VALID_ELEMENT on success. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00614">614</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="aef16038e1f9438af30a74f142d390814"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef16038e1f9438af30a74f142d390814">&#9670;&nbsp;</a></span>remap()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> remap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>a1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>a2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Remap the links of the indexes passed in. These refer to buffer elements and cause the buffer to be remapped or re-routed. We modify three links as follows: save a1* a1* = b a2* = b* b* = saved a1*</p>
-<p>Returns VALID_REMAP on success. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00868">868</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a70be83e9ffcbbdc0472e146ad49a8781"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70be83e9ffcbbdc0472e146ad49a8781">&#9670;&nbsp;</a></span>remapNotFull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> remapNotFull </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>newIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Remap buffer for a not full buffer for the index of priority passed in. Return VALID_PRIORITY on success. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00947">947</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="ab1baff7186b72c8f0683db8af3302da5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1baff7186b72c8f0683db8af3302da5">&#9670;&nbsp;</a></span>resetBuffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC void resetBuffer </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Reset the Buffer. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00423">423</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_ab1baff7186b72c8f0683db8af3302da5_icgraph.png" border="0" usemap="#priority__buffer_8c_ab1baff7186b72c8f0683db8af3302da5_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_ab1baff7186b72c8f0683db8af3302da5_icgraph" id="priority__buffer_8c_ab1baff7186b72c8f0683db8af3302da5_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a08f7f1b6ee73b655ad96344da0e9c0c5" title="Exposed API /. " alt="" coords="140,5,235,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9d4593747d9fbd06dc48ba3f7a99fdb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d4593747d9fbd06dc48ba3f7a99fdb5">&#9670;&nbsp;</a></span>resetBufferPointers()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC void resetBufferPointers </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Reset head and tail pointers. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00408">408</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_a9d4593747d9fbd06dc48ba3f7a99fdb5_icgraph.png" border="0" usemap="#priority__buffer_8c_a9d4593747d9fbd06dc48ba3f7a99fdb5_icgraph" alt=""/></div>
-<map name="priority__buffer_8c_a9d4593747d9fbd06dc48ba3f7a99fdb5_icgraph" id="priority__buffer_8c_a9d4593747d9fbd06dc48ba3f7a99fdb5_icgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#a08f7f1b6ee73b655ad96344da0e9c0c5" title="Exposed API /. " alt="" coords="188,5,283,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a0658dbd48225de33f2906ebe3839a829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0658dbd48225de33f2906ebe3839a829">&#9670;&nbsp;</a></span>setActive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> setActive </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Set the relevant activity flag of the priority passed in. Return INVALID_ACTIVE if the priority is invalid. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00347">347</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a656f1f607c0c60b5f57a859a365b7466"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a656f1f607c0c60b5f57a859a365b7466">&#9670;&nbsp;</a></span>setHead()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> setHead </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Set the value of the head pointer associated with the priority passed in with the index passed in. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00239">239</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="ad6bfc10ed2b3640fbfd1ef1c485b1b82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6bfc10ed2b3640fbfd1ef1c485b1b82">&#9670;&nbsp;</a></span>setInactive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> setInactive </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Reset the relevant activity flag of the priority passed in. Return INVALID_ACTIVE if the priority is invalid. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00366">366</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a25f69e90532a55846b77358559c3850d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25f69e90532a55846b77358559c3850d">&#9670;&nbsp;</a></span>tailIndex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> tailIndex </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return the index pointed to by the tail pointer </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00096">96</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a1d89e6a47f0d969863ebd23cf34f8ceb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d89e6a47f0d969863ebd23cf34f8ceb">&#9670;&nbsp;</a></span>validatePriority()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> validatePriority </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Check the priority is a valid one. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00310">310</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a0ffbbc2cf8245d96bc97f575ac78c1a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ffbbc2cf8245d96bc97f575ac78c1a7">&#9670;&nbsp;</a></span>virtualMasterHead()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> virtualMasterHead </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return the head of the lowest active priority. Beyond this point there is no valid data unless the buffer is full. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00257">257</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a094a72d34fb14e52ab82ec100e398d32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a094a72d34fb14e52ab82ec100e398d32">&#9670;&nbsp;</a></span>writeData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> writeData </td>
-          <td>(</td>
-          <td class="paramtype">element_t&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Write the element passed in to the index passed in. Checks the index is within the bounds of the buffer. Returns VALID_INDEX for a valid write. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00674">674</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="abe189820c7e0ccfea576ea30ef3150e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe189820c7e0ccfea576ea30ef3150e3">&#9670;&nbsp;</a></span>writeElement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> writeElement </td>
-          <td>(</td>
-          <td class="paramtype">element_t&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>priority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>element Write an element to the buffer at the next empty position in the linked buffer and adjust the relevant priority head. Returns VALID_WRITE on success; </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00447">447</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="a6e7e1ec9b159f6251ea7b301b3f3e1a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e7e1ec9b159f6251ea7b301b3f3e1a2">&#9670;&nbsp;</a></span>writeNextIndex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> writeNextIndex </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>current</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>next</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Writes the index passed in to the element referenced by the current index passed in. Returns index validity. </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00152">152</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-
-</div>
-</div>
-<a id="ae1d6cf89c1d2cecc5b27e8b1da9e9a18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1d6cf89c1d2cecc5b27e8b1da9e9a18">&#9670;&nbsp;</a></span>writeTail()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">STATIC <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> writeTail </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Write a new index to the tail pointer </p>
-
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00105">105</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="priority__buffer_8c_ae1d6cf89c1d2cecc5b27e8b1da9e9a18_cgraph.png" border="0" usemap="#priority__buffer_8c_ae1d6cf89c1d2cecc5b27e8b1da9e9a18_cgraph" alt=""/></div>
-<map name="priority__buffer_8c_ae1d6cf89c1d2cecc5b27e8b1da9e9a18_cgraph" id="priority__buffer_8c_ae1d6cf89c1d2cecc5b27e8b1da9e9a18_cgraph">
-<area shape="rect" id="node2" href="priority__buffer_8c.html#ae61bd49f018987359c0c7af18baaccad" title="checkIndex" alt="" coords="124,5,213,32"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00054">54</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,14 @@
+digraph "UnityPrintNumberByStyle"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node219 [label="UnityPrintNumberByStyle",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node219 -> Node220 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node220 [label="UnityPrintNumber",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a644211a214ab000dcabd5582c52e0313"];
+  Node220 -> Node221 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node221 [label="UnityPrintNumberUnsigned",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a3ef388786e9a8e769d13af2601b592dc"];
+  Node219 -> Node221 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node219 -> Node222 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node222 [label="UnityPrintNumberHex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#ab5636c2c3e2d5ff0d89461e2323aa469"];
+}

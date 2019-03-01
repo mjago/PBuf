@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['pbuf_5fbuffersize',['PBUF_bufferSize',['../priority__buffer_8c.html#a471a403267c74e1d4c216ab07e23157c',1,'priority_buffer.c']]],
-  ['pbuf_5fempty',['PBUF_empty',['../priority__buffer_8c.html#adf964c0b39dbd78e5644b2c2e96cd0df',1,'priority_buffer.c']]],
-  ['pbuf_5ffull',['PBUF_full',['../priority__buffer_8c.html#a2f458f4eb89e8824ed5baa16fe4f7441',1,'priority_buffer.c']]],
-  ['pbuf_5finsert',['PBUF_insert',['../priority__buffer_8c.html#adbb281bddaf2699c6cb606bcb1e611b2',1,'priority_buffer.c']]],
-  ['pbuf_5fprint',['PBUF_print',['../priority__buffer_8c.html#a42f7ae7d9339a792ed6685b06b19ced1',1,'priority_buffer.c']]],
-  ['pbuf_5freset',['PBUF_reset',['../priority__buffer_8c.html#a08f7f1b6ee73b655ad96344da0e9c0c5',1,'priority_buffer.c']]],
-  ['pbuf_5fretrieve',['PBUF_retrieve',['../priority__buffer_8c.html#a2e97bac9cea25ee46dcc9b8591fc5e36',1,'priority_buffer.c']]]
+  ['nextheadvalue',['nextHeadValue',['../group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72',1,'nextHeadValue(priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72',1,'nextHeadValue(priority_t priority):&#160;priority_buffer.c']]],
+  ['nexthighestpriority',['nextHighestPriority',['../group__Internal.html#ga2e2c888184119622170bfb83453e322d',1,'nextHighestPriority(priority_t *nextPriority, priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#ga2e2c888184119622170bfb83453e322d',1,'nextHighestPriority(priority_t *nextPriority, priority_t priority):&#160;priority_buffer.c']]],
+  ['nextindex',['nextIndex',['../priority__buffer_8c.html#a9f3387e4330e5db92c7c9b5a4d66624d',1,'nextIndex(index_t *index, priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6',1,'nextIndex(index_t *next, index_t current):&#160;priority_buffer.c'],['../test_8h.html#af93c4d19b84b6117c5cb156579e76b4a',1,'nextIndex(index_t *index, priority_t priority):&#160;test.h']]],
+  ['nexttailindex',['nextTailIndex',['../group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec',1,'nextTailIndex(index_t *index):&#160;priority_buffer.c'],['../group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec',1,'nextTailIndex(index_t *index):&#160;priority_buffer.c']]]
 ];

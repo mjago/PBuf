@@ -1,0 +1,31 @@
+digraph "UnityPrint"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node198 [label="UnityPrint",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node198 -> Node199 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node199 [label="UnityPrintChar",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#aa3373f770c748cc1600d55cd8c7839c3"];
+  Node199 -> Node200 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node200 [label="UnityPrintNumberHex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#ab5636c2c3e2d5ff0d89461e2323aa469"];
+  Node198 -> Node201 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node201 [label="UnityPrintNumber",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a644211a214ab000dcabd5582c52e0313"];
+  Node201 -> Node202 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node202 [label="UnityPrintNumberUnsigned",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a3ef388786e9a8e769d13af2601b592dc"];
+  Node198 -> Node203 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node203 [label="UnityPrintFloat",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#ac3d39bc0740a28949a2ba689588491c2"];
+  Node203 -> Node204 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node204 [label="UnityPrint",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#accff2eb4cfd0273e8ad62c37639d3e3c"];
+  Node204 -> Node199 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node204 -> Node201 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node204 -> Node203 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node204 -> Node202 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node204 -> Node205 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node205 [label="UnityPrintMask",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a207d5b3e2bfe8042b0505066ccd07c9b"];
+  Node204 -> Node200 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node204 -> Node204 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node198 -> Node202 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node198 -> Node205 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node198 -> Node200 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node198 -> Node204 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

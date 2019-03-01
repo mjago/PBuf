@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PBuf: Main Page</title>
+<title>PBuf: PBuf</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,10 +82,44 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PBuf Documentation</div>  </div>
+<div class="title">PBuf </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><h3>(Prioritised Buffer)</h3>
+<h3>Note: Alpha Software (under development)</h3>
+<p>This software is a Priority buffer intended for use in an embedded environment, with processors or controllers as small as 8-bit.</p>
+<h2>Purpose</h2>
+<p>One use of the buffer could be to enable the rapid re-prioritisation of self-contained payloads of data, possibly compressed and encrypted. It makes sense to manipulate such a payload in units of payload, and being able to prioritise or re-order the delivery of them against time can release the business logic from being required to maintain a lot of state regarding what has gone, what has maybe gone, and how urgent is this payload with respect to what is already out there. By employing prioritisation in this way, the priorities may be worked out ahead of time, and the configuration stored as constant data for rapid use, freeing the user of much of the decision-making in real-time.</p>
+<p>When looked at in this way the prioritised buffer implementation makes sense - entire payloads are re-directed in an instant, and yet maintain their self-referential integrity. Too much information of higher importance pushes lesser information 'out of the back of the queue' in a natural pre-planned and real-time efficient way. Played against a potentially inconsistent network it makes all the more sense to do the work ahead of time and configure for the eventuality with payload priority. Buffer size of 4 - priority size of 8 - no problem.</p>
+<h2>Configuration</h2>
+<p>It is configurable at compile time by defining three definitions (found in <a class="el" href="priority__buffer_8h.html">priority_buffer.h</a>). The definitions can also be passed to the compiler via the command line.</p>
+<ol type="1">
+<li><code>BUFFER_SIZE</code> is the number of buffer elements (3 to 256).</li>
+<li><code>ELEMENT_SIZE</code> is the size of each element (8, 16, 32, or 64 bits).</li>
+<li><code>PRIORITY_SIZE</code> is the number of priorities used by the buffer (2 to 8).</li>
+</ol>
+<p>The compilation will fail if other values are attempted.</p>
+<p>By default they are set to <code>4, 8 and 3</code> respectively.</p>
+<h2>Test</h2>
+<p>A test suite is available in <code>test/</code> and can be run by typing make in this directory.</p>
+<p>The testing framework used is <a href="https://github.com/throwtheswitch/">Unity Test System</a>. The test runners are written in C to avoid other dependencies. <a href="https://github.com/throwtheswitch/">Unity Test System</a> is MIT licensed.</p>
+<h2>Cli</h2>
+<p>A cli program is available in <code>cli/</code></p>
+<p>This is currently built and run with the following command:</p>
+<div class="fragment"><div class="line">gcc cli/cli.c src/priority_buffer.c -o./cli/pbuf &amp;&amp; cli/pbuf</div></div><!-- fragment --><p> <code>cli</code> builds with <code>PBuf</code> in its default configuration and enables <em>inserting, retrieving, viewing and resetting</em> a <em>priority buffer</em>.</p>
+<h2>Documentation</h2>
+<p>Some documentation is present in the <code>docs</code> directory, although it is not yet exhaustive.</p>
+<p>Source documentation is cross-referenced using doxygen and can be built using the command <code>doxygen docs/doxyfile</code>.</p>
+<p><a href="http://martynjago.co.uk/PBuf/">The documentation is available here.</a>.</p>
+<h2>Concurrency</h2>
+<p>There are currently no locks or checks for concurrency, so it is the responsibility of the user to ensure reads and writes do not occur simultaneously. This is by design, since the user has control over their interrupts etc.</p>
+<h2>Licence</h2>
+<p>PBuf has a permissive MIT license (see ./LICENSE)</p>
+<h2>Contributors</h2>
+<ul>
+<li><a href="https://github.com/mjago/sonicri">mjago</a> </li>
+</ul>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

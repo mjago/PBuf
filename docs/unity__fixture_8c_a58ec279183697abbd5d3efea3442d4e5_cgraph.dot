@@ -1,0 +1,38 @@
+digraph "UnityMain"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node47 [label="UnityMain",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node47 -> Node48 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node48 [label="UnityGetCommandLineOptions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture_8c.html#a898356b51b63100ec321e05d2e5f2d55"];
+  Node47 -> Node49 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node49 [label="UnityBegin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#aed50601fbdaea8fc0fef0c61cf877809"];
+  Node47 -> Node50 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node50 [label="announceTestRun",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity__fixture_8c.html#ac54f18088c1ed178f3c602b868014f5d"];
+  Node50 -> Node51 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node51 [label="UnityPrint",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#accff2eb4cfd0273e8ad62c37639d3e3c"];
+  Node51 -> Node52 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node52 [label="UnityPrintChar",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#aa3373f770c748cc1600d55cd8c7839c3"];
+  Node52 -> Node53 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node53 [label="UnityPrintNumberHex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#ab5636c2c3e2d5ff0d89461e2323aa469"];
+  Node51 -> Node54 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node54 [label="UnityPrintNumber",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a644211a214ab000dcabd5582c52e0313"];
+  Node54 -> Node55 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node55 [label="UnityPrintNumberUnsigned",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a3ef388786e9a8e769d13af2601b592dc"];
+  Node51 -> Node56 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node56 [label="UnityPrintFloat",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#ac3d39bc0740a28949a2ba689588491c2"];
+  Node56 -> Node51 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node51 -> Node55 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node51 -> Node57 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node57 [label="UnityPrintMask",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a207d5b3e2bfe8042b0505066ccd07c9b"];
+  Node51 -> Node53 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node51 -> Node51 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node50 -> Node55 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node47 -> Node58 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node58 [label="runAllTests",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$AllTests_8c.html#a7f649b562ed3d6a869db371002a27075"];
+  Node47 -> Node59 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node59 [label="UnityEnd",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unity_8c.html#a4820ba04ff5e9a474fe38ab6633d30a0"];
+  Node59 -> Node51 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node59 -> Node54 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

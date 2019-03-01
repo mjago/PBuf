@@ -87,9 +87,9 @@ $(document).ready(function(){initNavTree('md_docs_dox_theory_of_operation.html',
 <div class="contents">
 <div class="textblock"><p>This is a description of the theory of operation of this prioritorised circular buffer.</p>
 <h2>Configuration</h2>
-<p>The buffer is configured at compile time by setting a small number of defines in <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>: </p><div class="fragment"><div class="line">#define BUFFER_SIZE 4      /* may be between 4 to 256 elements in size */</div><div class="line"></div><div class="line">#define PRIORITY_SIZE 3    /* may be between 2 to 8 priorities in size */</div><div class="line"></div><div class="line"> #define ELEMENT_SIZE 8     /* may be either 8, 16, 32, or 64 bits */</div></div><!-- fragment --><p> The compiler checks these settings at compile time and compile will fail if they are out of limits.</p>
+<p>The buffer is configured at compile time by setting a small number of defines in <a class="el" href="priority__buffer_8h.html">priority_buffer.h</a>: </p><div class="fragment"><div class="line">#define BUFFER_SIZE 4      /* may be between 4 to 256 elements in size */</div><div class="line"></div><div class="line">#define PRIORITY_SIZE 3    /* may be between 2 to 8 priorities in size */</div><div class="line"></div><div class="line"> #define ELEMENT_SIZE 8     /* may be either 8, 16, 32, or 64 bits */</div></div><!-- fragment --><p> The compiler checks these settings at compile time and compile will fail if they are out of limits.</p>
 <p>These settings may also be provided on the command line to the compiler such as -DELEMENT_SIZE=8</p>
-<p><a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a> is purposefully kept very minimal to highlight these user configurations.</p>
+<p><a class="el" href="priority__buffer_8h.html">priority_buffer.h</a> is purposefully kept very minimal to highlight these user configurations.</p>
 <h2>Design choice</h2>
 <p>The design is optimised for smaller embedded devices, and should be suitable down to 8-bit devices.</p>
 <h2>Requirement Assumptions</h2>

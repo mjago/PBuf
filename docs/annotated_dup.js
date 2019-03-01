@@ -1,6 +1,7 @@
 var annotated_dup =
 [
-    [ "CELL_T", "struct_c_e_l_l___t.html", "struct_c_e_l_l___t" ],
-    [ "PBUF_T", "struct_p_b_u_f___t.html", "struct_p_b_u_f___t" ],
-    [ "PTR_T", "struct_p_t_r___t.html", "struct_p_t_r___t" ]
+    [ "CELL_T", "structCELL__T.html", "structCELL__T" ],
+    [ "PBUF_T", "structPBUF__T.html", "structPBUF__T" ],
+    [ "PTR_T", "structPTR__T.html", "structPTR__T" ],
+    [ "stateMachine_t", "structstateMachine__t.html", "structstateMachine__t" ]
 ];
