@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['state',['state',['../structstateMachine__t.html#a9f499c095594429c8e34ae5c27107b5a',1,'stateMachine_t::state()'],['../cli_8c.html#a499e7824037af983d0524a98081e7f0b',1,'state():&#160;cli.c']]],
-  ['statemachine',['stateMachine',['../cli_8c.html#a187dfe6d7721e5e026d99c5d0c373d0a',1,'cli.c']]]
+  ['priority',['priority',['../cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c',1,'cli.c']]],
+  ['ptr',['ptr',['../structPBUF__T.html#a70fa04c8681d4e513e142239e4dfd851',1,'PBUF_T']]]
 ];

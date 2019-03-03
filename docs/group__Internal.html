@@ -153,12 +153,6 @@ Functions</h2></td></tr>
 <tr class="memitem:gabe189820c7e0ccfea576ea30ef3150e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gabe189820c7e0ccfea576ea30ef3150e3">writeElement</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
 <tr class="memdesc:gabe189820c7e0ccfea576ea30ef3150e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an element to the buffer at the next empty position in the linked buffer and adjust the relevant priority head.  <a href="#gabe189820c7e0ccfea576ea30ef3150e3">More...</a><br /></td></tr>
 <tr class="separator:gabe189820c7e0ccfea576ea30ef3150e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga721b108b9ec49215f03f165fbc05ea05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05">overwriteSinglePriority</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> newPriority)</td></tr>
-<tr class="memdesc:ga721b108b9ec49215f03f165fbc05ea05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite without remapping if buffer is full and only a single priority exists on the buffer.  <a href="#ga721b108b9ec49215f03f165fbc05ea05">More...</a><br /></td></tr>
-<tr class="separator:ga721b108b9ec49215f03f165fbc05ea05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac2c4b841f7547fad647c0cf01ecd3c77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gac2c4b841f7547fad647c0cf01ecd3c77">overwriteElement</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> newPriority)</td></tr>
-<tr class="memdesc:gac2c4b841f7547fad647c0cf01ecd3c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite element since buffer is full and there are no unused elements.  <a href="#gac2c4b841f7547fad647c0cf01ecd3c77">More...</a><br /></td></tr>
-<tr class="separator:gac2c4b841f7547fad647c0cf01ecd3c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2e2c888184119622170bfb83453e322d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d">nextHighestPriority</a> (<a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> *nextPriority, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
 <tr class="memdesc:ga2e2c888184119622170bfb83453e322d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the next highest priority to the priority we wish to insert - used to find where to store the new priority.  <a href="#ga2e2c888184119622170bfb83453e322d">More...</a><br /></td></tr>
 <tr class="separator:ga2e2c888184119622170bfb83453e322d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,9 +186,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gadc21ddb94c801e986fe0b2a09105e92c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gadc21ddb94c801e986fe0b2a09105e92c">insertFull</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
 <tr class="memdesc:gadc21ddb94c801e986fe0b2a09105e92c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert into a full buffer the passed in element of the passed in priority.  <a href="#gadc21ddb94c801e986fe0b2a09105e92c">More...</a><br /></td></tr>
 <tr class="separator:gadc21ddb94c801e986fe0b2a09105e92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3e85c888f355abcb7d3d93d69c575d9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga3e85c888f355abcb7d3d93d69c575d9a">adjustHeads</a> (void)</td></tr>
-<tr class="memdesc:ga3e85c888f355abcb7d3d93d69c575d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust the tail, and make any depleted priorities inactive.  <a href="#ga3e85c888f355abcb7d3d93d69c575d9a">More...</a><br /></td></tr>
-<tr class="separator:ga3e85c888f355abcb7d3d93d69c575d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7edf7efd053d359bece99262e6dbc539"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga7edf7efd053d359bece99262e6dbc539">adjustPriority</a> (void)</td></tr>
+<tr class="memdesc:ga7edf7efd053d359bece99262e6dbc539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark the highest priority inactive if necessary.  <a href="#ga7edf7efd053d359bece99262e6dbc539">More...</a><br /></td></tr>
+<tr class="separator:ga7edf7efd053d359bece99262e6dbc539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2e940de75d9a9058d8e6d7612807351a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a">readElement</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> *element)</td></tr>
 <tr class="memdesc:ga2e940de75d9a9058d8e6d7612807351a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read element from the buffer and assign to the element pointer passed in.  <a href="#ga2e940de75d9a9058d8e6d7612807351a">More...</a><br /></td></tr>
 <tr class="separator:ga2e940de75d9a9058d8e6d7612807351a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -205,13 +199,26 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga8d570a4b0c2fa07e9cf9710e3fc0928a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__Internal.html#ga8d570a4b0c2fa07e9cf9710e3fc0928a" title="insertPointNotFull() calculates the index of the valid insert point to be used when remapping the buf...">insertPointNotFull()</a> calculates the index of the valid insert point to be used when remapping the buffer.  <a href="#ga8d570a4b0c2fa07e9cf9710e3fc0928a">More...</a><br /></td></tr>
 <tr class="separator:ga8d570a4b0c2fa07e9cf9710e3fc0928a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga986f710d787e019094f88e166212fae1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga986f710d787e019094f88e166212fae1">insertPointFull</a> (<a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
-<tr class="memdesc:ga986f710d787e019094f88e166212fae1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__Internal.html#ga986f710d787e019094f88e166212fae1" title="insertPointFull() calculates the index of the valid insert point to be used when remapping the buffer...">insertPointFull()</a> calculates the index of the valid insert point to be used when remapping the buffer.  <a href="#ga986f710d787e019094f88e166212fae1">More...</a><br /></td></tr>
+<tr class="memdesc:ga986f710d787e019094f88e166212fae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the index of the valid insert point to be used when remapping the buffer.  <a href="#ga986f710d787e019094f88e166212fae1">More...</a><br /></td></tr>
 <tr class="separator:ga986f710d787e019094f88e166212fae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaac51893c35de64d1bf23b753e586d418"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gaac51893c35de64d1bf23b753e586d418">bridgePoint</a> (void)</td></tr>
-<tr class="separator:gaac51893c35de64d1bf23b753e586d418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61307a94e9cd555f0a9f422b6908c6d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga61307a94e9cd555f0a9f422b6908c6d0">bridgePointFull</a> (void)</td></tr>
+<tr class="memdesc:ga61307a94e9cd555f0a9f422b6908c6d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the bridgePoint when the buffer is full.  <a href="#ga61307a94e9cd555f0a9f422b6908c6d0">More...</a><br /></td></tr>
+<tr class="separator:ga61307a94e9cd555f0a9f422b6908c6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf299338f93f0fc5ec5d60b0f4c05085e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gaf299338f93f0fc5ec5d60b0f4c05085e">bridgePointNotFull</a> (void)</td></tr>
+<tr class="memdesc:gaf299338f93f0fc5ec5d60b0f4c05085e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the bridge point when the buffer is not full.  <a href="#gaf299338f93f0fc5ec5d60b0f4c05085e">More...</a><br /></td></tr>
+<tr class="separator:gaf299338f93f0fc5ec5d60b0f4c05085e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga70be83e9ffcbbdc0472e146ad49a8781"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga70be83e9ffcbbdc0472e146ad49a8781">remapNotFull</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> newIndex, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
 <tr class="memdesc:ga70be83e9ffcbbdc0472e146ad49a8781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remap buffer for a not full buffer for the index of priority passed in.  <a href="#ga70be83e9ffcbbdc0472e146ad49a8781">More...</a><br /></td></tr>
 <tr class="separator:ga70be83e9ffcbbdc0472e146ad49a8781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6657a0b0af5d8a1d240946ad69a2c38e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga6657a0b0af5d8a1d240946ad69a2c38e">remapFull</a> (<a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> index, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:ga6657a0b0af5d8a1d240946ad69a2c38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remap buffer where the buffer is full relevant to the priority passed in.  <a href="#ga6657a0b0af5d8a1d240946ad69a2c38e">More...</a><br /></td></tr>
+<tr class="separator:ga6657a0b0af5d8a1d240946ad69a2c38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga721b108b9ec49215f03f165fbc05ea05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05">overwriteSinglePriority</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> newPriority)</td></tr>
+<tr class="memdesc:ga721b108b9ec49215f03f165fbc05ea05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite without remapping if buffer is full and only a single priority exists on the buffer.  <a href="#ga721b108b9ec49215f03f165fbc05ea05">More...</a><br /></td></tr>
+<tr class="separator:ga721b108b9ec49215f03f165fbc05ea05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb1533afe9253e6298e7ebc82e4a3274"><td class="memItemLeft" align="right" valign="top"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Internal.html#gaeb1533afe9253e6298e7ebc82e4a3274">overwriteElement</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:gaeb1533afe9253e6298e7ebc82e4a3274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite element since buffer is full and there are no unused elements.  <a href="#gaeb1533afe9253e6298e7ebc82e4a3274">More...</a><br /></td></tr>
+<tr class="separator:gaeb1533afe9253e6298e7ebc82e4a3274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Internal Static Functionality. </p>
@@ -235,7 +242,7 @@ Functions</h2></td></tr>
 <p>Counts the number of active priorities. </p>
 <dl class="section return"><dt>Returns</dt><dd>number of active priorities </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00538">538</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00473">473</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -267,7 +274,7 @@ Here is the call graph for this function:</div>
 <p>Return the active status of the priority passed in. </p>
 <p>If the priority is active ACTIVE is returned. </p><dl class="section return"><dt>Returns</dt><dd>ACTIVE or INACTIVE </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00290">290</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00294">294</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -279,14 +286,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ga3e85c888f355abcb7d3d93d69c575d9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3e85c888f355abcb7d3d93d69c575d9a">&#9670;&nbsp;</a></span>adjustHeads()</h2>
+<a id="ga7edf7efd053d359bece99262e6dbc539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7edf7efd053d359bece99262e6dbc539">&#9670;&nbsp;</a></span>adjustPriority()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> adjustHeads </td>
+          <td class="memname"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> adjustPriority </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -295,34 +302,35 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Adjust the tail, and make any depleted priorities inactive. </p>
-<dl class="section return"><dt>Returns</dt><dd>VALID_INSERT or INVALID_INSERT </dd></dl>
+<p>Mark the highest priority inactive if necessary. </p>
+<dl class="section return"><dt>Returns</dt><dd>VALID_PRIORITY or INVALID_PRIORITY </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00758">758</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00694">694</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="group__Internal_ga3e85c888f355abcb7d3d93d69c575d9a_cgraph.png" border="0" usemap="#group__Internal_ga3e85c888f355abcb7d3d93d69c575d9a_cgraph" alt=""/></div>
-<map name="group__Internal_ga3e85c888f355abcb7d3d93d69c575d9a_cgraph" id="group__Internal_ga3e85c888f355abcb7d3d93d69c575d9a_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="151,56,245,83"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="148,5,248,32"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="157,107,239,133"/>
-<area shape="rect" id="node7" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="155,157,241,184"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="296,107,404,133"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="315,5,385,32"/>
+<div class="center"><img src="group__Internal_ga7edf7efd053d359bece99262e6dbc539_cgraph.png" border="0" usemap="#group__Internal_ga7edf7efd053d359bece99262e6dbc539_cgraph" alt=""/></div>
+<map name="group__Internal_ga7edf7efd053d359bece99262e6dbc539_cgraph" id="group__Internal_ga7edf7efd053d359bece99262e6dbc539_cgraph">
+<area shape="rect" id="node2" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="152,5,257,32"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="305,56,400,83"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="155,107,255,133"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="163,157,246,184"/>
+<area shape="rect" id="node8" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="309,183,396,209"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="448,107,556,133"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="317,107,388,133"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="gaac51893c35de64d1bf23b753e586d418"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaac51893c35de64d1bf23b753e586d418">&#9670;&nbsp;</a></span>bridgePoint()</h2>
+<a id="ga61307a94e9cd555f0a9f422b6908c6d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga61307a94e9cd555f0a9f422b6908c6d0">&#9670;&nbsp;</a></span>bridgePointFull()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> bridgePoint </td>
+          <td class="memname"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> bridgePointFull </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -331,18 +339,54 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00909">909</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p>Calculate the bridgePoint when the buffer is full. </p>
+<p>The bridgePoint is passed to the remap routine to notify the bridgePoint (see 'adding_data_to_the_Buffer' for more information). </p><dl class="section return"><dt>Returns</dt><dd>bridge point index </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00839">839</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="group__Internal_gaac51893c35de64d1bf23b753e586d418_cgraph.png" border="0" usemap="#group__Internal_gaac51893c35de64d1bf23b753e586d418_cgraph" alt=""/></div>
-<map name="group__Internal_gaac51893c35de64d1bf23b753e586d418_cgraph" id="group__Internal_gaac51893c35de64d1bf23b753e586d418_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="155,5,226,32"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="140,56,241,83"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="289,107,384,133"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="149,157,232,184"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="290,56,383,83"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="432,107,540,133"/>
+<div class="center"><img src="group__Internal_ga61307a94e9cd555f0a9f422b6908c6d0_cgraph.png" border="0" usemap="#group__Internal_ga61307a94e9cd555f0a9f422b6908c6d0_cgraph" alt=""/></div>
+<map name="group__Internal_ga61307a94e9cd555f0a9f422b6908c6d0_cgraph" id="group__Internal_ga61307a94e9cd555f0a9f422b6908c6d0_cgraph">
+<area shape="rect" id="node2" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="177,5,247,32"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="161,56,263,83"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="311,107,405,133"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="171,157,253,184"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="311,56,405,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gaf299338f93f0fc5ec5d60b0f4c05085e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf299338f93f0fc5ec5d60b0f4c05085e">&#9670;&nbsp;</a></span>bridgePointNotFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a> bridgePointNotFull </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the bridge point when the buffer is not full. </p>
+<p>The bridge point is passed to the remap routine to indicate the bridge point (see 'adding_data_to_the_Buffer' for more information). </p><dl class="section return"><dt>Returns</dt><dd>bridge point index </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00864">864</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__Internal_gaf299338f93f0fc5ec5d60b0f4c05085e_cgraph.png" border="0" usemap="#group__Internal_gaf299338f93f0fc5ec5d60b0f4c05085e_cgraph" alt=""/></div>
+<map name="group__Internal_gaf299338f93f0fc5ec5d60b0f4c05085e_cgraph" id="group__Internal_gaf299338f93f0fc5ec5d60b0f4c05085e_cgraph">
+<area shape="rect" id="node2" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="183,31,284,57"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="192,81,275,108"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="333,5,426,32"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="332,56,427,83"/>
 </map>
 </div>
 
@@ -367,7 +411,7 @@ Here is the call graph for this function:</div>
 <p>Check whether the buffer is empty. </p>
 <dl class="section return"><dt>Returns</dt><dd>BUFFER_EMPTY or BUFFER_NOT_EMPTY </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00677">677</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00613">613</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -390,7 +434,7 @@ Here is the call graph for this function:</div>
 <p>Buffer Full checks whether there is any room left in the buffer for a new insertion. </p>
 <p>A full buffer is indicated by an active priority buffer having the same value as the tail pointer since the tail buffer indicates the final possible element of the buffer. </p><dl class="section return"><dt>Returns</dt><dd>BUFFER_FULL or BUFFER_NOT_FULL </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00655">655</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00591">591</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -424,7 +468,7 @@ Here is the call graph for this function:</div>
 <p>Check the index is a valid Index. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_INDEX or INVALID_INDEX </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00069">69</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00071">71</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -447,7 +491,7 @@ Here is the call graph for this function:</div>
 <p>find the index at which we can store. </p>
 <p>This is only valid when the buffer is not full. Check for buffer empty case first since this is a very fast test. </p><dl class="section return"><dt>Returns</dt><dd>VALID_INDEX or INVALID_INDEX </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00181">181</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00185">185</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -456,12 +500,11 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node2" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="363,5,457,32"/>
 <area shape="rect" id="node3" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="209,100,309,127"/>
 <area shape="rect" id="node5" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2" title="Buffer Full checks whether there is any room left in the buffer for a new insertion. " alt="" coords="221,151,297,177"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="209,49,310,76"/>
-<area shape="rect" id="node10" href="group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72" title="Return the index pointed to by the head related to the priority passed in after following the head li..." alt="" coords="204,201,315,228"/>
+<area shape="rect" id="node8" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="209,49,310,76"/>
+<area shape="rect" id="node9" href="group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72" title="Return the index pointed to by the head related to the priority passed in after following the head li..." alt="" coords="204,201,315,228"/>
 <area shape="rect" id="node4" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="375,125,445,152"/>
 <area shape="rect" id="node6" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="363,63,457,89"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="369,188,451,215"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="505,63,613,89"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="369,188,451,215"/>
 </map>
 </div>
 
@@ -486,7 +529,7 @@ Here is the call graph for this function:</div>
 <p>Return the index pointed to by the head related with the priority passed in. </p>
 <dl class="section return"><dt>Returns</dt><dd>the index referenced by the relevant priority head </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00210">210</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00214">214</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -509,7 +552,7 @@ Here is the call graph for this function:</div>
 <p>Determine the highest priority and assign to the priority pointer passed in. </p>
 <p>Returns VALID_PRIORITY or INVALID_PRIORITY </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00348">348</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00352">352</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -541,14 +584,16 @@ Here is the call graph for this function:</div>
 <p>Advance the tail to its next position in the buffer. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_INDEX or INVALID_INDEX </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00085">85</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00087">87</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga64722337ab1ab6db7ba1eee6e510e890_cgraph.png" border="0" usemap="#group__Internal_ga64722337ab1ab6db7ba1eee6e510e890_cgraph" alt=""/></div>
 <map name="group__Internal_ga64722337ab1ab6db7ba1eee6e510e890_cgraph" id="group__Internal_ga64722337ab1ab6db7ba1eee6e510e890_cgraph">
 <area shape="rect" id="node2" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="113,5,213,32"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="261,5,332,32"/>
+<area shape="rect" id="node4" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="128,56,199,83"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="271,5,341,32"/>
+<area shape="rect" id="node5" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="261,56,351,83"/>
 </map>
 </div>
 
@@ -583,46 +628,23 @@ Here is the call graph for this function:</div>
 <p>Insert an element into the buffer of a given priority and adjust the buffer to correct the prioritisation if required. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_INSERT or INVALID_INSERT </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00596">596</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00531">531</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga63ad097411c7e90c201b2d94a2ab3162_cgraph.png" border="0" usemap="#group__Internal_ga63ad097411c7e90c201b2d94a2ab3162_cgraph" alt=""/></div>
 <map name="group__Internal_ga63ad097411c7e90c201b2d94a2ab3162_cgraph" id="group__Internal_ga63ad097411c7e90c201b2d94a2ab3162_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="807,1592,901,1619"/>
-<area shape="rect" id="node3" href="group__Internal.html#gaf8c08c3ee7157baffca08c117e4acfc0" title="Insert the passed in element of the passed in priority to an empty buffer. " alt="" coords="110,933,202,960"/>
-<area shape="rect" id="node4" href="group__Internal.html#gabe189820c7e0ccfea576ea30ef3150e3" title="Write an element to the buffer at the next empty position in the linked buffer and adjust the relevan..." alt="" coords="449,933,548,960"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2" title="Buffer Full checks whether there is any room left in the buffer for a new insertion. " alt="" coords="651,1440,727,1467"/>
-<area shape="rect" id="node10" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="639,832,740,859"/>
-<area shape="rect" id="node16" href="group__Internal.html#gadc21ddb94c801e986fe0b2a09105e92c" title="Insert into a full buffer the passed in element of the passed in priority. " alt="" coords="119,832,193,859"/>
-<area shape="rect" id="node31" href="group__Internal.html#ga2eb147495f07075555fc116fcff223c4" title="Insert into a not empty not full buffer the passed in element of the passed in priority. " alt="" coords="108,1085,204,1112"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="813,1187,895,1213"/>
-<area shape="rect" id="node11" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="804,832,904,859"/>
-<area shape="rect" id="node12" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="650,1035,729,1061"/>
-<area shape="rect" id="node13" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="650,376,729,403"/>
-<area shape="rect" id="node14" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="649,123,730,149"/>
-<area shape="rect" id="node15" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="651,173,728,200"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="807,528,901,555"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="971,832,1041,859"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="952,148,1060,175"/>
-<area shape="rect" id="node17" href="group__Internal.html#gac2c4b841f7547fad647c0cf01ecd3c77" title="Overwrite element since buffer is full and there are no unused elements. " alt="" coords="252,629,375,656"/>
-<area shape="rect" id="node18" href="group__Internal.html#ga3450cb30f7e5348606ca09709f210e15" title="Determines the lowest priority tail index. " alt="" coords="437,1035,560,1061"/>
-<area shape="rect" id="node20" href="group__Internal.html#ga986f710d787e019094f88e166212fae1" title="insertPointFull() calculates the index of the valid insert point to be used when remapping the buffer..." alt="" coords="637,629,742,656"/>
-<area shape="rect" id="node21" href="group__Internal.html#gaac51893c35de64d1bf23b753e586d418" title="bridgePoint" alt="" coords="455,731,542,757"/>
-<area shape="rect" id="node22" href="group__Internal.html#ga6f2fdb52bce7fcd5c8c9ab603c62938a" title="Counts the number of active priorities. " alt="" coords="432,72,565,99"/>
-<area shape="rect" id="node23" href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05" title="Overwrite without remapping if buffer is full and only a single priority exists on the buffer..." alt="" coords="423,325,575,352"/>
-<area shape="rect" id="node25" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="637,579,742,605"/>
-<area shape="rect" id="node26" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="811,47,897,73"/>
-<area shape="rect" id="node27" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="469,1136,528,1163"/>
-<area shape="rect" id="node30" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="463,1085,534,1112"/>
-<area shape="rect" id="node19" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d" title="Find the next highest priority to the priority we wish to insert &#45; used to find where to store the ne..." alt="" coords="623,528,756,555"/>
-<area shape="rect" id="node24" href="group__Internal.html#ga64722337ab1ab6db7ba1eee6e510e890" title="Advance the tail to its next position in the buffer. " alt="" coords="659,325,719,352"/>
-<area shape="rect" id="node28" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="645,1085,734,1112"/>
-<area shape="rect" id="node29" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="634,1136,745,1163"/>
-<area shape="rect" id="node32" href="group__Internal.html#gaaaca0205ce96bb4ed7d421595d5e7309" title="find the index at which we can store. " alt="" coords="423,1440,574,1467"/>
-<area shape="rect" id="node34" href="group__Internal.html#ga70be83e9ffcbbdc0472e146ad49a8781" title="Remap buffer for a not full buffer for the index of priority passed in. " alt="" coords="263,1136,363,1163"/>
-<area shape="rect" id="node33" href="group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72" title="Return the index pointed to by the head related to the priority passed in after following the head li..." alt="" coords="634,1541,745,1568"/>
-<area shape="rect" id="node35" href="group__Internal.html#ga8d570a4b0c2fa07e9cf9710e3fc0928a" title="insertPointNotFull() calculates the index of the valid insert point to be used when remapping the buf..." alt="" coords="435,1313,562,1340"/>
+<area shape="rect" id="node2" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="600,224,693,251"/>
+<area shape="rect" id="node3" href="group__Internal.html#gaf8c08c3ee7157baffca08c117e4acfc0" title="Insert the passed in element of the passed in priority to an empty buffer. " alt="" coords="110,173,202,200"/>
+<area shape="rect" id="node4" href="group__Internal.html#gabe189820c7e0ccfea576ea30ef3150e3" title="Write an element to the buffer at the next empty position in the linked buffer and adjust the relevan..." alt="" coords="278,123,377,149"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2" title="Buffer Full checks whether there is any room left in the buffer for a new insertion. " alt="" coords="463,275,539,301"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="451,97,552,124"/>
+<area shape="rect" id="node8" href="group__Internal.html#gadc21ddb94c801e986fe0b2a09105e92c" title="Insert into a full buffer the passed in element of the passed in priority. " alt="" coords="119,72,193,99"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga2eb147495f07075555fc116fcff223c4" title="Insert into a not empty not full buffer the passed in element of the passed in priority. " alt="" coords="108,224,204,251"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="462,148,541,175"/>
+<area shape="rect" id="node9" href="group__Internal.html#gaeb1533afe9253e6298e7ebc82e4a3274" title="Overwrite element since buffer is full and there are no unused elements. " alt="" coords="266,72,389,99"/>
+<area shape="rect" id="node11" href="group__Internal.html#gaaaca0205ce96bb4ed7d421595d5e7309" title="find the index at which we can store. " alt="" coords="252,224,403,251"/>
+<area shape="rect" id="node12" href="group__Internal.html#ga70be83e9ffcbbdc0472e146ad49a8781" title="Remap buffer for a not full buffer for the index of priority passed in. " alt="" coords="277,275,377,301"/>
 </map>
 </div>
 
@@ -657,25 +679,21 @@ Here is the call graph for this function:</div>
 <p>Insert the passed in element of the passed in priority to an empty buffer. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_INSERT or INVALID_INSERT </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00694">694</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00630">630</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_gaf8c08c3ee7157baffca08c117e4acfc0_cgraph.png" border="0" usemap="#group__Internal_gaf8c08c3ee7157baffca08c117e4acfc0_cgraph" alt=""/></div>
 <map name="group__Internal_gaf8c08c3ee7157baffca08c117e4acfc0_cgraph" id="group__Internal_gaf8c08c3ee7157baffca08c117e4acfc0_cgraph">
 <area shape="rect" id="node2" href="group__Internal.html#gabe189820c7e0ccfea576ea30ef3150e3" title="Write an element to the buffer at the next empty position in the linked buffer and adjust the relevan..." alt="" coords="145,183,244,209"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2" title="Buffer Full checks whether there is any room left in the buffer for a new insertion. " alt="" coords="305,157,381,184"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="447,259,530,285"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="292,107,393,133"/>
-<area shape="rect" id="node10" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="293,208,393,235"/>
-<area shape="rect" id="node11" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="303,309,382,336"/>
-<area shape="rect" id="node12" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="303,360,382,387"/>
-<area shape="rect" id="node13" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="448,5,529,32"/>
-<area shape="rect" id="node14" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="450,56,527,83"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="441,157,536,184"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="453,208,524,235"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="584,56,692,83"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="442,107,535,133"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2" title="Buffer Full checks whether there is any room left in the buffer for a new insertion. " alt="" coords="305,5,381,32"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="441,31,524,57"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="292,107,393,133"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="293,157,393,184"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="303,208,382,235"/>
+<area shape="rect" id="node8" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="303,259,382,285"/>
+<area shape="rect" id="node9" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="302,309,383,336"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="304,360,381,387"/>
 </map>
 </div>
 
@@ -710,37 +728,21 @@ Here is the call graph for this function:</div>
 <p>Insert into a full buffer the passed in element of the passed in priority. </p>
 <p>Remaps the buffer to correct the prioritisation. </p><dl class="section return"><dt>Returns</dt><dd>VALID_INSERT or INVALID_INSERT </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00734">734</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00670">670</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_gadc21ddb94c801e986fe0b2a09105e92c_cgraph.png" border="0" usemap="#group__Internal_gadc21ddb94c801e986fe0b2a09105e92c_cgraph" alt=""/></div>
 <map name="group__Internal_gadc21ddb94c801e986fe0b2a09105e92c_cgraph" id="group__Internal_gadc21ddb94c801e986fe0b2a09105e92c_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="515,69,616,96"/>
-<area shape="rect" id="node6" href="group__Internal.html#gac2c4b841f7547fad647c0cf01ecd3c77" title="Overwrite element since buffer is full and there are no unused elements. " alt="" coords="128,475,251,501"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="683,69,777,96"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="683,399,777,425"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="828,855,936,881"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga3450cb30f7e5348606ca09709f210e15" title="Determines the lowest priority tail index. " alt="" coords="313,373,436,400"/>
-<area shape="rect" id="node10" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="524,323,607,349"/>
-<area shape="rect" id="node11" href="group__Internal.html#ga986f710d787e019094f88e166212fae1" title="insertPointFull() calculates the index of the valid insert point to be used when remapping the buffer..." alt="" coords="322,272,427,299"/>
-<area shape="rect" id="node12" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="847,145,917,172"/>
-<area shape="rect" id="node13" href="group__Internal.html#gaac51893c35de64d1bf23b753e586d418" title="bridgePoint" alt="" coords="331,221,418,248"/>
-<area shape="rect" id="node14" href="group__Internal.html#ga6f2fdb52bce7fcd5c8c9ab603c62938a" title="Counts the number of active priorities. " alt="" coords="308,475,441,501"/>
-<area shape="rect" id="node15" href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05" title="Overwrite without remapping if buffer is full and only a single priority exists on the buffer..." alt="" coords="299,728,451,755"/>
-<area shape="rect" id="node16" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="680,627,780,653"/>
-<area shape="rect" id="node17" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="526,779,605,805"/>
-<area shape="rect" id="node18" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="525,880,606,907"/>
-<area shape="rect" id="node20" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="527,829,604,856"/>
-<area shape="rect" id="node21" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="322,424,427,451"/>
-<area shape="rect" id="node22" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="687,981,773,1008"/>
-<area shape="rect" id="node23" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="345,931,404,957"/>
-<area shape="rect" id="node26" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="339,981,410,1008"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d" title="Find the next highest priority to the priority we wish to insert &#45; used to find where to store the ne..." alt="" coords="499,373,632,400"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="526,525,605,552"/>
-<area shape="rect" id="node19" href="group__Internal.html#ga64722337ab1ab6db7ba1eee6e510e890" title="Advance the tail to its next position in the buffer. " alt="" coords="535,728,595,755"/>
-<area shape="rect" id="node24" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="521,981,610,1008"/>
-<area shape="rect" id="node25" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="510,931,621,957"/>
+<area shape="rect" id="node2" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="685,50,787,77"/>
+<area shape="rect" id="node5" href="group__Internal.html#gaeb1533afe9253e6298e7ebc82e4a3274" title="Overwrite element since buffer is full and there are no unused elements. " alt="" coords="128,101,251,127"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="851,50,945,77"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="851,126,945,153"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga3450cb30f7e5348606ca09709f210e15" title="Determines the lowest priority tail index. " alt="" coords="499,75,621,102"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga6f2fdb52bce7fcd5c8c9ab603c62938a" title="Counts the number of active priorities. " alt="" coords="669,126,803,153"/>
+<area shape="rect" id="node8" href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05" title="Overwrite without remapping if buffer is full and only a single priority exists on the buffer..." alt="" coords="299,177,451,203"/>
+<area shape="rect" id="node9" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="521,227,599,254"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga6657a0b0af5d8a1d240946ad69a2c38e" title="Remap buffer where the buffer is full relevant to the priority passed in. " alt="" coords="335,25,414,51"/>
 </map>
 </div>
 
@@ -775,32 +777,27 @@ Here is the call graph for this function:</div>
 <p>Insert into a not empty not full buffer the passed in element of the passed in priority. </p>
 <p>Remaps the buffer to correct the prioritisation. </p><dl class="section return"><dt>Returns</dt><dd>VALID_INSERT or INVALID_INSERT </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00712">712</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00648">648</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga2eb147495f07075555fc116fcff223c4_cgraph.png" border="0" usemap="#group__Internal_ga2eb147495f07075555fc116fcff223c4_cgraph" alt=""/></div>
 <map name="group__Internal_ga2eb147495f07075555fc116fcff223c4_cgraph" id="group__Internal_ga2eb147495f07075555fc116fcff223c4_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#gaaaca0205ce96bb4ed7d421595d5e7309" title="find the index at which we can store. " alt="" coords="149,127,300,153"/>
-<area shape="rect" id="node12" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="185,355,264,381"/>
-<area shape="rect" id="node13" href="group__Internal.html#ga70be83e9ffcbbdc0472e146ad49a8781" title="Remap buffer for a not full buffer for the index of priority passed in. " alt="" coords="175,304,275,331"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="531,5,625,32"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="361,203,461,229"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2" title="Buffer Full checks whether there is any room left in the buffer for a new insertion. " alt="" coords="373,152,449,179"/>
-<area shape="rect" id="node10" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="361,51,462,77"/>
-<area shape="rect" id="node11" href="group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72" title="Return the index pointed to by the head related to the priority passed in after following the head li..." alt="" coords="356,101,467,128"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="543,228,613,255"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="681,203,776,229"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="537,177,619,204"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="824,481,932,508"/>
-<area shape="rect" id="node14" href="group__Internal.html#ga8d570a4b0c2fa07e9cf9710e3fc0928a" title="insertPointNotFull() calculates the index of the valid insert point to be used when remapping the buf..." alt="" coords="348,355,475,381"/>
-<area shape="rect" id="node16" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="688,481,769,508"/>
-<area shape="rect" id="node17" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="690,532,767,559"/>
-<area shape="rect" id="node18" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="382,405,441,432"/>
-<area shape="rect" id="node15" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="525,279,631,305"/>
-<area shape="rect" id="node19" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="533,329,623,356"/>
-<area shape="rect" id="node20" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="539,380,617,407"/>
-<area shape="rect" id="node21" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="523,431,633,457"/>
+<area shape="rect" id="node2" href="group__Internal.html#gaaaca0205ce96bb4ed7d421595d5e7309" title="find the index at which we can store. " alt="" coords="149,107,300,133"/>
+<area shape="rect" id="node9" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="185,259,264,285"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga70be83e9ffcbbdc0472e146ad49a8781" title="Remap buffer for a not full buffer for the index of priority passed in. " alt="" coords="175,360,275,387"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="675,5,768,32"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="363,233,463,260"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2" title="Buffer Full checks whether there is any room left in the buffer for a new insertion. " alt="" coords="375,132,451,159"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="525,31,627,57"/>
+<area shape="rect" id="node8" href="group__Internal.html#gaf51ec5b943679d5a7e7a903a1ebc2e72" title="Return the index pointed to by the head related to the priority passed in after following the head li..." alt="" coords="357,81,468,108"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="541,259,611,285"/>
+<area shape="rect" id="node11" href="group__Internal.html#ga8d570a4b0c2fa07e9cf9710e3fc0928a" title="insertPointNotFull() calculates the index of the valid insert point to be used when remapping the buf..." alt="" coords="349,487,476,513"/>
+<area shape="rect" id="node12" href="group__Internal.html#gaf299338f93f0fc5ec5d60b0f4c05085e" title="Calculate the bridge point when the buffer is not full. " alt="" coords="348,183,477,209"/>
+<area shape="rect" id="node13" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="372,335,453,361"/>
+<area shape="rect" id="node14" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="374,385,451,412"/>
+<area shape="rect" id="node15" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="383,436,442,463"/>
+<area shape="rect" id="node16" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="377,537,448,564"/>
 </map>
 </div>
 
@@ -822,10 +819,10 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="group__Internal.html#ga986f710d787e019094f88e166212fae1" title="insertPointFull() calculates the index of the valid insert point to be used when remapping the buffer...">insertPointFull()</a> calculates the index of the valid insert point to be used when remapping the buffer. </p>
-<p>This routine is particularly used when an overwrite has taken place due to a full buffer. The priority passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document for more information. </p><dl class="section return"><dt>Returns</dt><dd>VALID_PRIORITY or INVALID_PRIORITY </dd></dl>
+<p>Calculate the index of the valid insert point to be used when remapping the buffer. </p>
+<p>This routine is particularly used when an overwrite has taken place due to a full buffer. The priority passed in is the priority of the newly added element. See 'adding_data_to_the_Buffer' for more information. </p><dl class="section return"><dt>Returns</dt><dd>insert point index </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00893">893</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00818">818</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -859,17 +856,16 @@ Here is the call graph for this function:</div>
 <p><a class="el" href="group__Internal.html#ga8d570a4b0c2fa07e9cf9710e3fc0928a" title="insertPointNotFull() calculates the index of the valid insert point to be used when remapping the buf...">insertPointNotFull()</a> calculates the index of the valid insert point to be used when remapping the buffer. </p>
 <p>This routine is particularly used when the buffer is not full and an overwrite hasn't taken place. The priority passed in is the priority of the newly added element. See the 'Adding data to the Buffer' document for more information. </p><dl class="section return"><dt>Returns</dt><dd>VALID_PRIORITY or INVALID_PRIORITY </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00865">865</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00790">790</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga8d570a4b0c2fa07e9cf9710e3fc0928a_cgraph.png" border="0" usemap="#group__Internal_ga8d570a4b0c2fa07e9cf9710e3fc0928a_cgraph" alt=""/></div>
 <map name="group__Internal_ga8d570a4b0c2fa07e9cf9710e3fc0928a_cgraph" id="group__Internal_ga8d570a4b0c2fa07e9cf9710e3fc0928a_cgraph">
 <area shape="rect" id="node2" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="180,5,285,32"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="197,56,268,83"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="191,107,274,133"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="197,56,268,83"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="191,107,274,133"/>
 <area shape="rect" id="node3" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="333,5,428,32"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="476,5,584,32"/>
 </map>
 </div>
 
@@ -894,7 +890,7 @@ Here is the call graph for this function:</div>
 <p>Determine the lowest priority in the buffer. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_PRIORITY or INVALID_PRIORITY </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00248">248</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00252">252</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -927,19 +923,18 @@ Here is the call graph for this function:</div>
 <p>Determines the lowest priority tail index. </p>
 <dl class="section return"><dt>Returns</dt><dd>index of the lowest priority tail </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00559">559</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00494">494</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga3450cb30f7e5348606ca09709f210e15_cgraph.png" border="0" usemap="#group__Internal_ga3450cb30f7e5348606ca09709f210e15_cgraph" alt=""/></div>
 <map name="group__Internal_ga3450cb30f7e5348606ca09709f210e15_cgraph" id="group__Internal_ga3450cb30f7e5348606ca09709f210e15_cgraph">
 <area shape="rect" id="node2" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="192,5,293,32"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d" title="Find the next highest priority to the priority we wish to insert &#45; used to find where to store the ne..." alt="" coords="176,56,309,83"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="203,107,282,133"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="201,157,284,184"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d" title="Find the next highest priority to the priority we wish to insert &#45; used to find where to store the ne..." alt="" coords="176,56,309,83"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="203,107,282,133"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="201,157,284,184"/>
 <area shape="rect" id="node3" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="358,5,451,32"/>
 <area shape="rect" id="node4" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="357,56,452,83"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="500,56,608,83"/>
 </map>
 </div>
 
@@ -964,7 +959,7 @@ Here is the call graph for this function:</div>
 <p>Return the index pointed to by the head related to the priority passed in after following the head link. </p>
 <dl class="section return"><dt>Returns</dt><dd>the index linked to by the relevant priority head </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00220">220</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00224">224</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1005,7 +1000,7 @@ Here is the call graph for this function:</div>
 <p>Find the next highest priority to the priority we wish to insert - used to find where to store the new priority. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_PRIORITY or INVALID_PRIORITY </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00516">516</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00451">451</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1047,7 +1042,7 @@ Here is the call graph for this function:</div>
 <p>Update the passed in index with the next index linked from the current index passed in. </p>
 <p>Returns index validity. </p><dl class="section return"><dt>Returns</dt><dd>VALID_INDEX or INVALID_INDEX </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00142">142</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00146">146</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1070,7 +1065,7 @@ Here is the call graph for this function:</div>
 <p>Update the passed in index with the index pointed to by the tail pointer after advancing it. </p>
 <p>Returns index validity. </p><dl class="section return"><dt>Returns</dt><dd>VALID_INDEX or INVALID_INDEX </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00131">131</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00135">135</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1082,8 +1077,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="gac2c4b841f7547fad647c0cf01ecd3c77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac2c4b841f7547fad647c0cf01ecd3c77">&#9670;&nbsp;</a></span>overwriteElement()</h2>
+<a id="gaeb1533afe9253e6298e7ebc82e4a3274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb1533afe9253e6298e7ebc82e4a3274">&#9670;&nbsp;</a></span>overwriteElement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1098,7 +1093,7 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
-          <td class="paramname"><em>newPriority</em>&#160;</td>
+          <td class="paramname"><em>priority</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1111,36 +1106,32 @@ Here is the call graph for this function:</div>
 <p>Overwrite element since buffer is full and there are no unused elements. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_WRITE or INVALID_WRITE </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00473">473</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00984">984</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="group__Internal_gac2c4b841f7547fad647c0cf01ecd3c77_cgraph.png" border="0" usemap="#group__Internal_gac2c4b841f7547fad647c0cf01ecd3c77_cgraph" alt=""/></div>
-<map name="group__Internal_gac2c4b841f7547fad647c0cf01ecd3c77_cgraph" id="group__Internal_gac2c4b841f7547fad647c0cf01ecd3c77_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga3450cb30f7e5348606ca09709f210e15" title="Determines the lowest priority tail index. " alt="" coords="191,406,313,432"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="392,456,493,483"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="401,254,484,280"/>
-<area shape="rect" id="node10" href="group__Internal.html#ga986f710d787e019094f88e166212fae1" title="insertPointFull() calculates the index of the valid insert point to be used when remapping the buffer..." alt="" coords="199,222,305,248"/>
-<area shape="rect" id="node11" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="724,546,795,572"/>
-<area shape="rect" id="node12" href="group__Internal.html#gaac51893c35de64d1bf23b753e586d418" title="bridgePoint" alt="" coords="209,355,295,382"/>
-<area shape="rect" id="node13" href="group__Internal.html#ga6f2fdb52bce7fcd5c8c9ab603c62938a" title="Counts the number of active priorities. " alt="" coords="185,82,319,108"/>
-<area shape="rect" id="node14" href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05" title="Overwrite without remapping if buffer is full and only a single priority exists on the buffer..." alt="" coords="176,659,328,686"/>
-<area shape="rect" id="node15" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="557,735,657,762"/>
-<area shape="rect" id="node16" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="403,811,482,838"/>
-<area shape="rect" id="node17" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="402,507,483,534"/>
-<area shape="rect" id="node19" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="404,558,481,584"/>
-<area shape="rect" id="node20" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="199,164,305,191"/>
-<area shape="rect" id="node21" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="564,26,651,52"/>
-<area shape="rect" id="node22" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="223,963,281,990"/>
-<area shape="rect" id="node25" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="217,1014,287,1040"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d" title="Find the next highest priority to the priority we wish to insert &#45; used to find where to store the ne..." alt="" coords="376,355,509,382"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="403,608,482,635"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="561,456,654,483"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="560,330,655,356"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="705,419,813,446"/>
-<area shape="rect" id="node18" href="group__Internal.html#ga64722337ab1ab6db7ba1eee6e510e890" title="Advance the tail to its next position in the buffer. " alt="" coords="413,710,473,736"/>
-<area shape="rect" id="node23" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="398,1014,487,1040"/>
-<area shape="rect" id="node24" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="387,963,498,990"/>
+<div class="center"><img src="group__Internal_gaeb1533afe9253e6298e7ebc82e4a3274_cgraph.png" border="0" usemap="#group__Internal_gaeb1533afe9253e6298e7ebc82e4a3274_cgraph" alt=""/></div>
+<map name="group__Internal_gaeb1533afe9253e6298e7ebc82e4a3274_cgraph" id="group__Internal_gaeb1533afe9253e6298e7ebc82e4a3274_cgraph">
+<area shape="rect" id="node2" href="group__Internal.html#ga3450cb30f7e5348606ca09709f210e15" title="Determines the lowest priority tail index. " alt="" coords="376,101,499,128"/>
+<area shape="rect" id="node8" href="group__Internal.html#ga6f2fdb52bce7fcd5c8c9ab603c62938a" title="Counts the number of active priorities. " alt="" coords="185,64,319,91"/>
+<area shape="rect" id="node9" href="group__Internal.html#ga721b108b9ec49215f03f165fbc05ea05" title="Overwrite without remapping if buffer is full and only a single priority exists on the buffer..." alt="" coords="176,608,328,635"/>
+<area shape="rect" id="node12" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="398,760,477,787"/>
+<area shape="rect" id="node17" href="group__Internal.html#ga6657a0b0af5d8a1d240946ad69a2c38e" title="Remap buffer where the buffer is full relevant to the priority passed in. " alt="" coords="213,304,291,331"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="563,152,664,179"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d" title="Find the next highest priority to the priority we wish to insert &#45; used to find where to store the ne..." alt="" coords="547,101,680,128"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="574,51,653,77"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="572,304,655,331"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="728,177,823,204"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="563,709,663,736"/>
+<area shape="rect" id="node13" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="397,557,478,584"/>
+<area shape="rect" id="node14" href="group__Internal.html#ga64722337ab1ab6db7ba1eee6e510e890" title="Advance the tail to its next position in the buffer. " alt="" coords="407,608,467,635"/>
+<area shape="rect" id="node16" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="399,507,476,533"/>
+<area shape="rect" id="node11" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="740,431,811,457"/>
+<area shape="rect" id="node15" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="578,557,649,584"/>
+<area shape="rect" id="node18" href="group__Internal.html#ga986f710d787e019094f88e166212fae1" title="Calculate the index of the valid insert point to be used when remapping the buffer. " alt="" coords="385,355,490,381"/>
+<area shape="rect" id="node19" href="group__Internal.html#ga61307a94e9cd555f0a9f422b6908c6d0" title="Calculate the bridgePoint when the buffer is full. " alt="" coords="383,253,491,280"/>
+<area shape="rect" id="node20" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="408,51,467,77"/>
+<area shape="rect" id="node21" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="394,152,481,179"/>
 </map>
 </div>
 
@@ -1175,20 +1166,21 @@ Here is the call graph for this function:</div>
 <p>Overwrite without remapping if buffer is full and only a single priority exists on the buffer. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_WRITE or INVALID_WRITE </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00447">447</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00954">954</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga721b108b9ec49215f03f165fbc05ea05_cgraph.png" border="0" usemap="#group__Internal_ga721b108b9ec49215f03f165fbc05ea05_cgraph" alt=""/></div>
 <map name="group__Internal_ga721b108b9ec49215f03f165fbc05ea05_cgraph" id="group__Internal_ga721b108b9ec49215f03f165fbc05ea05_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="352,27,452,53"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="213,27,292,53"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="212,128,293,155"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="205,179,300,205"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga64722337ab1ab6db7ba1eee6e510e890" title="Advance the tail to its next position in the buffer. " alt="" coords="223,77,283,104"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="214,229,291,256"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="504,27,575,53"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="348,179,456,205"/>
+<area shape="rect" id="node2" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="352,6,452,32"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="213,31,292,58"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="212,183,293,210"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="205,234,300,260"/>
+<area shape="rect" id="node8" href="group__Internal.html#ga64722337ab1ab6db7ba1eee6e510e890" title="Advance the tail to its next position in the buffer. " alt="" coords="223,82,283,108"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="214,132,291,159"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="504,6,575,32"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="348,183,456,210"/>
+<area shape="rect" id="node9" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="367,82,437,108"/>
 </map>
 </div>
 
@@ -1213,21 +1205,21 @@ Here is the call graph for this function:</div>
 <p>Read element from the buffer and assign to the element pointer passed in. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_ELEMENT or INVALID_ELEMENT </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00792">792</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00720">720</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga2e940de75d9a9058d8e6d7612807351a_cgraph.png" border="0" usemap="#group__Internal_ga2e940de75d9a9058d8e6d7612807351a_cgraph" alt=""/></div>
 <map name="group__Internal_ga2e940de75d9a9058d8e6d7612807351a_cgraph" id="group__Internal_ga2e940de75d9a9058d8e6d7612807351a_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="291,5,391,32"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga3e85c888f355abcb7d3d93d69c575d9a" title="Adjust the tail, and make any depleted priorities inactive. " alt="" coords="148,81,243,108"/>
-<area shape="rect" id="node9" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="160,157,231,184"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="457,5,528,32"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="293,56,388,83"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="299,107,382,133"/>
-<area shape="rect" id="node8" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="297,157,384,184"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="439,107,547,133"/>
-<area shape="rect" id="node10" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="296,208,385,235"/>
+<area shape="rect" id="node2" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="297,5,397,32"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga7edf7efd053d359bece99262e6dbc539" title="Mark the highest priority inactive if necessary. " alt="" coords="148,107,247,133"/>
+<area shape="rect" id="node9" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="162,208,233,235"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="460,5,531,32"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="295,56,400,83"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="448,81,543,108"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="306,157,389,184"/>
+<area shape="rect" id="node8" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="304,208,391,235"/>
+<area shape="rect" id="node10" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="303,259,392,285"/>
 </map>
 </div>
 
@@ -1252,23 +1244,17 @@ Here is the call graph for this function:</div>
 <p>Read the next element and assign to the element pointer passed in. </p>
 <p>Checks that there is data to read. Returns VALID_ELEMENT on success. </p><dl class="section return"><dt>Returns</dt><dd>VALID_ELEMENT or INVALID_ELEMENT </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00576">576</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00511">511</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga8f4c086d9cc6c9d8b2d19d0d8622afaa_cgraph.png" border="0" usemap="#group__Internal_ga8f4c086d9cc6c9d8b2d19d0d8622afaa_cgraph" alt=""/></div>
 <map name="group__Internal_ga8f4c086d9cc6c9d8b2d19d0d8622afaa_cgraph" id="group__Internal_ga8f4c086d9cc6c9d8b2d19d0d8622afaa_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="177,31,270,57"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a" title="Read element from the buffer and assign to the element pointer passed in. " alt="" coords="176,81,271,108"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="461,5,561,32"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga3e85c888f355abcb7d3d93d69c575d9a" title="Adjust the tail, and make any depleted priorities inactive. " alt="" coords="319,81,413,108"/>
-<area shape="rect" id="node11" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="331,157,401,184"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="628,5,699,32"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="464,56,559,83"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="470,107,553,133"/>
-<area shape="rect" id="node10" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="468,157,555,184"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="609,107,717,133"/>
-<area shape="rect" id="node12" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="467,208,556,235"/>
+<area shape="rect" id="node2" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="177,5,270,32"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a" title="Read element from the buffer and assign to the element pointer passed in. " alt="" coords="176,56,271,83"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="465,31,565,57"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga7edf7efd053d359bece99262e6dbc539" title="Mark the highest priority inactive if necessary. " alt="" coords="319,56,417,83"/>
+<area shape="rect" id="node6" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="333,107,403,133"/>
 </map>
 </div>
 
@@ -1310,7 +1296,7 @@ Here is the call graph for this function:</div>
 <p>These refer to buffer elements and cause the buffer to be remapped or re-routed. We modify three links as follows:</p>
 <div class="fragment"><div class="line">save a1*</div><div class="line">a1* = b</div><div class="line">a2* = b*</div><div class="line">b* = saved a1*</div></div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>VALID_REMAP or INVALID_REMAP </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00830">830</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00755">755</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1319,6 +1305,63 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node2" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="123,5,212,32"/>
 <area shape="rect" id="node3" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="128,56,207,83"/>
 <area shape="rect" id="node4" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="112,107,223,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga6657a0b0af5d8a1d240946ad69a2c38e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6657a0b0af5d8a1d240946ad69a2c38e">&#9670;&nbsp;</a></span>remapFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="defs_8h.html#a63d66f35aeb951f4087f0e3976457579">check_t</a> remapFull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="defs_8h.html#a9ff1c947b95fe8029f3efefacb3d9094">index_t</a>&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a>&#160;</td>
+          <td class="paramname"><em>priority</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remap buffer where the buffer is full relevant to the priority passed in. </p>
+<dl class="section return"><dt>Returns</dt><dd>VALID_PRIORITY or INVALID_PRIORITY </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00912">912</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__Internal_ga6657a0b0af5d8a1d240946ad69a2c38e_cgraph.png" border="0" usemap="#group__Internal_ga6657a0b0af5d8a1d240946ad69a2c38e_cgraph" alt=""/></div>
+<map name="group__Internal_ga6657a0b0af5d8a1d240946ad69a2c38e_cgraph" id="group__Internal_ga6657a0b0af5d8a1d240946ad69a2c38e_cgraph">
+<area shape="rect" id="node2" href="group__Internal.html#ga986f710d787e019094f88e166212fae1" title="Calculate the index of the valid insert point to be used when remapping the buffer. " alt="" coords="141,5,246,32"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="334,56,405,83"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="328,107,411,133"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga61307a94e9cd555f0a9f422b6908c6d0" title="Calculate the bridgePoint when the buffer is full. " alt="" coords="139,157,247,184"/>
+<area shape="rect" id="node8" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="319,208,420,235"/>
+<area shape="rect" id="node9" href="group__Internal.html#ga3450cb30f7e5348606ca09709f210e15" title="Determines the lowest priority tail index. " alt="" coords="132,259,255,285"/>
+<area shape="rect" id="node12" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="491,360,572,387"/>
+<area shape="rect" id="node13" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="493,411,570,437"/>
+<area shape="rect" id="node14" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="164,461,223,488"/>
+<area shape="rect" id="node17" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="488,512,575,539"/>
+<area shape="rect" id="node18" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="158,512,229,539"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="484,208,579,235"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="627,385,735,412"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga2e2c888184119622170bfb83453e322d" title="Find the next highest priority to the priority we wish to insert &#45; used to find where to store the ne..." alt="" coords="303,259,436,285"/>
+<area shape="rect" id="node11" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="330,309,409,336"/>
+<area shape="rect" id="node15" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="325,512,414,539"/>
+<area shape="rect" id="node16" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="314,461,425,488"/>
 </map>
 </div>
 
@@ -1353,27 +1396,26 @@ Here is the call graph for this function:</div>
 <p>Remap buffer for a not full buffer for the index of priority passed in. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_PRIORITY or INVALID_PRIORITY </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00933">933</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00878">878</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__Internal_ga70be83e9ffcbbdc0472e146ad49a8781_cgraph.png" border="0" usemap="#group__Internal_ga70be83e9ffcbbdc0472e146ad49a8781_cgraph" alt=""/></div>
 <map name="group__Internal_ga70be83e9ffcbbdc0472e146ad49a8781_cgraph" id="group__Internal_ga70be83e9ffcbbdc0472e146ad49a8781_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga8d570a4b0c2fa07e9cf9710e3fc0928a" title="insertPointNotFull() calculates the index of the valid insert point to be used when remapping the buf..." alt="" coords="153,107,280,133"/>
-<area shape="rect" id="node6" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="348,5,419,32"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="342,107,425,133"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="166,208,267,235"/>
-<area shape="rect" id="node10" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="493,259,575,285"/>
-<area shape="rect" id="node11" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="495,309,573,336"/>
-<area shape="rect" id="node12" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="167,56,267,83"/>
-<area shape="rect" id="node13" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="187,385,246,412"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="331,56,436,83"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="487,157,581,184"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="629,259,737,285"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="337,208,430,235"/>
-<area shape="rect" id="node14" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="339,411,428,437"/>
-<area shape="rect" id="node15" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="344,461,423,488"/>
-<area shape="rect" id="node16" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="328,360,439,387"/>
+<area shape="rect" id="node2" href="group__Internal.html#ga8d570a4b0c2fa07e9cf9710e3fc0928a" title="insertPointNotFull() calculates the index of the valid insert point to be used when remapping the buf..." alt="" coords="155,56,281,83"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="351,5,421,32"/>
+<area shape="rect" id="node6" href="group__Internal.html#gaf299338f93f0fc5ec5d60b0f4c05085e" title="Calculate the bridge point when the buffer is not full. " alt="" coords="153,107,283,133"/>
+<area shape="rect" id="node8" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="177,208,259,235"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga0658dbd48225de33f2906ebe3839a829" title="Set the relevant activity flag of the priority passed in. " alt="" coords="179,157,257,184"/>
+<area shape="rect" id="node11" href="group__Internal.html#gaef16038e1f9438af30a74f142d390814" title="Remap the links of the indexes passed in. " alt="" coords="189,309,247,336"/>
+<area shape="rect" id="node15" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="183,259,253,285"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga0d9ce6cc5db1bfe9b195180fc40db057" title="Determine the highest priority and assign to the priority pointer passed in. " alt="" coords="333,56,439,83"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="345,107,427,133"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="335,157,437,184"/>
+<area shape="rect" id="node9" href="group__Internal.html#ga1d89e6a47f0d969863ebd23cf34f8ceb" title="Check the priority is a valid one. " alt="" coords="332,208,440,235"/>
+<area shape="rect" id="node12" href="group__Internal.html#gae61bd49f018987359c0c7af18baaccad" title="Check the index is a valid Index. " alt="" coords="341,259,431,285"/>
+<area shape="rect" id="node13" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="347,309,425,336"/>
+<area shape="rect" id="node14" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="331,360,441,387"/>
 </map>
 </div>
 
@@ -1397,7 +1439,7 @@ Here is the call graph for this function:</div>
 
 <p>Reset the Buffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00389">389</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00393">393</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1428,7 +1470,7 @@ Here is the call graph for this function:</div>
 
 <p>Reset Heads and Tail. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00374">374</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00378">378</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1457,7 +1499,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>VALID_ACTIVE or INVALID_ACTIVE </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00310">310</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00314">314</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1494,7 +1536,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>VALID_ACTIVE or INVALID_ACTIVE </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00329">329</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00333">333</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1525,7 +1567,7 @@ Here is the call graph for this function:</div>
 <p>Returns the index value referenced by the tail. </p>
 <dl class="section return"><dt>Returns</dt><dd>tail index </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00103">103</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00107">107</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1548,7 +1590,7 @@ Here is the call graph for this function:</div>
 <p>Check the priority is a valid one. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_PRIORITY or INVALID_PRIORITY </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00273">273</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00277">277</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1589,7 +1631,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>VALID_INDEX or INVALID_INDEX </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00637">637</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00573">573</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1622,7 +1664,7 @@ Here is the call graph for this function:</div>
 <p>Write an element to the buffer at the next empty position in the linked buffer and adjust the relevant priority head. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_WRITE or INVALID_WRITE </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00412">412</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00416">416</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1674,7 +1716,7 @@ Here is the call graph for this function:</div>
 <p>Set the value of the head pointer associated with the priority passed in with the index passed in. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_HEAD or INVALID_HEAD </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00230">230</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00234">234</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1715,7 +1757,7 @@ Here is the call graph for this function:</div>
 <p>Writes the index passed in to the element referenced by the current index passed in. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_INDEX or INVALID_INDEX </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00161">161</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00165">165</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1738,7 +1780,7 @@ Here is the call graph for this function:</div>
 <p>Write a new index to the tail pointer. </p>
 <dl class="section return"><dt>Returns</dt><dd>VALID_INDEX or INVALID_INDEX </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00113">113</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l00117">117</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

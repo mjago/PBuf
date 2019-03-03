@@ -1,7 +1,8 @@
 var searchData=
 [
   ['bf',['bf',['../priority__buffer_8c.html#a244c54f59b41d36f2aac77b7d0a47281',1,'priority_buffer.c']]],
-  ['bridgepoint',['bridgePoint',['../group__Internal.html#gaac51893c35de64d1bf23b753e586d418',1,'priority_buffer.c']]],
+  ['bridgepointfull',['bridgePointFull',['../group__Internal.html#ga61307a94e9cd555f0a9f422b6908c6d0',1,'bridgePointFull(void):&#160;priority_buffer.c'],['../group__Internal.html#ga61307a94e9cd555f0a9f422b6908c6d0',1,'bridgePointFull(void):&#160;priority_buffer.c']]],
+  ['bridgepointnotfull',['bridgePointNotFull',['../group__Internal.html#gaf299338f93f0fc5ec5d60b0f4c05085e',1,'priority_buffer.c']]],
   ['buffer_5fempty',['BUFFER_EMPTY',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a78d7168c875c46a0fbb5835cd160e2ba',1,'defs.h']]],
   ['buffer_5ffull',['BUFFER_FULL',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a917ab436d39980901dfe85d9a4762769',1,'defs.h']]],
   ['buffer_5fnot_5fempty',['BUFFER_NOT_EMPTY',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a2f114254b8ccc278cda1eedd44f6aadf',1,'defs.h']]],

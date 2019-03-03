@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['state_5fenter_5faction',['STATE_ENTER_ACTION',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a512245e0bf48ec2fe29d1493dac5c1da',1,'cli.h']]],
-  ['state_5fenter_5fpriority',['STATE_ENTER_PRIORITY',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a13c9394ac1d305fe16be9e84cbe08e0c',1,'cli.h']]],
-  ['state_5fenter_5fvalue',['STATE_ENTER_VALUE',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a31c65ab487224702b3fb2c626d5aec4b',1,'cli.h']]],
-  ['state_5fexit',['STATE_EXIT',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a6a14bcf2a972a6b9e3d4459512082c26',1,'cli.h']]],
-  ['state_5finit',['STATE_INIT',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a98d2a2153b4ae0445fa0b114d65b94d9',1,'cli.h']]],
-  ['state_5freset',['STATE_RESET',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a876bf84fec67ea51d517204b2903d5d4',1,'cli.h']]],
-  ['state_5fretrieve_5fvalue',['STATE_RETRIEVE_VALUE',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248afc98f8377c41b16c1f97fbde71447299',1,'cli.h']]],
-  ['state_5fsize',['STATE_SIZE',['../cli_8h.html#aa0aafed44fec19806d8f9ad834be1248adbbdae67f30def3eee7913d298b729c0',1,'cli.h']]]
+  ['valid_5factive',['VALID_ACTIVE',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a80a285b9db8ddecf239c48eb9ad7f2f8',1,'defs.h']]],
+  ['valid_5fdata',['VALID_DATA',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5ab71e71e96a8b7aa4ed5fccf05d929d88',1,'defs.h']]],
+  ['valid_5felement',['VALID_ELEMENT',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5ae081d723241cbce9f598d84fe7d4d7b3',1,'defs.h']]],
+  ['valid_5fhead',['VALID_HEAD',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a55e2ec7bc7ca712be40f092ee80dd5a0',1,'defs.h']]],
+  ['valid_5findex',['VALID_INDEX',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a8f9e436d7fa3139a727f059c2b4cd8f9',1,'defs.h']]],
+  ['valid_5finsert',['VALID_INSERT',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a48199d9b0be0a43456deacf1ea6f72cc',1,'defs.h']]],
+  ['valid_5fnumber',['VALID_NUMBER',['../cli_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a71ae441bab6fc925023bf343f97d2466',1,'cli.h']]],
+  ['valid_5fpriority',['VALID_PRIORITY',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5aaa9953c3f338bfe8733c5af02db26a02',1,'defs.h']]],
+  ['valid_5fremap',['VALID_REMAP',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a52596d0e990e46c7f9f711e3c9ebfed5',1,'defs.h']]],
+  ['valid_5fretrieve',['VALID_RETRIEVE',['../cli_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a4db026252f8ca1eb5fab89e7227106a1',1,'VALID_RETRIEVE():&#160;cli.h'],['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a4db026252f8ca1eb5fab89e7227106a1',1,'VALID_RETRIEVE():&#160;defs.h']]],
+  ['valid_5fwrite',['VALID_WRITE',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a50cd76d93d2ff4084bb7b513f333fadc',1,'defs.h']]]
 ];

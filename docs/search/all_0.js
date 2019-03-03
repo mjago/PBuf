@@ -6,7 +6,7 @@ var searchData=
   ['activity',['activity',['../structPBUF__T.html#a37177186f4fc5752b945b2a10aad5af2',1,'PBUF_T']]],
   ['activity_5ft',['activity_t',['../defs_8h.html#a8e4dfdfbb5439926d9a9b21c13499df5',1,'defs.h']]],
   ['adding_5fdata_5fto_5fthe_5fbuffer_2emd',['adding_data_to_the_buffer.md',['../adding__data__to__the__buffer_8md.html',1,'']]],
-  ['adjustheads',['adjustHeads',['../group__Internal.html#ga3e85c888f355abcb7d3d93d69c575d9a',1,'priority_buffer.c']]],
+  ['adjustpriority',['adjustPriority',['../group__Internal.html#ga7edf7efd053d359bece99262e6dbc539',1,'adjustPriority(void):&#160;priority_buffer.c'],['../group__Internal.html#ga7edf7efd053d359bece99262e6dbc539',1,'adjustPriority(void):&#160;priority_buffer.c']]],
   ['api',['API',['../group__API.html',1,'']]],
   ['adding_20data_20to_20the_20buffer',['Adding Data to the Buffer',['../md_docs_dox_adding_data_to_the_buffer.html',1,'']]]
 ];

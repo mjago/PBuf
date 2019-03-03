@@ -812,7 +812,7 @@ STATIC index_t insertPointNotFull(priority_t priority)
    Calculate the index of the valid insert point to be used when remapping the buffer.
    This routine is particularly used when an overwrite has taken place due to a full buffer.
    The priority passed in is the priority of the newly added element.
-   See @adding_data_to_the_Buffer for more information.
+   See 'adding_data_to_the_Buffer' for more information.
    \return insert point index */
 
 index_t insertPointFull(priority_t priority)
@@ -833,7 +833,7 @@ index_t insertPointFull(priority_t priority)
 
 /**
    Calculate the bridgePoint when the buffer is full. The bridgePoint is passed to the
-   remap routine to notify the bridgePoint (see @adding_data_to_the_Buffer for more information).
+   remap routine to notify the bridgePoint (see 'adding_data_to_the_Buffer' for more information).
    \return bridge point index */
 
 index_t bridgePointFull(void)
@@ -858,7 +858,7 @@ index_t bridgePointFull(void)
 
 /**
    Calculate the bridge point when the buffer is not full. The bridge point is passed to the
-   remap routine to indicate the bridge point (see @adding_data_to_the_Buffer for more information).
+   remap routine to indicate the bridge point (see 'adding_data_to_the_Buffer' for more information).
    \return bridge point index */
 
 STATIC index_t bridgePointNotFull(void)
