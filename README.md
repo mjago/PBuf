@@ -29,7 +29,7 @@ By default these are set to `4`, `8` and `3` respectively.
 
 ## Test
 
-A test suite is available in `test/` and can be run by typing `make test` in the root directory.
+A test suite is available in `test/` and can be run by typing `make` in the root directory.
 
 The testing framework used is [Unity Test System](https://github.com/throwtheswitch/). The
 test runners are written in C to avoid other dependencies. [Unity Test System](https://github.com/throwtheswitch/) is MIT licensed.
