@@ -2,22 +2,25 @@
 #include <inttypes.h>
 #include <string.h>
 #include "cli.h"
+
 #include "../src/priority_buffer.h"
+
+#define PRI_HIGH (PRIORITY_SIZE - 1)
 
 /* States */
 
 static void stateInit(void);
 static void stateEnterAction(void);
 static void stateEnterPriority(void);
-static void stateEnterValue(void);
 static void stateRetrieveValue(void);
 static void stateReset(void);
-static void stateSize(void);
 static void stateExit(void);
 static uint8_t readNumber(uint8_t *element);
 static void printPriority(void);
 static void printBuffer(void);
 static void printMenu(void);
+static void clearTerminal(void);
+static void insertValue(int value);
 
 /* State Machine */
 
@@ -26,10 +29,8 @@ static stateMachine_t stateMachine[] =
     {STATE_INIT, stateInit},
     {STATE_ENTER_ACTION, stateEnterAction},
     {STATE_ENTER_PRIORITY, stateEnterPriority},
-    {STATE_ENTER_VALUE, stateEnterValue},
     {STATE_RETRIEVE_VALUE, stateRetrieveValue},
     {STATE_RESET, stateReset},
-    {STATE_SIZE, stateSize},
     {STATE_EXIT, stateExit},
   };
 
@@ -37,6 +38,7 @@ static stateMachine_t stateMachine[] =
 
 static state_t state;
 static uint8_t priority;
+static int inputValue;
 
 /* main loop */
 
@@ -61,10 +63,10 @@ int main()
 
 static void stateInit(void)
 {
-  printf("\nTended Prioritised Buffer Evaluation Application\n");
   priority = LOW_PRIORITY;
   state = STATE_ENTER_ACTION;
   PBUF_reset();
+  clearTerminal();
   printBuffer();
 }
 
@@ -87,64 +89,34 @@ static void stateEnterPriority(void)
   uint8_t value;
   for(;;)
     {
-      printf("\nEnter a Priority between 0 and 2 \n (0 is lowest, 2 is highest)...\n\n");
+      clearTerminal();
+      printf("Enter a Priority between 0 and %u \n (0 is lowest, %u is highest)...\n\n",PRI_HIGH, PRI_HIGH);
       if(readNumber(&value) == VALID_NUMBER)
         {
-          if(value < 3)
+          if(value < PRIORITY_SIZE)
             {
               priority = (uint8_t) value;
-              printPriority();
               state = STATE_ENTER_ACTION;
               break;
             }
         }
     }
-}
 
-static void stateEnterValue(void)
-{
-  uint8_t value;
-
-  for(;;)
-    {
-      printBuffer();
-      printf("\nEnter a number between 0 and 255\n");
-      printf("\n Or M for Menu...\n");
-      value = 255;
-      if(readNumber(&value) == VALID_NUMBER)
-        {
-          if(value <= 255)
-            {
-              printf("\ninserting %u (priority %u)\n", value, priority);
-              PBUF_insert((uint8_t) value, priority);
-              printBuffer();
-            }
-        }
-      else
-        {
-          state = STATE_ENTER_ACTION;
-          break;
-        }
-    }
+  clearTerminal();
+  printBuffer();
 }
 
 static void stateEnterAction(void)
 {
   int value;
   char tmp[256]={0x0};
-
-  printMenu();
+  char str[16], *endp;
 
   while(fgets(tmp, sizeof(tmp), stdin)!=NULL)
     {
       if((tmp[0] == 'p') || (tmp[0] == 'P'))
         {
           state = STATE_ENTER_PRIORITY;
-          break;
-        }
-      else if((tmp[0] == 'e') || (tmp[0] == 'E'))
-        {
-          state = STATE_ENTER_VALUE;
           break;
         }
       else if((tmp[0] == 'g') || (tmp[0] == 'G'))
@@ -157,18 +129,21 @@ static void stateEnterAction(void)
           state = STATE_RESET;
           break;
         }
-      else if((tmp[0] == 's') || (tmp[0] == 'S'))
-        {
-          state = STATE_SIZE;
-          break;
-        }
       else if((tmp[0] == 'q') || (tmp[0] == 'Q'))
         {
           state = STATE_EXIT;
           break;
         }
+      else if((tmp[0] >= '0') && (tmp[0] <= '9'))
+        {
+          inputValue = strtoumax(tmp, &endp, 0);
+          insertValue(inputValue);
+          break;
+        }
       else
         {
+          clearTerminal();
+          printBuffer();
           state = STATE_ENTER_ACTION;
           break;
         }
@@ -178,15 +153,17 @@ static void stateEnterAction(void)
 static void stateRetrieveValue(void)
 {
   uint8_t value;
+
+  clearTerminal();
   for(;;)
     {
       if(PBUF_retrieve(&value) == 0u)
         {
-          printf("\nValue %d removed from buffer\n", value);
+          printf("Value %d retrieved from buffer\n...\n", value);
         }
       else
         {
-          printf("\nOops! Unable to remove a value!\n");
+          printf("Oops! Unable to retrieve a value!\n...\n");
         }
       printBuffer();
       state = STATE_ENTER_ACTION;
@@ -196,8 +173,9 @@ static void stateRetrieveValue(void)
 
 static void stateReset(void)
 {
-  printf("Resetting Buffer!\n");
   PBUF_reset();
+  clearTerminal();
+  printf("Buffer Reset!\n...\n");
   printBuffer();
   state = STATE_ENTER_ACTION;
 }
@@ -207,25 +185,17 @@ static void stateExit(void)
   printf("Quitting!\n");
 }
 
-static void stateSize(void)
-{
-  printf("Size!\n");
-}
-
 static void printPriority(void)
 {
-  printf("\nPriority %u ", priority);
+  printf("priority %u ", priority);
   switch(priority)
     {
-    case 2:
-      printf("(%s).\n", "high"); break;
-    case 1:
-      printf("(%s).\n", "medium"); break;
+    case (PRIORITY_SIZE - 1):
+      printf("(%s)\n", "highest"); break;
     case 0:
-      printf("(%s).\n", "low"); break;
+      printf("(%s)\n", "lowest"); break;
     default:
-      priority = 0;
-      break;
+      printf("\n"); break;
     }
 }
 
@@ -233,19 +203,19 @@ static void printBuffer(void)
 {
   printPriority();
   PBUF_print();
+  printMenu();
 }
 
 static void printMenu(void)
 {
   uint8_t count;
-  static const char * space = "  ";
-  static const char * strMenu[7] =
-    {"\nEnter one of the following:",
-     "E : Enter Values",
-     "P : Priority",
+  static const char * space = "  \t";
+  static const char * strMenu[MENU_SIZE] =
+    {"\n\nEnter either: \t1. data (a number less than 256)",
+     "2. one of the following Commands:\n",
+     "P : Priority Setting",
      "G : Get Value",
      "R : Reset Buffer",
-     "S : Show Size",
      "Q : Quit\n"};
 
   for(count = 0; count < MENU_SIZE; count++)
@@ -253,5 +223,36 @@ static void printMenu(void)
       printf("%s", space);
       if(count > 0) printf("%s", space);
       printf("%s\n", strMenu[count]);
+    }
+}
+
+static void clearTerminal(void)
+{
+  printf("\e[1;1H\e[2J\tPrioritised Buffer Exerciser\n\n\n");
+}
+
+static void insertValue(int value)
+{
+  if(inputValue < 256)
+    {
+      state = STATE_ENTER_ACTION;
+      clearTerminal();
+      if(!PBUF_insert((uint8_t) inputValue, priority))
+        {
+          printf("Inserted %u, ", inputValue);
+        }
+      else
+        {
+          printf("Failed to insert %u, ", inputValue);
+        }
+          printPriority();
+      printf("...\n");
+      printBuffer();
+    }
+  else
+    {
+      clearTerminal();
+      printf("Enter a value less than 256!\n...\n");
+      printBuffer();
     }
 }

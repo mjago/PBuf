@@ -6,16 +6,15 @@ typedef enum {
   STATE_INIT,
   STATE_ENTER_ACTION,
   STATE_ENTER_PRIORITY,
-  STATE_ENTER_VALUE,
   STATE_RETRIEVE_VALUE,
   STATE_RESET,
-  STATE_SIZE,
   STATE_EXIT
 } state_t;
 
 /* State Machine */
 
 extern void PBUF_reset(void);
+extern void PBUF_print(void);
 
 typedef struct {
   state_t state;
@@ -26,7 +25,6 @@ enum {
   LOW_PRIORITY = 0,
   MID_PRIORITY,
   HIGH_PRIORITY,
-  PRIORITY_SIZE
 };
 
 enum {
@@ -34,7 +32,7 @@ enum {
   INVALID_NUMBER,
   VALID_RETRIEVE,
   INVALID_RETRIEVE,
-  MENU_SIZE = 7
+  MENU_SIZE = 6
 };
 
 #define CLI_H
