@@ -58,6 +58,7 @@ SYMBOLS=
 
 all: clean default
 
+
 default:
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
 	- ./$(TARGET1) -v
@@ -67,3 +68,12 @@ clean:
 
 ci: CFLAGS += -Werror
 ci: default
+
+doc:
+	doxygen docs/doxyfile
+
+build_cli: cli/cli.c src/priority_buffer.c
+	$(C_COMPILER) -DDEBUG -DPRIORITY_SIZE=4 -DBUFFER_SIZE=8 src/priority_buffer.c cli/cli.c -o./cli/cli
+
+run_cli:
+	cli/cli
