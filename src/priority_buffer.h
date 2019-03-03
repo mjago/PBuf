@@ -1,16 +1,25 @@
 #ifndef PRIORITY_BUFFER_H
 #define PRIORITY_BUFFER_H
+
 #include <inttypes.h>
 
 /**
    Set Buffer Size Here - Size may be anything between 3 and 256 buffer elements */
 
-#define BUFFER_SIZE 4
+#ifndef BUFFER_SIZE
+
+#  define BUFFER_SIZE 4
+
+#endif  /* !BUFFER_SIZE */
 
 /**
    Set Number of priority levels Here (8 max) */
 
-#define PRIORITY_SIZE 3
+#ifndef PRIORITY_SIZE
+
+#  define PRIORITY_SIZE 3
+
+#endif  /* !PRIORITY_SIZE */
 
 /**
    Set the element size here (8, 16, 32, 0r 64) */
@@ -69,8 +78,10 @@ int PBUF_retrieve(element_t * element);
 
 #endif  /* UNIT_TESTS */
 
-//#ifdef DEBUG
+#ifdef DEBUG
+
 void PBUF_print(void);
-//#endif /* DEBUG */
+
+#endif /* DEBUG */
 
 #endif /* ! PRIORITY_BUFFER_H */

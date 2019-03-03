@@ -9,7 +9,7 @@
 #  error ERROR: test.h exposed in non-unittest mode!
 #endif
 
-//////////////////////// index ////////////////////////
+//////////////////////////////// index ////////////////////////////////
 
 check_t checkIndex(index_t index);
 check_t nextIndex(index_t * index, priority_t priority);
@@ -19,12 +19,15 @@ check_t nextTailIndex(index_t * index);
 check_t firstFreeElementIndex(index_t * index);
 check_t remapNotFull(index_t newIndex, priority_t priority);
 check_t remap(index_t a1, index_t a2, index_t b);
+index_t headValue(priority_t priority);
 index_t tailIndex(void);
 index_t writeTail(index_t index);
-index_t headValue(priority_t priority);
+index_t lowestPriorityTail(void);
 index_t insertPointFull(priority_t priority);
+index_t insertPointNotFull(priority_t priority);
+index_t bridgePointFull(void);
 
-//////////////////////// priority ////////////////////////
+//////////////////////////////// priority ////////////////////////////////
 
 void resetBufferPointers(void);
 void resetBuffer(void);
@@ -38,8 +41,9 @@ check_t setActive(priority_t priority);
 check_t setInactive(priority_t priority);
 check_t nextHighestPriority(priority_t * nextPriority, priority_t priority);
 uint8_t activePriorityCount(void);
+check_t adjustPriority(void);
 
-//////////////////////// element ////////////////////////
+//////////////////////////////// element ////////////////////////////////
 
 check_t writeElement(element_t element, priority_t priority);
 check_t overwriteElement(element_t element, priority_t newPriority);
