@@ -1091,15 +1091,25 @@ void PBUF_print(void)
         }
       printf("%u", bf.element[count].next);
     }
-  printf("\nhead[low]: %u,\thead[mid]: %u,\thead[high]: %u,\ttail: %u,",
-         headValue(LOW_PRI), headValue(LOW_PRI+1u), headValue(HIGH_PRI), tailIndex());
-  printf("\nactive.low: %u,\tactive.mid: %u,\tactive.high: %u, \tempty: %u",
-         (activeStatus(LOW_PRI) == ACTIVE),
-         (activeStatus(LOW_PRI+1) == ACTIVE),
-         (activeStatus(HIGH_PRI) == ACTIVE),
-         PBUF_empty());
+
+  printf("\n");
+  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
+    {
+      printf("head(%u):   %u, ", count, headValue(count));
+    }
+  printf("tail:  %u", tailIndex());
+
+  printf("\n");
+  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
+    {
+      printf("active(%u): %u, ", count, (activeStatus(count) == ACTIVE));
+    }
+  printf("empty: %u", PBUF_empty());
   printf("\n");
   printf("  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .\n");
 }
 
-//#endif /** DEBUG */
+/** @} */
+/* end of Debug group */
+
+#endif /** DEBUG */
