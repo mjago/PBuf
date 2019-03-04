@@ -79,8 +79,8 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, insertPointFull_should_return_next_highest_head_adding_pM_to_pM_pM_pM_pL);
   RUN_TEST_CASE(pBuf, insertPointFull_should_return_next_highest_head_adding_pH_to_pM_pM_pM_pL);
   RUN_TEST_CASE(pBuf, insertPointFull_should_return_new_pri_head_adding_pL_to_pH_pH_pL_pL);
-  RUN_TEST_CASE(pBuf, headValue_should_return_the_correct_head_value);
-  RUN_TEST_CASE(pBuf, nextHeadValue_should_return_the_correct_next_head_value);
+  RUN_TEST_CASE(pBuf, headIndex_should_return_the_correct_head_value);
+  RUN_TEST_CASE(pBuf, nextHeadIndex_should_return_the_correct_next_head_value);
   RUN_TEST_CASE(pBuf, pL_pL_pL_pM_pH_should_resequence_correctly);
   RUN_TEST_CASE(pBuf, pL_pL_pL_pH_pH_pH_pH_should_resequence_correctly);
   RUN_TEST_CASE(pBuf, pL_pL_pL_pM_pM_pH_should_resequence_correctly);

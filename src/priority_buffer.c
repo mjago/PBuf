@@ -8,15 +8,17 @@
 STATIC check_t checkIndex(index_t index);
 STATIC check_t nextIndex(index_t * index, priority_t priority);
 STATIC check_t writeNextIndex(index_t current, index_t next);
-STATIC check_t incTail(void);
-STATIC check_t nextTailIndex(index_t * index);
 STATIC check_t firstFreeElementIndex(index_t * index);
-STATIC check_t remapNotFull(index_t newIndex, priority_t priority);
-STATIC check_t remap(index_t a1, index_t a2, index_t b);
-STATIC index_t headValue(priority_t priority);
+STATIC index_t headIndex(priority_t priority);
+STATIC index_t nextHeadIndex(priority_t priority);
+STATIC check_t writeHead(index_t index, priority_t priority);
 STATIC index_t tailIndex(void);
+STATIC check_t nextTailIndex(index_t * index);
+STATIC check_t incTail(void);
 STATIC index_t writeTail(index_t index);
 STATIC index_t lowestPriorityTail(void);
+STATIC check_t remap(index_t a1, index_t a2, index_t b);
+STATIC check_t remapNotFull(index_t newIndex, priority_t priority);
 STATIC index_t insertPointFull(priority_t priority);
 STATIC index_t insertPointNotFull(priority_t priority);
 STATIC index_t bridgePointFull(void);
@@ -24,36 +26,35 @@ STATIC index_t bridgePointNotFull(void);
 
 //////////////////////////////// priority ////////////////////////////////
 
-STATIC void resetBufferPointers(void);
-STATIC void resetBuffer(void);
-STATIC index_t nextHeadValue(priority_t priority);
-STATIC check_t writeHead(index_t index, priority_t priority);
-STATIC check_t lowestPriority(priority_t * priority);
 STATIC check_t validatePriority(priority_t priority);
-STATIC check_t activeStatus(priority_t priority);
+STATIC check_t lowestPriority(priority_t * priority);
 STATIC check_t highestPriority(priority_t * priority);
+STATIC check_t nextHighestPriority(priority_t * nextPriority, priority_t priority);
+STATIC check_t activeStatus(priority_t priority);
 STATIC check_t setActive(priority_t priority);
 STATIC check_t setInactive(priority_t priority);
-STATIC check_t nextHighestPriority(priority_t * nextPriority, priority_t priority);
-STATIC uint8_t activePriorityCount(void);
 STATIC check_t adjustPriority(void);
+STATIC uint8_t activePriorityCount(void);
 
 //////////////////////////////// element ////////////////////////////////
 
 STATIC check_t writeElement(element_t element, priority_t priority);
 STATIC check_t overwriteElement(element_t element, priority_t newPriority);
 STATIC check_t readElement(element_t * element);
-STATIC check_t readNextElement(element_t * element);
-STATIC check_t insert(element_t element, priority_t priority);
+STATIC check_t readData(element_t * element, index_t index);
 STATIC check_t writeData(element_t element, index_t index);
-STATIC check_t bufferFull(void);
-STATIC check_t bufferEmpty(void);
+STATIC check_t insert(element_t element, priority_t priority);
 STATIC check_t insertEmpty(element_t element, priority_t newPriority);
 STATIC check_t insertNotFull(element_t element, priority_t newPriority);
 STATIC check_t insertFull(element_t element, priority_t newPriority);
 
-  /**
-     Array of buffer composite elements */
+STATIC void resetBufferPointers(void);
+STATIC void resetBuffer(void);
+STATIC check_t bufferFull(void);
+STATIC check_t bufferEmpty(void);
+
+/**
+   Array of buffer composite elements */
 
 STATIC pbuf_t bf;
 
@@ -197,7 +198,7 @@ STATIC check_t firstFreeElementIndex(index_t * index)
     {
       if(lowestPriority(&priority) == VALID_PRIORITY)
         {
-          *index = nextHeadValue(priority);
+          *index = nextHeadIndex(priority);
           returnVal = VALID_INDEX;
         }
     }
@@ -211,7 +212,7 @@ STATIC check_t firstFreeElementIndex(index_t * index)
    Return the index pointed to by the head related with the priority passed in.
    \return the index referenced by the relevant priority head */
 
-STATIC index_t headValue(priority_t priority)
+STATIC index_t headIndex(priority_t priority)
 {
   return bf.ptr.head[priority];
 }
@@ -221,9 +222,9 @@ STATIC index_t headValue(priority_t priority)
    after following the head link.
    \return the index linked to by the relevant priority head */
 
-STATIC index_t nextHeadValue(priority_t priority)
+STATIC index_t nextHeadIndex(priority_t priority)
 {
-  return (bf.element[headValue(priority)].next);
+  return (bf.element[headIndex(priority)].next);
 }
 
 /**
@@ -378,11 +379,12 @@ STATIC check_t highestPriority(priority_t * priority)
 STATIC void resetBufferPointers(void)
 {
   check_t count;
-  bf.ptr.tail = BUFFER_SIZE - 1;
+
+  writeTail(BUFFER_SIZE - 1);
 
   for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
-      bf.ptr.head[count] = BUFFER_SIZE - 1u;
+      writeHead(BUFFER_SIZE - 1u, count);
     }
 }
 
@@ -396,10 +398,9 @@ STATIC void resetBuffer(void)
 
   for(count = 0; count < BUFFER_SIZE; count++)
     {
-      bf.element[count].data = 0u;
-      bf.element[count].next = (count + 1u) % BUFFER_SIZE;
+      writeData(0u, count);
+      writeNextIndex(count, (count + 1u) % BUFFER_SIZE);
     }
-
   for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
       setInactive(count);
@@ -427,10 +428,10 @@ STATIC check_t writeElement(element_t element, priority_t priority)
         }
       else
         {
-          nextIndex(&index, headValue(virtualHead));
+          nextIndex(&index, headIndex(virtualHead));
         }
 
-      if(writeData(element, index) == VALID_INDEX)
+      if(writeData(element, index) == VALID_ELEMENT)
         {
           if((writeHead(index, priority)) &&
              (setActive(priority) == VALID_ACTIVE))
@@ -499,28 +500,8 @@ STATIC index_t lowestPriorityTail(void)
 
   lowestPriority(&lowPri);
   nextHighestPriority(&lowestButOnePri, lowPri);
-  nextIndex(&lowestTail, headValue(lowestButOnePri));
+  nextIndex(&lowestTail, headIndex(lowestButOnePri));
   return lowestTail;
-}
-
-/**
-   Read the next element and assign to the element pointer passed in.
-   Checks that there is data to read. Returns VALID_ELEMENT on success.
-   \return VALID_ELEMENT or INVALID_ELEMENT */
-
-STATIC check_t readNextElement(element_t * element)
-{
-  check_t returnVal = INVALID_ELEMENT;
-
-  if(bufferEmpty() != BUFFER_EMPTY)
-    {
-      if(readElement(element) == VALID_ELEMENT)
-        {
-          returnVal = VALID_ELEMENT;
-        }
-    }
-
-  return returnVal;
 }
 
 /**
@@ -572,11 +553,28 @@ STATIC check_t insert(element_t element, priority_t newPriority)
 
 STATIC check_t writeData(element_t element, index_t index)
 {
-  check_t returnVal = INVALID_INDEX;
+  check_t returnVal = INVALID_ELEMENT;
   if(index < BUFFER_SIZE)
     {
       bf.element[index].data = element;
-      returnVal = VALID_INDEX;
+      returnVal = VALID_ELEMENT;
+    }
+
+  return returnVal;
+}
+
+/**
+   Read the next available data element.
+   Check the index is within the bounds of the buffer.
+   \return VALID_ELEMENT or INVALID_ELEMENT */
+
+STATIC check_t readData(element_t * element, index_t index)
+{
+  check_t returnVal = INVALID_ELEMENT;
+  if(index < BUFFER_SIZE)
+    {
+      *element = bf.element[index].data;
+      returnVal = VALID_ELEMENT;
     }
 
   return returnVal;
@@ -596,7 +594,7 @@ STATIC check_t bufferFull(void)
   for(priority = LOW_PRI ; priority < PRIORITY_SIZE; priority++)
     {
       if((activeStatus(priority) == ACTIVE) &&
-         (tailIndex() == headValue(priority)))
+         (tailIndex() == headIndex(priority)))
         {
           returnVal = BUFFER_FULL;
           break;
@@ -650,12 +648,13 @@ STATIC check_t insertNotFull(element_t element, priority_t newPriority)
   check_t returnVal = INVALID_INSERT;
   index_t freeIndex;
 
-  if(firstFreeElementIndex(&freeIndex) == VALID_INDEX)
+  if((firstFreeElementIndex(&freeIndex) == VALID_INDEX) &&
+     (writeData(element, freeIndex) == VALID_ELEMENT))
     {
-      writeData(element, freeIndex);
-      remapNotFull(freeIndex, newPriority);
-
-      returnVal = VALID_INSERT;
+      if(remapNotFull(freeIndex, newPriority) == VALID_REMAP)
+        {
+          returnVal = VALID_INSERT;
+        }
     }
 
   return returnVal;
@@ -701,7 +700,7 @@ STATIC check_t adjustPriority(void)
      (activeStatus(priority) == ACTIVE) &&
      (nextTailIndex(&index) == VALID_INDEX))
     {
-      if(headValue(priority) == index)
+      if(headIndex(priority) == index)
         {
           setInactive(priority);
         }
@@ -724,9 +723,8 @@ STATIC check_t readElement(element_t * element)
 
   if(nextTailIndex(&tailIdx) == VALID_INDEX)
     {
-      *element = bf.element[tailIdx].data;
-
-      if((adjustPriority() == VALID_PRIORITY) &&
+      if((readData(element, tailIdx) == VALID_ELEMENT) &&
+         (adjustPriority() == VALID_PRIORITY) &&
          (writeTail(tailIdx) == VALID_INDEX))
         {
           returnVal = VALID_ELEMENT;
@@ -801,7 +799,7 @@ STATIC index_t insertPointNotFull(priority_t priority)
         }
       else
         {
-          returnVal = headValue(highestPri);
+          returnVal = headIndex(highestPri);
         }
     }
 
@@ -824,7 +822,7 @@ index_t insertPointFull(priority_t priority)
     {
       if(activeStatus(count) == ACTIVE)
         {
-          returnVal = headValue(priority);
+          returnVal = headIndex(priority);
           break;
         }
     }
@@ -848,7 +846,7 @@ index_t bridgePointFull(void)
     {
       if(activeStatus(count) == ACTIVE)
         {
-          returnVal = headValue(count);
+          returnVal = headIndex(count);
           break;
         }
     }
@@ -866,7 +864,7 @@ STATIC index_t bridgePointNotFull(void)
   priority_t lowestPri;
 
   lowestPriority(&lowestPri);
-  return headValue(lowestPri);
+  return headIndex(lowestPri);
 }
 
 
@@ -935,7 +933,7 @@ STATIC check_t remapFull(index_t index, priority_t priority)
           // reset tail
           if(lowestPriority(&lowPri) == VALID_PRIORITY)
             {
-              if(writeTail(headValue(lowPri)) == VALID_INDEX)
+              if(writeTail(headIndex(lowPri)) == VALID_INDEX)
                 {
                   returnVal = VALID_WRITE;
                 }
@@ -958,7 +956,7 @@ STATIC check_t overwriteSinglePriority(element_t element, priority_t newPriority
 
   if(nextTailIndex(&nextTailIdx) == VALID_INDEX)
     {
-      if((writeData(element, nextTailIdx) == VALID_INDEX) &&
+      if((writeData(element, nextTailIdx) == VALID_ELEMENT) &&
          (writeHead(nextTailIdx, newPriority) == VALID_HEAD))
         {
           if(activeStatus(newPriority) == ACTIVE)
@@ -993,7 +991,7 @@ STATIC check_t overwriteElement(element_t element, priority_t priority)
     }
   else
     {
-      if(writeData(element, lowestPriTailIdx) == VALID_INDEX)
+      if(writeData(element, lowestPriTailIdx) == VALID_ELEMENT)
         {
           if(remapFull(lowestPriTailIdx, priority) == VALID_REMAP)
             returnVal = VALID_WRITE;
@@ -1071,7 +1069,7 @@ int PBUF_retrieve(element_t * element)
 
   if( ! PBUF_empty())
     {
-      returnVal = !(readNextElement(element) == VALID_ELEMENT);
+      returnVal = !(readElement(element) == VALID_ELEMENT);
     }
   return returnVal;
 }
@@ -1082,7 +1080,6 @@ int PBUF_retrieve(element_t * element)
 //////////////////////////////// Debug ////////////////////////////////
 
 #ifdef DEBUG
-
 
 /**
    @defgroup Debug Debug
@@ -1106,7 +1103,7 @@ void PBUF_print(void)
     {
       index = tailIndex();
       lowestPriority(&vmh);
-      lastIndex = headValue(vmh);
+      lastIndex = headIndex(vmh);
       count = 0;
       do
         {
@@ -1115,7 +1112,7 @@ void PBUF_print(void)
               printf(" -> ");
             }
           nextIndex(&index, index);
-          printf("%u", bf.element[index].data);
+          printf("%u", bf.element[count].data);
           count++;
           //} while(count < 4);
         } while(index != lastIndex);
@@ -1145,7 +1142,7 @@ void PBUF_print(void)
   printf("\n");
   for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
-      printf("head(%u):   %u, ", count, headValue(count));
+      printf("head(%u):   %u, ", count, headIndex(count));
     }
   printf("tail:  %u", tailIndex());
 

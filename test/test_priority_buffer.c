@@ -1230,21 +1230,21 @@ TEST(pBuf, insertPointFull_should_return_new_pri_head_adding_pL_to_pH_pH_pL_pL)
   TEST_ASSERT_EQUAL(3, insertPointFull(LOW_PRI));
 }
 
-TEST(pBuf, headValue_should_return_the_correct_head_value)
+TEST(pBuf, headIndex_should_return_the_correct_head_value)
 {
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(20, HIGH_PRI));
-  TEST_ASSERT_EQUAL(0, headValue(HIGH_PRI));
+  TEST_ASSERT_EQUAL(0, headIndex(HIGH_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, LOW_PRI));
-  TEST_ASSERT_EQUAL(1, headValue(LOW_PRI));
-  TEST_ASSERT_EQUAL(BUFFER_SIZE - 1u, headValue(MID_PRI));
+  TEST_ASSERT_EQUAL(1, headIndex(LOW_PRI));
+  TEST_ASSERT_EQUAL(BUFFER_SIZE - 1u, headIndex(MID_PRI));
 }
 
-TEST(pBuf, nextHeadValue_should_return_the_correct_next_head_value)
+TEST(pBuf, nextHeadIndex_should_return_the_correct_next_head_value)
 {
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(20, HIGH_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, LOW_PRI));
-  TEST_ASSERT_EQUAL(1, nextHeadValue(HIGH_PRI));
-  TEST_ASSERT_EQUAL(2, nextHeadValue(LOW_PRI));
+  TEST_ASSERT_EQUAL(1, nextHeadIndex(HIGH_PRI));
+  TEST_ASSERT_EQUAL(2, nextHeadIndex(LOW_PRI));
 }
 
 TEST(pBuf, pL_pM_pM_pH_pH_should_resequence_correctly)
