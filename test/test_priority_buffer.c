@@ -142,7 +142,7 @@ TEST(pBuf, PBUF_bufferSize_should_return_correct_buffer_size)
 
 TEST(pBuf, writeHead_should_write_head)
 {
-  TEST_ASSERT_EQUAL(INVALID_HEAD, writeHead(0, PRIORITY_SIZE));
+  TEST_ASSERT_EQUAL(INVALID_WRITE, writeHead(0, PRIORITY_SIZE));
 }
 
 TEST(pBuf, firstfreeElementIndex_should_return_next_tail_with_an_empty_buffer)
@@ -1301,9 +1301,7 @@ TEST(pBuf, pH_pH_pH_pM_pM_pM_should_resequence_correctly)
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(21, HIGH_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(22, HIGH_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(23, MID_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(24, MID_PRI));
-  PBUF_print();
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(25, MID_PRI));
-  //  TEST_ASSERT_EQUAL(VALID_INSERT, insert(26, MID_PRI));
+  TEST_ASSERT_EQUAL(VALID_INSERT, insert(26, MID_PRI));
 }

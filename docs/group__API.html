@@ -93,17 +93,17 @@ $(document).ready(function(){initNavTree('group__API.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga08f7f1b6ee73b655ad96344da0e9c0c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga08f7f1b6ee73b655ad96344da0e9c0c5">PBUF_reset</a> (void)</td></tr>
-<tr class="memdesc:ga08f7f1b6ee73b655ad96344da0e9c0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset Buffer.  <a href="#ga08f7f1b6ee73b655ad96344da0e9c0c5">More...</a><br /></td></tr>
-<tr class="separator:ga08f7f1b6ee73b655ad96344da0e9c0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga662f6fb743b6643d82df1aed98a3af91"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga662f6fb743b6643d82df1aed98a3af91">PBUF_reset</a> (void)</td></tr>
+<tr class="memdesc:ga662f6fb743b6643d82df1aed98a3af91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset Buffer.  <a href="#ga662f6fb743b6643d82df1aed98a3af91">More...</a><br /></td></tr>
+<tr class="separator:ga662f6fb743b6643d82df1aed98a3af91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6f5ebd5522a2614c8473d44789b4a6fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga6f5ebd5522a2614c8473d44789b4a6fe">PBUF_empty</a> (void)</td></tr>
-<tr class="memdesc:ga6f5ebd5522a2614c8473d44789b4a6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return non-zero if buffer is empty.  <a href="#ga6f5ebd5522a2614c8473d44789b4a6fe">More...</a><br /></td></tr>
+<tr class="memdesc:ga6f5ebd5522a2614c8473d44789b4a6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if buffer is empty.  <a href="#ga6f5ebd5522a2614c8473d44789b4a6fe">More...</a><br /></td></tr>
 <tr class="separator:ga6f5ebd5522a2614c8473d44789b4a6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga049d97a7e64a55aed7b0b0b547cee763"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga049d97a7e64a55aed7b0b0b547cee763">PBUF_full</a> (void)</td></tr>
-<tr class="memdesc:ga049d97a7e64a55aed7b0b0b547cee763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return non-zero if the buffer is full.  <a href="#ga049d97a7e64a55aed7b0b0b547cee763">More...</a><br /></td></tr>
+<tr class="memdesc:ga049d97a7e64a55aed7b0b0b547cee763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if buffer is full.  <a href="#ga049d97a7e64a55aed7b0b0b547cee763">More...</a><br /></td></tr>
 <tr class="separator:ga049d97a7e64a55aed7b0b0b547cee763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7fb353a7665a3fb53568819efaa00964"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga7fb353a7665a3fb53568819efaa00964">PBUF_bufferSize</a> (void)</td></tr>
-<tr class="memdesc:ga7fb353a7665a3fb53568819efaa00964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of the buffer.  <a href="#ga7fb353a7665a3fb53568819efaa00964">More...</a><br /></td></tr>
+<tr class="memdesc:ga7fb353a7665a3fb53568819efaa00964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of buffer.  <a href="#ga7fb353a7665a3fb53568819efaa00964">More...</a><br /></td></tr>
 <tr class="separator:ga7fb353a7665a3fb53568819efaa00964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9d1b9e336494e7121aeb2d33790e8778"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga9d1b9e336494e7121aeb2d33790e8778">PBUF_insert</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> element, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
 <tr class="memdesc:ga9d1b9e336494e7121aeb2d33790e8778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert data into the buffer of the given priority.  <a href="#ga9d1b9e336494e7121aeb2d33790e8778">More...</a><br /></td></tr>
@@ -131,9 +131,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the size of the buffer. </p>
+<p>Return the size of buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>size of buffer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01047">1047</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01068">1068</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -153,9 +154,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return non-zero if buffer is empty. </p>
+<p>Check if buffer is empty. </p>
+<dl class="section return"><dt>Returns</dt><dd>non-zero if buffer is empty. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01029">1029</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01048">1048</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -183,9 +185,10 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Return non-zero if the buffer is full. </p>
+<p>Check if buffer is full. </p>
+<dl class="section return"><dt>Returns</dt><dd>non-zero if buffer is full. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01038">1038</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01058">1058</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -194,7 +197,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node2" href="group__Internal.html#ga3fb5f15ae23ea536c404c99f27d8bdf2" title="Buffer Full checks whether there is any room left in the buffer for a new insertion. " alt="" coords="136,56,212,83"/>
 <area shape="rect" id="node3" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="260,5,355,32"/>
 <area shape="rect" id="node4" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="272,56,343,83"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="266,107,349,133"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga9ea471186c044fd6f1a418053b4efc65" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="266,107,349,133"/>
 </map>
 </div>
 
@@ -231,7 +234,7 @@ Here is the call graph for this function:</div>
 <dd>
 non-zero for an invalid insert. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01057">1057</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01078">1078</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -250,14 +253,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ga08f7f1b6ee73b655ad96344da0e9c0c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga08f7f1b6ee73b655ad96344da0e9c0c5">&#9670;&nbsp;</a></span>PBUF_reset()</h2>
+<a id="ga662f6fb743b6643d82df1aed98a3af91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga662f6fb743b6643d82df1aed98a3af91">&#9670;&nbsp;</a></span>PBUF_reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PBUF_reset </td>
+          <td class="memname">int PBUF_reset </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -267,16 +270,21 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Reset Buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>zero on successful reset </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01019">1019</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01037">1037</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="group__API_ga08f7f1b6ee73b655ad96344da0e9c0c5_cgraph.png" border="0" usemap="#group__API_ga08f7f1b6ee73b655ad96344da0e9c0c5_cgraph" alt=""/></div>
-<map name="group__API_ga08f7f1b6ee73b655ad96344da0e9c0c5_cgraph" id="group__API_ga08f7f1b6ee73b655ad96344da0e9c0c5_cgraph">
-<area shape="rect" id="node2" href="group__Internal.html#ga9d4593747d9fbd06dc48ba3f7a99fdb5" title="Reset Heads and Tail. " alt="" coords="148,5,283,32"/>
-<area shape="rect" id="node3" href="group__Internal.html#gab1baff7186b72c8f0683db8af3302da5" title="Reset the Buffer. " alt="" coords="172,56,259,83"/>
-<area shape="rect" id="node4" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="331,56,417,83"/>
+<div class="center"><img src="group__API_ga662f6fb743b6643d82df1aed98a3af91_cgraph.png" border="0" usemap="#group__API_ga662f6fb743b6643d82df1aed98a3af91_cgraph" alt=""/></div>
+<map name="group__API_ga662f6fb743b6643d82df1aed98a3af91_cgraph" id="group__API_ga662f6fb743b6643d82df1aed98a3af91_cgraph">
+<area shape="rect" id="node2" href="group__Internal.html#gad34beb51716951c53752f210a6b0541f" title="Reset Heads and Tail. " alt="" coords="148,56,283,83"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga94850b0732135d46f8cd4148d030b936" title="Reset the Buffer. " alt="" coords="172,132,259,159"/>
+<area shape="rect" id="node3" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="351,5,421,32"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b" title="Set the value of the head pointer associated with the priority passed in with the index passed in..." alt="" coords="345,56,427,83"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32" title="Write the element passed in to the index passed in. " alt="" coords="347,107,425,133"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2" title="Writes the index passed in to the element referenced by the current index passed in. " alt="" coords="331,157,441,184"/>
+<area shape="rect" id="node8" href="group__Internal.html#gad6bfc10ed2b3640fbfd1ef1c485b1b82" title="Reset the relevant activity flag of the priority passed in. " alt="" coords="343,208,429,235"/>
 </map>
 </div>
 
@@ -303,22 +311,24 @@ Here is the call graph for this function:</div>
 <dd>
 non-zero on failed retrieve. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01068">1068</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8c_source.html#l01089">1089</a> of file <a class="el" href="priority__buffer_8c_source.html">priority_buffer.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__API_ga3b29980e7f7f1d7adbc8c01d14ea3c56_cgraph.png" border="0" usemap="#group__API_ga3b29980e7f7f1d7adbc8c01d14ea3c56_cgraph" alt=""/></div>
 <map name="group__API_ga3b29980e7f7f1d7adbc8c01d14ea3c56_cgraph" id="group__API_ga3b29980e7f7f1d7adbc8c01d14ea3c56_cgraph">
-<area shape="rect" id="node2" href="group__API.html#ga6f5ebd5522a2614c8473d44789b4a6fe" title="Return non&#45;zero if buffer is empty. " alt="" coords="172,5,273,32"/>
-<area shape="rect" id="node3" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="333,56,426,83"/>
-<area shape="rect" id="node4" href="group__Internal.html#ga8f4c086d9cc6c9d8b2d19d0d8622afaa" title="Read the next element and assign to the element pointer passed in. " alt="" coords="161,107,284,133"/>
-<area shape="rect" id="node6" href="cli_8h.html#a42f7ae7d9339a792ed6685b06b19ced1" title="PBUF_print" alt="" coords="177,259,268,285"/>
-<area shape="rect" id="node7" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="187,309,258,336"/>
-<area shape="rect" id="node8" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="172,157,273,184"/>
-<area shape="rect" id="node9" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="332,183,427,209"/>
-<area shape="rect" id="node10" href="group__Internal.html#ga55454ce12d8fbbc635fddc48d7a26891" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="181,360,264,387"/>
-<area shape="rect" id="node11" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="183,411,262,437"/>
-<area shape="rect" id="node5" href="group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a" title="Read element from the buffer and assign to the element pointer passed in. " alt="" coords="332,107,427,133"/>
+<area shape="rect" id="node2" href="group__API.html#ga6f5ebd5522a2614c8473d44789b4a6fe" title="Check if buffer is empty. " alt="" coords="161,32,263,58"/>
+<area shape="rect" id="node3" href="group__Internal.html#ga4040671ef2dccd1394038df3a9f10c6c" title="Check whether the buffer is empty. " alt="" coords="313,32,407,58"/>
+<area shape="rect" id="node4" href="group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a" title="Read element from the buffer and assign to the element pointer passed in. " alt="" coords="165,285,259,312"/>
+<area shape="rect" id="node6" href="group__Internal.html#ga25f69e90532a55846b77358559c3850d" title="Returns the index value referenced by the tail. " alt="" coords="605,209,676,236"/>
+<area shape="rect" id="node9" href="group__Internal.html#ga96a9cdf59344a92de680c2054de68d18" title="Return the active status of the priority passed in. " alt="" coords="460,133,555,160"/>
+<area shape="rect" id="node10" href="group__Internal.html#ga9ea471186c044fd6f1a418053b4efc65" title="Return the index pointed to by the head related with the priority passed in. " alt="" coords="466,361,549,388"/>
+<area shape="rect" id="node12" href="group__Internal.html#ga5c99e6cbaab9c7ce05f08a52baf11b07" title="Determine the lowest priority in the buffer. " alt="" coords="161,82,263,109"/>
+<area shape="rect" id="node13" href="group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6" title="Update the passed in index with the next index linked from the current index passed in..." alt="" coords="173,488,251,514"/>
+<area shape="rect" id="node5" href="group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec" title="Update the passed in index with the index pointed to by the tail pointer after advancing it..." alt="" coords="457,234,557,261"/>
+<area shape="rect" id="node7" href="group__Internal.html#ga479267c96199b6ef96410bac46a6786e" title="Read the next available data element. " alt="" coords="323,285,397,312"/>
+<area shape="rect" id="node8" href="group__Internal.html#ga7edf7efd053d359bece99262e6dbc539" title="Mark the highest priority inactive if necessary. " alt="" coords="311,234,409,261"/>
+<area shape="rect" id="node11" href="group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18" title="Write a new index to the tail pointer. " alt="" coords="325,336,395,362"/>
 </map>
 </div>
 

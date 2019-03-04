@@ -58,7 +58,7 @@ typedef uint64_t element_t;
 
 typedef uint8_t priority_t;
 
-void PBUF_reset(void);
+int PBUF_reset(void);
 int PBUF_empty(void);
 int PBUF_full(void);
 int PBUF_bufferSize(void);

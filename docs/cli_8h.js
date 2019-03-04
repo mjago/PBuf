@@ -17,7 +17,5 @@ var cli_8h =
       [ "STATE_RETRIEVE_VALUE", "cli_8h.html#aa0aafed44fec19806d8f9ad834be1248afc98f8377c41b16c1f97fbde71447299", null ],
       [ "STATE_RESET", "cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a876bf84fec67ea51d517204b2903d5d4", null ],
       [ "STATE_EXIT", "cli_8h.html#aa0aafed44fec19806d8f9ad834be1248a6a14bcf2a972a6b9e3d4459512082c26", null ]
-    ] ],
-    [ "PBUF_print", "cli_8h.html#a42f7ae7d9339a792ed6685b06b19ced1", null ],
-    [ "PBUF_reset", "group__API.html#ga08f7f1b6ee73b655ad96344da0e9c0c5", null ]
+    ] ]
 ];

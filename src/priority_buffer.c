@@ -48,8 +48,8 @@ STATIC check_t insertEmpty(element_t element, priority_t newPriority);
 STATIC check_t insertNotFull(element_t element, priority_t newPriority);
 STATIC check_t insertFull(element_t element, priority_t newPriority);
 
-STATIC void resetBufferPointers(void);
-STATIC void resetBuffer(void);
+STATIC check_t resetBufferPointers(void);
+STATIC check_t resetBuffer(void);
 STATIC check_t bufferFull(void);
 STATIC check_t bufferEmpty(void);
 
@@ -230,17 +230,17 @@ STATIC index_t nextHeadIndex(priority_t priority)
 /**
    Set the value of the head pointer associated with the priority passed
    in with the index passed in.
-   \return VALID_HEAD or INVALID_HEAD */
+   \return VALID_WRITE or INVALID_WRITE */
 
 STATIC check_t writeHead(index_t index, priority_t priority)
 {
-  check_t returnVal = INVALID_HEAD;
+  check_t returnVal = INVALID_WRITE;
 
   if((validatePriority(priority) == VALID_PRIORITY) &&
      (index < BUFFER_SIZE))
     {
       bf.ptr.head[priority] = index;
-      returnVal = VALID_HEAD;
+      returnVal = VALID_WRITE;
     }
 
   return returnVal;
@@ -348,7 +348,7 @@ STATIC check_t setInactive(priority_t priority)
 /**
    Determine the highest priority and assign to the priority
    pointer passed in.
-   Returns VALID_PRIORITY or INVALID_PRIORITY */
+   \return VALID_PRIORITY or INVALID_PRIORITY */
 
 STATIC check_t highestPriority(priority_t * priority)
 {
@@ -374,37 +374,56 @@ STATIC check_t highestPriority(priority_t * priority)
 
 /**
    Reset Heads and Tail
-*/
+   \return VALID_RESET or INVALID_RESET */
 
-STATIC void resetBufferPointers(void)
+STATIC check_t resetBufferPointers(void)
 {
-  check_t count;
+  check_t returnVal = VALID_RESET;
+  priority_t count;
 
   writeTail(BUFFER_SIZE - 1);
 
   for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
-      writeHead(BUFFER_SIZE - 1u, count);
+      if(writeHead(BUFFER_SIZE - 1u, count) != VALID_WRITE)
+        {
+          returnVal = INVALID_RESET;
+          break;
+        }
     }
+
+  return returnVal;
 }
 
 /**
    Reset the Buffer
-*/
+   \return VALID_RESET or INVALID_RESET */
 
-STATIC void resetBuffer(void)
+STATIC check_t resetBuffer(void)
 {
+  check_t returnVal = VALID_RESET;
   uint16_t count;
 
   for(count = 0; count < BUFFER_SIZE; count++)
     {
-      writeData(0u, count);
-      writeNextIndex(count, (count + 1u) % BUFFER_SIZE);
+      if( ! ((writeData(0u, count) == VALID_ELEMENT) &&
+             (writeNextIndex(count, (count + 1u) % BUFFER_SIZE) == VALID_INDEX)))
+        {
+          returnVal = INVALID_RESET;
+          break;
+        }
     }
+
   for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
     {
-      setInactive(count);
+      if(setInactive(count) != VALID_ACTIVE)
+        {
+          returnVal = INVALID_RESET;
+          break;
+        }
     }
+
+  return returnVal;
 }
 
 //////////////////////////////// element ////////////////////////////////
@@ -546,9 +565,6 @@ STATIC check_t insert(element_t element, priority_t newPriority)
 /**
    Write the element passed in to the index passed in.
    Check the index is within the bounds of the buffer.
-
-   \param[in] element Element to be written
-   \param[in] index Index in the buffer to write to
    \return VALID_INDEX or INVALID_INDEX */
 
 STATIC check_t writeData(element_t element, index_t index)
@@ -879,7 +895,7 @@ STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
   index_t insertPt = insertPointNotFull(priority);
   index_t bridgePt = bridgePointNotFull();
 
-  if((writeHead(newIndex, priority) == VALID_HEAD) &&
+  if((writeHead(newIndex, priority) == VALID_WRITE) &&
      (setActive(priority) == VALID_ACTIVE))
     {
       if(remap(insertPt, bridgePt, newIndex) == VALID_REMAP)
@@ -915,7 +931,7 @@ STATIC check_t remapFull(index_t index, priority_t priority)
   index_t lowestPriTailIdx = lowestPriorityTail();
   priority_t lowPri;
 
-  if((writeHead(index, priority) == VALID_HEAD) &&
+  if((writeHead(index, priority) == VALID_WRITE) &&
      (setActive(priority) == VALID_ACTIVE))
     {
       if(remap(insertPt, bridgePt, index))
@@ -957,7 +973,7 @@ STATIC check_t overwriteSinglePriority(element_t element, priority_t newPriority
   if(nextTailIndex(&nextTailIdx) == VALID_INDEX)
     {
       if((writeData(element, nextTailIdx) == VALID_ELEMENT) &&
-         (writeHead(nextTailIdx, newPriority) == VALID_HEAD))
+         (writeHead(nextTailIdx, newPriority) == VALID_WRITE))
         {
           if(activeStatus(newPriority) == ACTIVE)
             {
@@ -1012,16 +1028,18 @@ STATIC check_t overwriteElement(element_t element, priority_t priority)
    @{ */
 
 /**
-   Reset Buffer */
+   Reset Buffer.
+   \return zero on successful reset */
 
-void PBUF_reset(void)
+int PBUF_reset(void)
 {
-  resetBufferPointers();
-  resetBuffer();
+  return ! ((resetBufferPointers() == VALID_RESET) &&
+            (resetBuffer() == VALID_RESET));
 }
 
 /**
-   Return non-zero if buffer is empty.
+   Check if buffer is empty.
+   \return non-zero if buffer is empty.
 */
 
 int PBUF_empty(void)
@@ -1030,7 +1048,8 @@ int PBUF_empty(void)
 }
 
 /**
-   Return non-zero if the buffer is full.
+   Check if buffer is full.
+   \return non-zero if buffer is full.
 */
 
 int PBUF_full(void)
@@ -1039,7 +1058,8 @@ int PBUF_full(void)
 }
 
 /**
-   Return the size of the buffer.
+   Return the size of buffer.
+   \return size of buffer
 */
 
 int PBUF_bufferSize(void)
@@ -1112,9 +1132,8 @@ void PBUF_print(void)
               printf(" -> ");
             }
           nextIndex(&index, index);
-          printf("%u", bf.element[count].data);
+          printf("%u", bf.element[index].data);
           count++;
-          //} while(count < 4);
         } while(index != lastIndex);
     }
 

@@ -13,9 +13,6 @@ typedef enum {
 
 /* State Machine */
 
-extern void PBUF_reset(void);
-extern void PBUF_print(void);
-
 typedef struct {
   state_t state;
   void (*func)(void);
