@@ -8,7 +8,7 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, bufferEmpty_returns_BUFFER_EMPTY_following_a_reset);
   RUN_TEST_CASE(pBuf, bufferEmpty_returns_BUFFER_NOT_EMPTY_on_activity);
   RUN_TEST_CASE(pBuf, PBUF_empty_should_return_non_zero_following_a_reset);
-  RUN_TEST_CASE(pBuf, writeElement_should_write_the_passed_element_to_the_buffer);
+  RUN_TEST_CASE(pBuf, writeElementIndex_should_update_the_index_correctly);
   RUN_TEST_CASE(pBuf, activeStatus_should_return_INACTIVE_for_all_priorities_after_reset);
   RUN_TEST_CASE(pBuf, activeStatus_should_return_ACTIVE_for_all_priorities_after_they_are_set);
   RUN_TEST_CASE(pBuf, setAactive_should_return_INVALID_ACTIVE_when_passed_an_invalid_priority);
@@ -26,11 +26,9 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, readElement_should_read_the_next_element);
   RUN_TEST_CASE(pBuf, PBUB_retrieve_should_retrieve_the_next_element);
   RUN_TEST_CASE(pBuf, PBUB_retrieve_should_return_INVALID_ELEMENT_if_the_buffer_is_empty);
-  RUN_TEST_CASE(pBuf, insertEmpty_should_insert_to_the_beginning_of_the_empty_buffer);
+  RUN_TEST_CASE(pBuf, insertEmptyIndex_should_insert_to_the_beginning_of_the_empty_buffer);
   RUN_TEST_CASE(pBuf, insertNotFull_inserts_regardless_of_priority_to_the_end_of_the_buffer);
-  RUN_TEST_CASE(pBuf, writeElement_should_write_element);
-  RUN_TEST_CASE(pBuf, writeElement_should_set_priority);
-  RUN_TEST_CASE(pBuf, insert_pL_should_return_INSERT_SUCCESS);
+  RUN_TEST_CASE(pBuf, insert_pL_should_return_VALID_INSERT);
   RUN_TEST_CASE(pBuf, insert_pH_pM_sequence_should_be_in_order);
   RUN_TEST_CASE(pBuf, insert_pM_pL_sequence_should_be_in_order);
   RUN_TEST_CASE(pBuf, insert_pL_pM_sequence_should_be_reprioritised);
@@ -52,8 +50,8 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, insert_pM_pM_pL_sequence_should_be_in_order);
   RUN_TEST_CASE(pBuf, insert_pM_pL_pH_sequence_should_be_in_order);
   RUN_TEST_CASE(pBuf, insert_pM_pL_pM_sequence_should_be_in_order);
-  RUN_TEST_CASE(pBuf, insert_pM_pL_pL_sequence_should_be_in_order);
   RUN_TEST_CASE(pBuf, insert_pL_pH_pH_sequence_should_be_in_order);
+  RUN_TEST_CASE(pBuf, insert_pM_pL_pL_sequence_should_be_in_order);
   RUN_TEST_CASE(pBuf, insert_pL_pH_pM_sequence_should_be_in_order);
   RUN_TEST_CASE(pBuf, insert_pL_pH_pL_sequence_should_be_in_order);
   RUN_TEST_CASE(pBuf, insert_pL_pM_pH_sequence_should_be_in_order);
@@ -89,4 +87,5 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, pL_pM_pM_pH_pH_should_resequence_correctly);
   RUN_TEST_CASE(pBuf, pH_pH_pM_pL_pM_pM_pH_pH_pM_pL_should_resequence_correctly);
   RUN_TEST_CASE(pBuf, pH_pH_pH_pM_pM_pM_should_resequence_correctly);
+  RUN_TEST_CASE(pBuf, insertIndex_pL_should_return_VALID_INSERT);
 }

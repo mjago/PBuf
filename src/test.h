@@ -29,6 +29,13 @@ index_t insertPointFull(priority_t priority);
 index_t insertPointNotFull(priority_t priority);
 index_t bridgePointFull(void);
 index_t bridgePointNotFull(void);
+check_t writeElementIndex(index_t * index, priority_t priority);
+check_t overwriteElementIndex(index_t * index, priority_t priority);
+check_t insertIndex(index_t * index, priority_t priority);
+check_t insertEmptyIndex(index_t * index, priority_t priority);
+check_t insertNotFullIndex(index_t * index, priority_t priority);
+check_t insertFullIndex(index_t * index, priority_t priority);
+check_t readElement(element_t * element);
 
 //////////////////////////////// priority ////////////////////////////////
 
@@ -44,15 +51,9 @@ uint8_t activePriorityCount(void);
 
 //////////////////////////////// element ////////////////////////////////
 
-check_t writeElement(element_t element, priority_t priority);
-check_t overwriteElement(element_t element, priority_t newPriority);
-check_t readElement(element_t * element);
 check_t readData(element_t * element, index_t index);
 check_t writeData(element_t element, index_t index);
 check_t insert(element_t element, priority_t priority);
-check_t insertEmpty(element_t element, priority_t newPriority);
-check_t insertNotFull(element_t element, priority_t newPriority);
-check_t insertFull(element_t element, priority_t newPriority);
 
 check_t resetBufferPointers(void);
 check_t resetBuffer(void);

@@ -23,7 +23,7 @@ TEST(pBuf, bufferFull_returns_BUFFER_FULL_when_buffer_full)
 
   for(count = 0; count < BUFFER_SIZE; count++)
     {
-      writeElement(123, LOW_PRI);
+      insert(123, LOW_PRI);
     }
 
   TEST_ASSERT_EQUAL(BUFFER_FULL, bufferFull());
@@ -55,9 +55,17 @@ TEST(pBuf, PBUF_empty_should_return_TRUE_following_a_reset)
   TEST_ASSERT_TRUE(PBUF_empty());
 }
 
-TEST(pBuf, writeElement_should_write_the_passed_element_to_the_buffer)
+TEST(pBuf, writeElementIndex_should_update_the_index_correctly)
 {
-  TEST_ASSERT_EQUAL(VALID_WRITE, writeElement(123, LOW_PRI));
+  index_t count;
+  index_t index;
+
+  for(count = 0; count < BUFFER_SIZE; count++)
+    {
+      TEST_ASSERT_EQUAL(VALID_WRITE, writeElementIndex(&index, LOW_PRI));
+      TEST_ASSERT_EQUAL(count, index);
+    }
+  TEST_ASSERT_EQUAL(INVALID_WRITE, writeElementIndex(&index, LOW_PRI));
 }
 
 TEST(pBuf, activeStatus_should_return_INACTIVE_for_all_priorities_after_reset)
@@ -157,49 +165,32 @@ TEST(pBuf, firstfreeElementIndex_should_return_the_correct_index_when_elements_i
 {
   uint8_t index;
 
-  writeElement(42, HIGH_PRI);
+  insertIndex(&index, HIGH_PRI);
+  TEST_ASSERT_EQUAL(0, index);
   TEST_ASSERT_EQUAL(VALID_INDEX, firstFreeElementIndex(&index));
   TEST_ASSERT_EQUAL(1, index);
 
   PBUF_reset();
 
-  writeElement(42, 1);
+  insertIndex(&index, HIGH_PRI);
   TEST_ASSERT_EQUAL(VALID_INDEX, firstFreeElementIndex(&index));
   TEST_ASSERT_EQUAL(1, index);
-
-  PBUF_reset();
-
-  writeElement(42, HIGH_PRI);
-  TEST_ASSERT_EQUAL(VALID_INDEX, firstFreeElementIndex(&index));
-  TEST_ASSERT_EQUAL(1, index);
-  writeElement(43, LOW_PRI);
+  insertIndex(&index, HIGH_PRI);
   TEST_ASSERT_EQUAL(VALID_INDEX, firstFreeElementIndex(&index));
   TEST_ASSERT_EQUAL(2, index);
-  writeElement(44, HIGH_PRI);
+  insertIndex(&index, HIGH_PRI);
   TEST_ASSERT_EQUAL(VALID_INDEX, firstFreeElementIndex(&index));
-  TEST_ASSERT_EQUAL(2, index);
-}
-
-TEST(pBuf, writeElement_should_write_element)
-{
-  TEST_ASSERT_EQUAL(VALID_WRITE, writeElement(42, HIGH_PRI));
-  TEST_ASSERT_EQUAL(VALID_WRITE, writeElement(43, HIGH_PRI));
-  TEST_ASSERT_EQUAL(VALID_WRITE, writeElement(44, HIGH_PRI));
-  TEST_ASSERT_EQUAL(VALID_WRITE, writeElement(45, HIGH_PRI));
-  TEST_ASSERT_EQUAL(BUFFER_FULL, bufferFull());
-}
-
-TEST(pBuf, writeElement_should_set_priority)
-{
-  TEST_ASSERT_EQUAL(VALID_WRITE, writeElement(42, LOW_PRI));
+  TEST_ASSERT_EQUAL(3, index);
+  insertIndex(&index, HIGH_PRI);
+  TEST_ASSERT_EQUAL(INVALID_INDEX, firstFreeElementIndex(&index));
 }
 
 TEST(pBuf, writeElement_should_set_head)
 {
-  TEST_ASSERT_EQUAL(VALID_WRITE, writeElement(42, LOW_PRI));
+  TEST_ASSERT_EQUAL(VALID_WRITE, insert(42, LOW_PRI));
 }
 
-TEST(pBuf, insert_pL_should_return_INSERT_SUCCESS)
+TEST(pBuf, insert_pL_should_return_VALID_INSERT)
 {
   uint16_t count;
   uint8_t value;
@@ -226,7 +217,7 @@ TEST(pBuf, insert_pL_should_return_INSERT_SUCCESS)
 TEST(pBuf, readElement_should_read_the_next_element)
 {
   uint8_t element;
-  writeElement(42, LOW_PRI);
+  insert(42, LOW_PRI);
   TEST_ASSERT_EQUAL(VALID_ELEMENT, readElement(&element));
   TEST_ASSERT_EQUAL(42, element);
 }
@@ -234,7 +225,7 @@ TEST(pBuf, readElement_should_read_the_next_element)
 TEST(pBuf, PBUB_retrieve_should_retrieve_the_next_element)
 {
   uint8_t element;
-  writeElement(42, LOW_PRI);
+  insert(42, LOW_PRI);
   TEST_ASSERT_ZERO(PBUF_retrieve(&element));
   TEST_ASSERT_EQUAL(42, element);
 }
@@ -245,16 +236,26 @@ TEST(pBuf, PBUB_retrieve_should_return_INVALID_ELEMENT_if_the_buffer_is_empty)
   TEST_ASSERT_EQUAL(INVALID_RETRIEVE, PBUF_retrieve(&element));
 }
 
-TEST(pBuf, insertEmpty_should_insert_to_the_beginning_of_the_empty_buffer)
+TEST(pBuf, insertEmptyIndex_should_insert_to_the_beginning_of_the_empty_buffer)
 {
-  insertEmpty(42, LOW_PRI);
-}
+  index_t index;
 
+  TEST_ASSERT_EQUAL(VALID_INSERT, insertEmptyIndex(&index, LOW_PRI));
+  TEST_ASSERT_EQUAL(0, index);
+
+}
 TEST(pBuf, insertNotFull_inserts_regardless_of_priority_to_the_end_of_the_buffer)
 {
-  writeElement(42, HIGH_PRI);
-  writeElement(43, HIGH_PRI);
-  insertNotFull(44, LOW_PRI);
+  index_t index;
+
+  TEST_ASSERT_EQUAL(VALID_INSERT, insertEmptyIndex(&index, LOW_PRI));
+  TEST_ASSERT_EQUAL(0, index);
+  TEST_ASSERT_EQUAL(VALID_INSERT, insertNotFullIndex(&index, HIGH_PRI));
+  TEST_ASSERT_EQUAL(1, index);
+  TEST_ASSERT_EQUAL(VALID_INSERT, insertNotFullIndex(&index, MID_PRI));
+  TEST_ASSERT_EQUAL(2, index);
+  TEST_ASSERT_EQUAL(VALID_INSERT, insertNotFullIndex(&index, LOW_PRI));
+  TEST_ASSERT_EQUAL(3, index);
 }
 
 TEST(pBuf, insert_pM_should_return_VALID_INSERT)
@@ -1304,4 +1305,22 @@ TEST(pBuf, pH_pH_pH_pM_pM_pM_should_resequence_correctly)
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(24, MID_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(25, MID_PRI));
   TEST_ASSERT_EQUAL(VALID_INSERT, insert(26, MID_PRI));
+}
+
+TEST(pBuf, insertIndex_pL_should_return_VALID_INSERT)
+{
+  uint16_t count;
+  index_t index;
+
+  for(count = 0; count < BUFFER_SIZE; count++)
+    {
+      TEST_ASSERT_EQUAL(VALID_INSERT, insertIndex(&index, LOW_PRI));
+      TEST_ASSERT_EQUAL(count, index);
+    }
+
+  for(count = 0; count < BUFFER_SIZE; count++)
+    {
+      TEST_ASSERT_EQUAL(VALID_INSERT, insertIndex(&index, LOW_PRI));
+      TEST_ASSERT_EQUAL(count, index);
+    }
 }

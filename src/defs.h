@@ -49,7 +49,12 @@ typedef struct CELL_T
 
   /**
      data holds the data of the element. */
+
+#ifndef EXTERNAL_DATA_BUFFER
+
   element_t data;
+
+#endif  /* ! EXTERNAL_DATA_BUFFER */
 
   /**
      next is a link pointing to the next element in the buffer. */
@@ -128,10 +133,11 @@ enum {
   BUFFER_FULL,
   INVALID_REMAP,
   VALID_REMAP,
-  INVALID_RETRIEVE,
-  VALID_RETRIEVE,
   INVALID_DATA,
   VALID_DATA,
 };
+
+#define VALID_RETRIEVE 0u
+#define INVALID_RETRIEVE 1u
 
 #endif  /* DEFS_H */

@@ -21,6 +21,12 @@
 
 #endif  /* !PRIORITY_SIZE */
 
+#ifndef PRIORITY_SIZE
+
+#  define PRIORITY_SIZE 3
+
+#endif  /* !PRIORITY_SIZE */
+
 /**
    Set the element size here (8, 16, 32, 0r 64) */
 
@@ -53,6 +59,11 @@ typedef uint64_t element_t;
 #endif
 
 /**
+   define EXTERNAL_DATA_BUFFER if data buffer is to be maintained externally */
+
+  //#define EXTERNAL_DATA_BUFFER
+
+/**
    The priority_t type holds a priority value.
 */
 
@@ -65,6 +76,8 @@ int PBUF_bufferSize(void);
 int PBUF_ElementSize(void);
 int PBUF_insert(element_t element, priority_t priority);
 int PBUF_retrieve(element_t * element);
+int PBUF_insertIndex(int * index, priority_t priority);
+int PBUF_retrieveIndex(int * index);
 
 #ifdef UNIT_TESTS
 
