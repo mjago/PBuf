@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PBuf: PBuf</title>
+<title>PBuf: PBuf (v0.2.0)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PBuf
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">Priority Buffer</div>
   </td>
@@ -82,11 +82,10 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PBuf </div>  </div>
+<div class="title">PBuf (v0.2.0) </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h3>(Prioritised Buffer)</h3>
-<p>This software is a Prioritised buffer intended for use in an embedded environment, with processors or controllers as small as 8-bit.</p>
+<div class="textblock"><p>PBuf is a Prioritised buffer intended for use in an embedded environment, with processors or controllers as small as 8-bit.</p>
 <h2>Purpose</h2>
 <p>The Prioritised Buffer can be used to enable the rapid re-prioritisation of self-contained payloads of data, possibly compressed and encrypted. It makes sense to manipulate such a payload in units of payload, and being able to prioritise or re-order the delivery of them against time can release the business logic from being required to maintain a lot of state regarding what has gone, what has maybe gone, and how urgent is this payload with respect to what is already out there. By employing prioritisation in this way, the priorities may be worked out ahead of time, and the configuration stored as constant data for rapid use, freeing the user of much of the decision-making in real-time.</p>
 <h2>Configuration</h2>

@@ -4,6 +4,7 @@ var priority__buffer_8h =
     [ "ELEMENT_SIZE", "priority__buffer_8h.html#afbf7eb32266433cead9d5dac419643c0", null ],
     [ "PRIORITY_SIZE", "priority__buffer_8h.html#a665702c3665b73a962997d9140724dcc", null ],
     [ "STATIC", "priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb", null ],
+    [ "VERSION", "priority__buffer_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf", null ],
     [ "element_t", "priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0", null ],
     [ "priority_t", "priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a", null ],
     [ "PBUF_bufferSize", "group__API.html#ga7fb353a7665a3fb53568819efaa00964", null ],

@@ -1,8 +1,6 @@
-# PBuf
+# PBuf (v0.2.0)
 
-### (Prioritised Buffer)
-
-This software is a Prioritised buffer intended for use in an embedded environment,
+PBuf is a Prioritised buffer intended for use in an embedded environment,
 with processors or controllers as small as 8-bit.
 
 ## Purpose
