@@ -127,7 +127,7 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:a89ba4325f2c6c7d87e6a245fc2f429b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The element_t type holds a buffer element.  <a href="#a89ba4325f2c6c7d87e6a245fc2f429b0">More...</a><br /></td></tr>
 <tr class="separator:a89ba4325f2c6c7d87e6a245fc2f429b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e0ce584fa990a9612d8a4fce94e391a"><td class="memItemLeft" align="right" valign="top">typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a></td></tr>
-<tr class="memdesc:a5e0ce584fa990a9612d8a4fce94e391a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The priority_t type holds a priority value.  <a href="#a5e0ce584fa990a9612d8a4fce94e391a">More...</a><br /></td></tr>
+<tr class="memdesc:a5e0ce584fa990a9612d8a4fce94e391a"><td class="mdescLeft">&#160;</td><td class="mdescRight">define EXTERNAL_DATA_BUFFER if data buffer is to be maintained externally  <a href="#a5e0ce584fa990a9612d8a4fce94e391a">More...</a><br /></td></tr>
 <tr class="separator:a5e0ce584fa990a9612d8a4fce94e391a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -152,6 +152,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3b29980e7f7f1d7adbc8c01d14ea3c56"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga3b29980e7f7f1d7adbc8c01d14ea3c56">PBUF_retrieve</a> (<a class="el" href="priority__buffer_8h.html#a89ba4325f2c6c7d87e6a245fc2f429b0">element_t</a> *element)</td></tr>
 <tr class="memdesc:ga3b29980e7f7f1d7adbc8c01d14ea3c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve an element from the tail of the buffer and assign to the element pointer passed in.  <a href="group__API.html#ga3b29980e7f7f1d7adbc8c01d14ea3c56">More...</a><br /></td></tr>
 <tr class="separator:ga3b29980e7f7f1d7adbc8c01d14ea3c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad469c993773b10f11dc9f8368808fc04"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#gad469c993773b10f11dc9f8368808fc04">PBUF_insertIndex</a> (int *index, <a class="el" href="priority__buffer_8h.html#a5e0ce584fa990a9612d8a4fce94e391a">priority_t</a> <a class="el" href="cli_8c.html#a0ad043071ccc7a261d79a759dc9c6f0c">priority</a>)</td></tr>
+<tr class="memdesc:gad469c993773b10f11dc9f8368808fc04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert index of the given priority is passed to by modifying index.  <a href="group__API.html#gad469c993773b10f11dc9f8368808fc04">More...</a><br /></td></tr>
+<tr class="separator:gad469c993773b10f11dc9f8368808fc04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f18ccb6b9c8c71c0b13c6ff3b38b0a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga4f18ccb6b9c8c71c0b13c6ff3b38b0a0">PBUF_retrieveIndex</a> (int *index)</td></tr>
+<tr class="memdesc:ga4f18ccb6b9c8c71c0b13c6ff3b38b0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve index is passed to the caller by modifying index.  <a href="group__API.html#ga4f18ccb6b9c8c71c0b13c6ff3b38b0a0">More...</a><br /></td></tr>
+<tr class="separator:ga4f18ccb6b9c8c71c0b13c6ff3b38b0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a6b20d41d6252e9871430c242cb1a56e7"></a>
@@ -186,7 +192,7 @@ Functions</h2></td></tr>
 
 <p>Set the element size here (8, 16, 32, 0r 64) </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8h_source.html#l00027">27</a> of file <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8h_source.html#l00033">33</a> of file <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>.</p>
 
 </div>
 </div>
@@ -220,7 +226,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8h_source.html#l00077">77</a> of file <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8h_source.html#l00090">90</a> of file <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>.</p>
 
 </div>
 </div>
@@ -239,7 +245,7 @@ Functions</h2></td></tr>
 
 <p>The element_t type holds a buffer element. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8h_source.html#l00035">35</a> of file <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8h_source.html#l00041">41</a> of file <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>.</p>
 
 </div>
 </div>
@@ -255,9 +261,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>define EXTERNAL_DATA_BUFFER if data buffer is to be maintained externally </p>
 <p>The priority_t type holds a priority value. </p>
 
-<p class="definition">Definition at line <a class="el" href="priority__buffer_8h_source.html#l00059">59</a> of file <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="priority__buffer_8h_source.html#l00070">70</a> of file <a class="el" href="priority__buffer_8h_source.html">priority_buffer.h</a>.</p>
 
 </div>
 </div>

@@ -4,7 +4,9 @@ var defs_8h =
     [ "PTR_T", "structPTR__T.html", "structPTR__T" ],
     [ "PBUF_T", "structPBUF__T.html", "structPBUF__T" ],
     [ "HIGH_PRI", "defs_8h.html#ac266944e7b0ba21c12c603b3cb10e66c", null ],
+    [ "INVALID_RETRIEVE", "defs_8h.html#a091e8f0c637b6dca6a6e60b6174caf7e", null ],
     [ "LOW_PRI", "defs_8h.html#aa2a99df86990101331b901243bedcb48", null ],
+    [ "VALID_RETRIEVE", "defs_8h.html#aeca45d9dddd47d82933663ed07572d3c", null ],
     [ "activity_t", "defs_8h.html#a8e4dfdfbb5439926d9a9b21c13499df5", null ],
     [ "cell_t", "defs_8h.html#acf2585a2612225f8c4bf450bd9e06b02", null ],
     [ "check_t", "defs_8h.html#a63d66f35aeb951f4087f0e3976457579", null ],
@@ -37,8 +39,6 @@ var defs_8h =
     [ "BUFFER_FULL", "defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a917ab436d39980901dfe85d9a4762769", null ],
     [ "INVALID_REMAP", "defs_8h.html#a99fb83031ce9923c84392b4e92f956b5af131affc82cff329addae997349bc22f", null ],
     [ "VALID_REMAP", "defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a52596d0e990e46c7f9f711e3c9ebfed5", null ],
-    [ "INVALID_RETRIEVE", "defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a32796c1dda81706528807c1395aa5a28", null ],
-    [ "VALID_RETRIEVE", "defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a4db026252f8ca1eb5fab89e7227106a1", null ],
     [ "INVALID_DATA", "defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a1cf2f29eaea742a6926f1efd4b9c16e8", null ],
     [ "VALID_DATA", "defs_8h.html#a99fb83031ce9923c84392b4e92f956b5ab71e71e96a8b7aa4ed5fccf05d929d88", null ]
 ];

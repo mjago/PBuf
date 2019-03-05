@@ -9,6 +9,6 @@ var searchData=
   ['valid_5fpriority',['VALID_PRIORITY',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5aaa9953c3f338bfe8733c5af02db26a02',1,'defs.h']]],
   ['valid_5fremap',['VALID_REMAP',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a52596d0e990e46c7f9f711e3c9ebfed5',1,'defs.h']]],
   ['valid_5freset',['VALID_RESET',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a77baee0325b26cec43a1588d957058c2',1,'defs.h']]],
-  ['valid_5fretrieve',['VALID_RETRIEVE',['../cli_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a4db026252f8ca1eb5fab89e7227106a1',1,'VALID_RETRIEVE():&#160;cli.h'],['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a4db026252f8ca1eb5fab89e7227106a1',1,'VALID_RETRIEVE():&#160;defs.h']]],
+  ['valid_5fretrieve',['VALID_RETRIEVE',['../cli_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a4db026252f8ca1eb5fab89e7227106a1',1,'cli.h']]],
   ['valid_5fwrite',['VALID_WRITE',['../defs_8h.html#a99fb83031ce9923c84392b4e92f956b5a50cd76d93d2ff4084bb7b513f333fadc',1,'defs.h']]]
 ];
