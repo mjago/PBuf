@@ -1,14 +1,9 @@
 var NAVTREEINDEX1 =
 {
-"index.html":[],
-"md_CHANGELOG.html":[1],
-"md_docs_dox_adding_data_to_the_buffer.html":[2],
-"md_docs_dox_cli.html":[3],
-"md_docs_dox_theory_of_operation.html":[4],
 "modules.html":[5],
 "pages.html":[],
 "priority__buffer_8c.html":[7,0,1,1],
-"priority__buffer_8c.html#a244c54f59b41d36f2aac77b7d0a47281":[7,0,1,1,53],
+"priority__buffer_8c.html#a244c54f59b41d36f2aac77b7d0a47281":[7,0,1,1,51],
 "priority__buffer_8c_source.html":[7,0,1,1],
 "priority__buffer_8h.html":[7,0,1,2],
 "priority__buffer_8h.html#a10b2d890d871e1489bb02b7e70d9bdfb":[7,0,1,2,3],

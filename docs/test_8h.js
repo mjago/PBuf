@@ -27,7 +27,6 @@ var test_8h =
     [ "nextTailIndex", "group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec", null ],
     [ "overwriteElementIndex", "group__Internal.html#gad2262b885049b7a5b2dc9788c218453f", null ],
     [ "readData", "group__Internal.html#ga479267c96199b6ef96410bac46a6786e", null ],
-    [ "readElement", "group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a", null ],
     [ "remap", "group__Internal.html#gaef16038e1f9438af30a74f142d390814", null ],
     [ "remapNotFull", "group__Internal.html#ga70be83e9ffcbbdc0472e146ad49a8781", null ],
     [ "resetBuffer", "group__Internal.html#ga94850b0732135d46f8cd4148d030b936", null ],

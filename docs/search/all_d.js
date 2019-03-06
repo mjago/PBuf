@@ -1,7 +1,6 @@
 var searchData=
 [
   ['readdata',['readData',['../group__Internal.html#ga479267c96199b6ef96410bac46a6786e',1,'readData(element_t *element, index_t index):&#160;priority_buffer.c'],['../group__Internal.html#ga479267c96199b6ef96410bac46a6786e',1,'readData(element_t *element, index_t index):&#160;priority_buffer.c']]],
-  ['readelement',['readElement',['../group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a',1,'readElement(element_t *element):&#160;priority_buffer.c'],['../group__Internal.html#ga2e940de75d9a9058d8e6d7612807351a',1,'readElement(element_t *element):&#160;priority_buffer.c']]],
   ['readelementindex',['readElementIndex',['../group__Internal.html#ga07615f64ca72578fd587b65c00c60499',1,'priority_buffer.c']]],
   ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
   ['readnumber',['readNumber',['../cli_8c.html#a5cfb74887f3ac7ea1c6d094f0e2e09a2',1,'cli.c']]],
