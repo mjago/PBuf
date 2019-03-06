@@ -1007,27 +1007,6 @@ STATIC check_t overwriteSinglePriorityIndex(index_t * index, priority_t priority
 }
 
 /**
-   Overwrite without remapping if buffer is full and only
-   a single priority exists on the buffer
-   \return VALID_WRITE or INVALID_WRITE */
-
-STATIC check_t overwriteSinglePriority(element_t element, priority_t priority)
-{
-  check_t returnVal = INVALID_WRITE;
-  index_t index;
-
-  if(overwriteSinglePriorityIndex(&index, priority) == VALID_WRITE)
-    {
-      if(writeData(element, index) == VALID_ELEMENT)
-        {
-          returnVal = VALID_WRITE;
-        }
-    }
-
-  return returnVal;
-}
-
-/**
    Overwrite index since buffer is full and there are no unused elements.
    \return VALID_WRITE or INVALID_WRITE */
 
