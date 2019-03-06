@@ -37,4 +37,21 @@ Enter either:   1. data (a number less than 256)
 
 ```
 
-As data is entered it appears in the database representation.
+### Data Display
+
+As data is entered it appears in the buffer representation:
+
+```
+
+	Prioritised Buffer Exerciser
+
+priority 0 (lowest)
+buffer:
+ path: 127 -> 22 -> 255
+ data: 127, 22, 255, 0, 0, 0, 0, 0
+ next:  1, 2, 3, 4, 5, 6, 7, 0
+head(0):   2, head(1):   7, head(2):   7, head(3):   7, tail:  7
+active(0): 1, active(1): 0, active(2): 0, active(3): 0, empty: 0
+  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+
+```

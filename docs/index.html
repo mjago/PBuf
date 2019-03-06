@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="contents">
 <div class="textblock"><p>PBuf is a Prioritised buffer intended for use in an embedded environment, with processors or controllers as small as 8-bit.</p>
 <h2>Purpose</h2>
-<p>The Prioritised Buffer can be used to enable the rapid re-prioritisation of self-contained payloads of data, possibly compressed and encrypted. It makes sense to manipulate such a payload in units of payload, and being able to prioritise or re-order the delivery of them against time can release the business logic from being required to maintain a lot of state regarding what has gone, what has maybe gone, and how urgent is this payload with respect to what is already out there. By employing prioritisation in this way, the priorities may be worked out ahead of time, and the configuration stored as constant data for rapid use, freeing the user of much of the decision-making in real-time.</p>
+<p><em>PBuf</em> can be used to enable the rapid re-prioritisation of self-contained payloads of data, possibly compressed and encrypted. It makes sense to manipulate such a payload in units of payload, and being able to prioritise or re-order the delivery of them against time can release the business logic from being required to maintain a lot of state regarding what has gone, what has maybe gone, and how urgent is this payload with respect to what is already out there. By employing prioritisation in this way, the priorities may be worked out ahead of time, and the configuration stored as constant data for rapid use, freeing the user of much of the decision-making in real-time.</p>
 <h2>Configuration</h2>
 <p>It is configurable at compile time by defining three definitions (found in <a class="el" href="priority__buffer_8h.html">priority_buffer.h</a>). The definitions can also be passed to the compiler via the command line.</p>
 <ol type="1">
@@ -104,12 +104,12 @@ $(document).ready(function(){initNavTree('index.html','');});
 <p>The testing framework used is <a href="https://github.com/throwtheswitch/">Unity Test System</a>. The test runners are written in C to avoid other dependencies. <a href="https://github.com/throwtheswitch/">Unity Test System</a> is MIT licensed.</p>
 <h2>Cli</h2>
 <p>A cli program is available in <code>cli/</code>. This <em>buffer exerciser</em> is configured for an eight element buffer and four priorities, but may be adjusted (see makefile). It enables for the <em>inserting</em>, <em>retrieving</em>, <em>viewing</em> and <em>resetting</em> of data in a <em>prioritised buffer</em>.</p>
-<p>To build <em>cli</em> run <code>make build_cli</code></p>
-<p>To run <em>cli</em> run <code>make run_cli</code></p>
+<p>To build <b>cli</b> run <code>make build_cli</code></p>
+<p>To run <b>cli</b> run <code>make run_cli</code></p>
 <h2>Documentation</h2>
-<p>Some documentation is present in the <code>docs</code> directory and is available at the link below.</p>
-<p>The source documentation is cross-referenced using <a href="http://www.doxygen.nl/">Doxygen</a>. and can be built using the command <code>make doc</code>.</p>
+<p>Documentation is present in the <code>docs</code> directory and is available at the link below.</p>
 <p><a href="http://martynjago.co.uk/PBuf/">The documentation is available here.</a>.</p>
+<p>The source documentation is cross-referenced using <a href="http://www.doxygen.nl/">Doxygen</a>. and can be built using the command <code>make doc</code>. There is a <a href="https://graphviz.org">Graphviz</a> dependency to build the graphs.</p>
 <h2>Concurrency</h2>
 <p>There are currently no locks or checks for concurrency, so it is the responsibility of the user to ensure reads and writes do not occur simultaneously. This is by design, since the user has control over their interrupts etc.</p>
 <h2>Licence</h2>

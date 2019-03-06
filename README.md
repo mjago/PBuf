@@ -5,7 +5,7 @@ with processors or controllers as small as 8-bit.
 
 ## Purpose
 
-The Prioritised Buffer can be used to enable the rapid re-prioritisation of self-contained payloads of data, possibly compressed
+*PBuf* can be used to enable the rapid re-prioritisation of self-contained payloads of data, possibly compressed
 and encrypted. It makes sense to manipulate such a payload in units of payload, and being able to prioritise or re-order the
 delivery of them against time can release the business logic from being required to maintain a lot of state regarding what
 has gone, what has maybe gone, and how urgent is this payload with respect to what is already out there. By employing prioritisation
@@ -45,16 +45,17 @@ A cli program is available in `cli/`.
 This *buffer exerciser* is configured for an eight element buffer and four priorities, but may be adjusted (see makefile).
 It enables for the *inserting*, *retrieving*, *viewing* and *resetting* of data in a *prioritised buffer*.
 
-To build *cli* run `make build_cli`
+To build **cli** run `make build_cli`
 
-To run *cli* run `make run_cli`
+To run **cli** run `make run_cli`
 
 ## Documentation
-Some documentation is present in the `docs` directory and is available at the link below.
-
-The source documentation is cross-referenced using [Doxygen](http://www.doxygen.nl/). and can be built using the command `make doc`.
+Documentation is present in the `docs` directory and is available at the link below.
 
 [The documentation is available here.]( http://martynjago.co.uk/PBuf/).
+
+The source documentation is cross-referenced using [Doxygen](http://www.doxygen.nl/). and can be built using the command `make doc`.
+There is a [Graphviz](https://graphviz.org) dependency to build the graphs.
 
 ## Concurrency
 
