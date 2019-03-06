@@ -23,7 +23,6 @@ TEST_GROUP_RUNNER(pBuf)
   RUN_TEST_CASE(pBuf, writeHead_should_write_head);
   RUN_TEST_CASE(pBuf, firstfreeElementIndex_should_return_next_tail_with_an_empty_buffer);
   RUN_TEST_CASE(pBuf, firstfreeElementIndex_should_return_the_correct_index_when_elements_in_buffer);
-  RUN_TEST_CASE(pBuf, readElement_should_read_the_next_element);
   RUN_TEST_CASE(pBuf, PBUB_retrieve_should_retrieve_the_next_element);
   RUN_TEST_CASE(pBuf, PBUB_retrieve_should_return_INVALID_ELEMENT_if_the_buffer_is_empty);
   RUN_TEST_CASE(pBuf, insertEmptyIndex_should_insert_to_the_beginning_of_the_empty_buffer);

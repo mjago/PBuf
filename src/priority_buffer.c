@@ -29,7 +29,6 @@ STATIC check_t insertIndex(index_t * index, priority_t priority);
 STATIC check_t insertEmptyIndex(index_t * index, priority_t priority);
 STATIC check_t insertNotFullIndex(index_t * index, priority_t priority);
 STATIC check_t insertFullIndex(index_t * index, priority_t priority);
-STATIC check_t readElement(element_t * element);
 
 //////////////////////////////// priority ////////////////////////////////
 
@@ -1002,20 +1001,6 @@ STATIC check_t overwriteSinglePriorityIndex(index_t * index, priority_t priority
 
           returnVal = VALID_WRITE;
         }
-    }
-
-  return returnVal;
-}
-
-STATIC check_t readElement(element_t * element)
-{
-  check_t returnVal = INVALID_ELEMENT;
-  index_t index;
-
-  if((readElementIndex(&index) == VALID_ELEMENT) &&
-     (readData(element, index) == VALID_ELEMENT))
-    {
-      returnVal = VALID_ELEMENT;
     }
 
   return returnVal;

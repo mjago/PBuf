@@ -35,7 +35,6 @@ check_t insertIndex(index_t * index, priority_t priority);
 check_t insertEmptyIndex(index_t * index, priority_t priority);
 check_t insertNotFullIndex(index_t * index, priority_t priority);
 check_t insertFullIndex(index_t * index, priority_t priority);
-check_t readElement(element_t * element);
 
 //////////////////////////////// priority ////////////////////////////////
 
