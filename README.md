@@ -25,6 +25,13 @@ The compilation will fail if other values are attempted.
 
 By default these are set to `4`, `8` and `3` respectively.
 
+## Headless Mode
+
+There is also a *headless mode* configurable by defining `EXTERNAL_DATA_BUFFER`. In this mode no internal buffer storage is
+allocated and code associated with the internal buffer is not built. This allows the user to maintain an external buffer
+structure and have *PBuf* figure out the correct insertion and retrieval points based on priorities. See the `PBUF_insertIndex()`
+and `PBUF_retrieveIndex()` API commands.
+
 ## Test
 
 A test suite is available in `test/` and can be run by typing `make` in the root directory.

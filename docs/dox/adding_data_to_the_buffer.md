@@ -19,8 +19,10 @@ following the letter indicates the number of elements of this priority in the bu
 #### Initially:
 
 ```
+
 x  ->  x  ->  x  ->  x  ->  ...
 T*
+
 ```
 
 Since the data to be added will be the only data in the buffer it will naturally be the highest priority
@@ -31,9 +33,11 @@ priority to indicate we have data of this priority in the buffer.
 ### Adding l1 becomes:
 
 ```
+
 l1  ->  x  ->  x  ->  x  ->  ...
 T*
 Hl*
+
 ```
 
 ## Adding data of the lowest priority to a partially full buffer containing only low priority
@@ -41,9 +45,11 @@ Hl*
 ### Initially:
 
 ```
+
 l1  ->  l2  ->  l3  ->  x  ->  ...
 T*
                 Hl      Hl*
+
 ```
 
 Since the buffer contains data in a high priority first, through lower priorities, to lower priority order,
@@ -54,9 +60,11 @@ is quicker to just set the flag than test the flag and set it.
 ### Adding l4 becomes:
 
 ```
+
 l1  ->  l2  ->  l3  ->  l4  ->  x  ...
 T*
                         Hl      Hl*
+
 ```
 
 ## Adding data of the lowest priority to a partially full buffer containing mixed priorities
@@ -64,9 +72,11 @@ T*
 ### Initially:
 
 ```
+
 h1  ->  h2  ->  h3  -> m1  ->  m2  ->  m3  ->  l1  ->  x  ->  ...
 T*
                 Hh                     Hm      Hl      Hl*
+
 ```
 
 Similarly to the previous example, here we simply add the new element to the buffer at the position indicated
@@ -77,9 +87,11 @@ here.
 ### Adding l2 becomes:
 
 ```
+
 h1  ->  h2  ->  h3  -> m1  ->  m2  ->  m3  ->  l1  ->  l2  ->  x  ->  ...
 T*
                 Hh                     Hm              Hl      Hl*
+
 ```
 
 ## Adding data of a high priority to a partially full buffer containing mixed priorities
@@ -87,9 +99,11 @@ T*
 ### Initially:
 
 ```
+
 h1  ->  h2  ->  h3  -> m1  ->  m2  ->  m3  ->  l1  ->  x  ->  ...
 T*
                 Hh                     Hm      Hl      Hl*
+
 ```
 
 We now wish to add high priority data to a buffer of mixed priorities. In this case we need the data to
@@ -106,9 +120,11 @@ the lowest active Head pointer:
 ### Stage 1:
 
 ```
+
 h1  ->  h2  ->  h3  -> m1  ->  m2  ->  m3  ->  l1  ->  h4  ->  x  ...
 T*
                 Hh                     Hm      Hl      Hl*
+
 ```
 
 The buffer is now out of order since we have higher priority data that is behind low priority data. We
@@ -140,20 +156,24 @@ Below shows how the links are broken and rearranged as above. The affect is to p
 behind the element h3 and ahead of m1.
 
 ```
+
                     ------------------------------>
                       <------------------------------------
                                                     ------->
 h1  ->  h2  ->  h3     m1  ->  m2  ->  m3  ->  l1      h4      x  ...
 T*
-```
                                        Hm      Hl      Hh
+
+```
 
 Below we see the buffer after redrawing and allowing for re-linking:
 
 ```
+
 h1  ->  h2  ->  h3  ->  h4  ->   m1  ->  m2  ->  m3  ->  l1  ->  x  ...
 T*
                         Hh                       Hm      Hl
+
 ```
 
 ## Adding data to a full buffer
@@ -177,22 +197,25 @@ way the latest insert is pushed to the back of the queue.
 ### Initially:
 
 ```
+
 l1  ->  l2  ->  l3  ->  l4  ->   l5  ->  l6  ->  l7  ->  l8  ->  l9  ->  l10
 T*                                                                       T
                                                                          Hl
 ```
 
-
 ### Adding l11 becomes:
 
 ```
+
 l11 ->  l2  ->  l3  ->  l4  ->   l5  ->  l6  ->  l7  ->  l8  ->  l9  ->  l10
 T*                                                                       T
                                                                          Hl
 ```
+
 ### Then advancing the Tail pointer:
 
 ```
+
 l2  ->  l3  ->  l4  ->   l5  ->  l6  ->  l7  ->  l8  ->  l9  ->  l10  ->  l11
 T*                                                                        T
                                                                           Hl
@@ -211,9 +234,11 @@ to insert the data between data of higher importance (higher priority or newer) 
 #### To add m4:
 
 ```
+
 h1  ->  h2  ->  h3  ->  h4  ->   m1  ->  m2  ->  m3  ->  l1  ->  l2
 T*                                                               T
                         Hh                       Hm              Hl
+
 ```
 
 Here we have a full buffer containing a mix of prioritisation. To add our data (m4) we need to determine
@@ -223,9 +248,11 @@ of which priority we are adding this is the element to get overwritten since it 
 ### Overwriting:
 
 ```
+
 h1  ->  h2  ->  h3  ->  h4  ->   m1  ->  m2  ->  m3  ->  m4  ->  l2
 T*                                                               T
                         Hh                       Hm              Hl
+
 ```
 
 Here we need to overwrite l1 with m4 as shown. Since we haven't a direct pointer to l1 we need to find
@@ -237,9 +264,11 @@ given by the head Hm to l1 and overwrite m4 there.
 In this case the buffer is still in the correct order and we simply need to advance the Hm head:
 
 ```
+
 h1  ->  h2  ->  h3  ->  h4  ->   m1  ->  m2  ->  m3  ->  m4  ->  l2
 T*                                                               T
                         Hh                               Hm      Hl
+
 ```
 
 ## Adding data to a full buffer of a priority higher than any on the buffer
@@ -247,9 +276,11 @@ T*                                                               T
 ### Initially:
 
 ```
+
 m1  ->  m2  ->  m3  ->  m4  ->  l1  ->  l2  ->  l3  ->  l4  ->   l5
 T*                                                               T
                         Hm                                       Hl
+
 ```
 
 In this buffer we have data of priority m and data of priority l but no data of priority h. Say we need
@@ -259,9 +290,11 @@ with the new data:
 ### Overwriting l1 with h1:
 
 ```
+
 m1  ->  m2  ->  m3  ->  m4  ->  h1  ->  l2  ->  l3  ->  l4  ->   l5  (  ->  m1)
 T*                                                               T   (      T*)
                         Hm                                       Hl
+
 ```
 
 Here we have overwritten l1 with h1. However the buffer clearly requires re-adjusting to correct the priorities.
@@ -270,6 +303,7 @@ This is a similar process to that considered above.
 ### Required adjustment:
 
 ```
+
                              <------------------------------------
 <------------------------------------
                             -------->
@@ -283,6 +317,7 @@ Notice here that the T* needs to move since the higher priority becomes the fron
 ### Rearranged gives:
 
 ```
+
 h1  ->  m1  ->  m2  ->  m3  ->  m4  ->  l2  ->  l3  ->  l4  ->   l5
 T*                                                               T
                                 Hm                               Hl
@@ -293,6 +328,7 @@ T*                                                               T
 ### Initially:
 
 ```
+
 l1  ->  l2  ->  l3  ->  l4  ->   l5  ->  l6  ->  l7  ->  l8  ->  l9  ->  l10
 T*                                                                       T
                                                                          Hl
@@ -305,6 +341,7 @@ by the Tail pointer T* and advance the Tail pointer.
 ### Following retrieval:
 
 ```
+
 l2  ->  l3  ->  l4  ->   l5  ->  l6  ->  l7  ->  l8  ->  l9  ->  l10
 T*                                                               T
                                                                  Hl
@@ -318,9 +355,11 @@ priority and need to make the priority inactive:
 ### Depleted Priority:
 
 ```
+
 h1  ->  l1  ->  l2  ->  l3  ->  l4  ->   l5  ->  l6  ->  l7  ->  l8
 T*                                                               T
 Hh                                                               Hl
+
 ```
 
 In this case there is only a single active priority on the buffer and a single relevant head pointer:
@@ -328,7 +367,9 @@ In this case there is only a single active priority on the buffer and a single r
 ### Becomes:
 
 ```
+
 l1  ->  l2  ->  l3  ->  l4  ->   l5  ->  l6  ->  l7  ->  l8
 T*                                                       T
                                                          Hl
 ```
+

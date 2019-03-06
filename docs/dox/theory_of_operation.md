@@ -1,20 +1,26 @@
 # Theory of operation
 
-This is a description of the theory of operation of this prioritorised circular buffer.
+This is a description of the theory of operation of *PBuf*.
 
 ## Configuration
 
-The buffer is configured at compile time by setting a small number of defines in priority_buffer.h:
+*PBuf* is configured at compile time by setting a small number of defines in priority_buffer.h:
+
 ```
+
 #define BUFFER_SIZE 4      /* may be between 4 to 256 elements in size */
 
 #define PRIORITY_SIZE 3    /* may be between 2 to 8 priorities in size */
 
- #define ELEMENT_SIZE 8     /* may be either 8, 16, 32, or 64 bits */
+#define ELEMENT_SIZE 8     /* may be either 8, 16, 32, or 64 bits */
+
+#define EXTERNAL_DATA_BUFFER   /* Enable headless mode if defined */
+
 ```
+
 The compiler checks these settings at compile time and compile will fail if they are out of limits.
 
-These settings may also be provided on the command line to the compiler such as -DELEMENT_SIZE=8
+These settings may also be provided on the command line to the compiler such as `-DELEMENT_SIZE=8`
 
 priority_buffer.h is purposefully kept very minimal to highlight these user configurations.
 
@@ -30,45 +36,57 @@ refactoring is as painless as possible.
 
 ## Memory
 
-The circular buffer is a structure containing elements upto the defined BUFFER_SIZE. Each element is
+The circular buffer is a structure containing elements upto the defined `BUFFER_SIZE`. Each element is
 a structure containing both data and a forward-linking link to the following buffer location.
 
-We also have a tail pointer and and array of head pointers whose size is equal to the PRIORITY_SIZE.
+We also have a tail pointer and and array of head pointers whose size is equal to the `PRIORITY_SIZE`.
 In addition, a further byte is used to store active flags for each priority.
 
 With these pointers into the structure we can process both insert and retrieve operations very quickly.
 The only time we spend following the links to any extent (beyond one or two) is when we are requred to
 calculate the size of the buffer contents since it was decided the memory saved here was justifiable
-(the print function also follows the links, but this is a DEBUG enabled function only - for the
+(the print function also follows the links, but this is a `DEBUG` enabled function only - for the
 purpose of the command line evaluation program).
+
+## Headless Operation
+
+*PBuf* can be used in a headless mode where the user supplies the buffer, and configures PBUF appropriately.
+In this configuration the commands `PBUF_insertIndex()` and `PBUF_retrieveIndex()` are used to have *PBuf*
+figure out the appropriate indices to reference the remote buffer correctly. This mode is achieved by
+defining `EXTERNAL_DATA_BUFFER`, which causes the compiler to build *PBuf* without the internal buffer storage
+or the buffer manipulation instruction `PBUF_insert()` and `PBUF_retrieve()`.
 
 ## Pointers
 
 As mentioned, a number of pointers are used to provide fast access into the buffer:
 
-Here P1 refers to highest priority, P3 to lowest priority etc.
+Here P2 refers to highest priority, P0 to lowest priority etc.
 Tail is the tail pointer.
 Head is the head pointer.
 The active array maintains the active status.
 the x denotes an empty element.
+
 ```
+
 ---------------------<------------------
 |                                      |
-->  P1   ->   P2   ->   P3   ->   x   >-
+->  P2   ->   P1   ->   P0   ->   x   >-
     ^         ^         ^         ^
- Head[1]   Head[2]   Head[3]     Tail
+ Head[2]   Head[1]   Head[0]     Tail
 
 Active[1] = ACTIVE
 Active[2] = ACTIVE
 Active[3] = ACTIVE
+
 ```
+
 ## Retrieving Data
 
 To retrieve an element the tail updates by following the link of the element it refernces, and the data at
 its new position is retrieved. If the head pointer matching the retrieved element's priority has the same
-index value as the tail pointer, the relevant active flag is set to NON_ACTIVE.
+index value as the tail pointer, the relevant active flag is set to `NON_ACTIVE`.
 
-If there is no data in the buffer all active flags are NON_ACTIVE and a suitable message returned to the
+If there is no data in the buffer all active flags are `NON_ACTIVE` and a suitable message returned to the
 caller. The empty buffer check is a single instruction operation.
 
 ## Adding Data
@@ -85,13 +103,13 @@ Elements are added to the buffer by the following means:
 If the buffer is empty, we add data to the location linked by the tail pointer. We ensure the data's
 priority is noted on the relevant active flag, and assign the relevant priority head pointer with the
 array index of the element's position in the buffer. In this way the priority head pointers always point
-to the newest element having that priority. If any active flag is INACTIVE the associated head pointer's
+to the newest element having that priority. If any active flag is `INACTIVE` the associated head pointer's
 data is contains a meaningless value.
 
 ### Buffer containing data but not full
 
-If the buffer is neither empty nor full, we add data to the location referenced by the `virtual master head'
-pointer. This is simply the index value of the lowest active priority pointer. In this case the data may be
+If the buffer is neither empty nor full, we add data to the location with the least highest priority.
+This is simply the index value of the lowest active priority pointer. In this case the data may be
 of a higher priority than its predecesser in which case we need to move it to the correct position. This is
 dealt with below by remapping the buffer.
 

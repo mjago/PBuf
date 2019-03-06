@@ -97,6 +97,8 @@ $(document).ready(function(){initNavTree('index.html','');});
 </ol>
 <p>The compilation will fail if other values are attempted.</p>
 <p>By default these are set to <code>4</code>, <code>8</code> and <code>3</code> respectively.</p>
+<h2>Headless Mode</h2>
+<p>There is also a <em>headless mode</em> configurable by defining <code>EXTERNAL_DATA_BUFFER</code>. In this mode no internal buffer storage is allocated and code associated with the internal buffer is not built. This allows the user to maintain an external buffer structure and have <em>PBuf</em> figure out the correct insertion and retrieval points based on priorities. See the <code><a class="el" href="group__API.html#gad469c993773b10f11dc9f8368808fc04" title="Insert index of the given priority is passed to by modifying index. ">PBUF_insertIndex()</a></code> and <code><a class="el" href="group__API.html#ga4f18ccb6b9c8c71c0b13c6ff3b38b0a0" title="Retrieve index is passed to the caller by modifying index. ">PBUF_retrieveIndex()</a></code> API commands.</p>
 <h2>Test</h2>
 <p>A test suite is available in <code>test/</code> and can be run by typing <code>make</code> in the root directory.</p>
 <p>The testing framework used is <a href="https://github.com/throwtheswitch/">Unity Test System</a>. The test runners are written in C to avoid other dependencies. <a href="https://github.com/throwtheswitch/">Unity Test System</a> is MIT licensed.</p>

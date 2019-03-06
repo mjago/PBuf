@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['main',['main',['../cli_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'cli.c']]],
-  ['menu_5fsize',['MENU_SIZE',['../cli_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a5f438ccbe1a3085c63717cc5cafbb1ea',1,'cli.h']]],
-  ['mid_5fpriority',['MID_PRIORITY',['../cli_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9e237bdc5644c0169f72bed1b21d1796',1,'cli.h']]]
+  ['next',['next',['../structCELL__T.html#abc9621a0a5b5056796e0f69a47c88f36',1,'CELL_T']]],
+  ['nextheadindex',['nextHeadIndex',['../group__Internal.html#ga6903cd55b080d86591040659ed762640',1,'nextHeadIndex(priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#ga6903cd55b080d86591040659ed762640',1,'nextHeadIndex(priority_t priority):&#160;priority_buffer.c']]],
+  ['nexthighestpriority',['nextHighestPriority',['../group__Internal.html#ga2e2c888184119622170bfb83453e322d',1,'nextHighestPriority(priority_t *nextPriority, priority_t priority):&#160;priority_buffer.c'],['../group__Internal.html#ga2e2c888184119622170bfb83453e322d',1,'nextHighestPriority(priority_t *nextPriority, priority_t priority):&#160;priority_buffer.c']]],
+  ['nextindex',['nextIndex',['../group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6',1,'nextIndex(index_t *next, index_t current):&#160;priority_buffer.c'],['../group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6',1,'nextIndex(index_t *index, priority_t priority):&#160;priority_buffer.c']]],
+  ['nexttailindex',['nextTailIndex',['../group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec',1,'nextTailIndex(index_t *index):&#160;priority_buffer.c'],['../group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec',1,'nextTailIndex(index_t *index):&#160;priority_buffer.c']]]
 ];

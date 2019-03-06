@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PBuf: Command Line Evaluation program (cli)</title>
+<title>PBuf: Changelog</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('md_docs_dox_cli.html','');});
+$(document).ready(function(){initNavTree('md_CHANGELOG.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -82,17 +82,38 @@ $(document).ready(function(){initNavTree('md_docs_dox_cli.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Command Line Evaluation program (cli) </div>  </div>
+<div class="title">Changelog </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h3>Introduction</h3>
-<p>The <code>cli</code> program provides an easy way to fire up the priority buffer.</p>
-<p>It consists of a very simple state-machine that allows the user certain instructions to manipulate the buffer.</p>
-<p>The <code>cli</code> may be built by running <code>gcc <a class="el" href="cli_8c.html">cli/cli.c</a> <a class="el" href="priority__buffer_8c.html">src/priority_buffer.c</a> -o./cli/out &amp;&amp; cli/out</code></p>
-<p>Alternatively a pre-built binary is available in the <code>cli</code> directory.</p>
-<h3>Menu</h3>
-<p>The user is presented with a simple menu and may enter data, or commands:</p>
-<div class="fragment"><div class="line">    Prioritised Buffer Exerciser</div><div class="line"></div><div class="line">priority 0 (lowest)</div><div class="line">buffer:</div><div class="line"> path:</div><div class="line"> data: 0, 0, 0, 0, 0, 0, 0, 0</div><div class="line"> next:  1, 2, 3, 4, 5, 6, 7, 0</div><div class="line">head(0):   7, head(1):   7, head(2):   7, head(3):   7, tail:  7</div><div class="line">active(0): 0, active(1): 0, active(2): 0, active(3): 0, empty: 1</div><div class="line">  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .</div><div class="line"></div><div class="line">Enter either:   1. data (a number less than 256)</div><div class="line">                2. one of the following Commands:</div><div class="line"></div><div class="line">                P : Priority Setting</div><div class="line">                G : Get Value</div><div class="line">                R : Reset Buffer</div><div class="line">                Q : Quit</div></div><!-- fragment --><p>As data is entered it appears in the database representation. </p>
+<div class="textblock"><p>All notable changes to PBuf will be documented in this file.</p>
+<p>The format is based on <a href="http://keepachangelog.com/en/1.0.0/">Keep a Changelog</a> and this project adheres to <a href="http://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<h2>[Unreleased]</h2>
+<h3>Fixed</h3>
+<h3>Added</h3>
+<h3>Changed</h3>
+<h2>[0.2.0] - 06-03-2019</h2>
+<h3>Fixed</h3>
+<ul>
+<li>n/a</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>Headless Mode. Configurable by defining <code>EXTERNAL_DATA_BUFFER</code>. In this mode the user maintains an external payload buffer, and <em>PBuf</em> provides prioritised access via the API commands <code><a class="el" href="group__API.html#gad469c993773b10f11dc9f8368808fc04" title="Insert index of the given priority is passed to by modifying index. ">PBUF_insertIndex()</a></code> and <code><a class="el" href="group__API.html#ga4f18ccb6b9c8c71c0b13c6ff3b38b0a0" title="Retrieve index is passed to the caller by modifying index. ">PBUF_retrieveIndex()</a></code>. Added relevant documentation.</li>
+<li>Added this CHANGELOG</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>n/a</li>
+</ul>
+<h2>[0.1.0] - 28-02-2019</h2>
+<h3>Fixed</h3>
+<ul>
+<li>Mapping bugs</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>Initial Buffer and Priority management code </li>
+</ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

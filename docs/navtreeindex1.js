@@ -1,7 +1,7 @@
 var NAVTREEINDEX1 =
 {
 "index.html":[],
-"md_cli_cli_README.html":[1],
+"md_CHANGELOG.html":[1],
 "md_docs_dox_adding_data_to_the_buffer.html":[2],
 "md_docs_dox_cli.html":[3],
 "md_docs_dox_theory_of_operation.html":[4],

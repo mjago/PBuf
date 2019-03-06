@@ -2,7 +2,7 @@ var NAVTREE =
 [
   [ "PBuf", "index.html", [
     [ "PBuf (v0.2.0)", "index.html", null ],
-    [ "Command Line Evaluation program (cli)", "md_cli_cli_README.html", null ],
+    [ "Changelog", "md_CHANGELOG.html", null ],
     [ "Adding Data to the Buffer", "md_docs_dox_adding_data_to_the_buffer.html", null ],
     [ "Command Line Evaluation program (cli)", "md_docs_dox_cli.html", null ],
     [ "Theory of operation", "md_docs_dox_theory_of_operation.html", null ],
