@@ -1,6 +1,6 @@
 # PBuf (v0.2.0)
 
-PBuf is a Prioritised buffer intended for use in an embedded environment,
+*PBuf* is a Prioritised buffer intended for use in an embedded environment,
 with processors or controllers as small as 8-bit.
 
 ## Purpose
@@ -42,8 +42,8 @@ test runners are written in C to avoid other dependencies. [Unity Test System](h
 ## Cli
 
 A cli program is available in `cli/`.
-This *buffer exerciser* is configured for an eight element buffer and four priorities, but may be adjusted (see makefile).
-It enables for the *inserting*, *retrieving*, *viewing* and *resetting* of data in a *prioritised buffer*.
+This *buffer exerciser* is configured for an eight element buffer with four priorities, but may be adjusted with configuration (see makefile).
+It enables for the **inserting**, **retrieving**, **viewing** and **resetting** of data in a *prioritised buffer*.
 
 To build **cli** run `make build_cli`
 
@@ -52,7 +52,7 @@ To run **cli** run `make run_cli`
 ## Documentation
 Documentation is present in the `docs` directory and is available at the link below.
 
-[The documentation is available here.]( http://martynjago.co.uk/PBuf/).
+[The documentation is available here](http://mjago.github.io/PBuf/).
 
 The source documentation is cross-referenced using [Doxygen](http://www.doxygen.nl/). and can be built using the command `make doc`.
 There is a [Graphviz](https://graphviz.org) dependency to build the graphs.
@@ -65,7 +65,7 @@ etc.
 
 ## Licence
 
-PBuf has a permissive MIT license (see ./LICENSE)
+*PBuf* has a permissive MIT license (see ./LICENSE)
 
 ## Contributors
 

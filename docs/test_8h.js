@@ -23,7 +23,7 @@ var test_8h =
     [ "lowestPriorityTail", "group__Internal.html#ga3450cb30f7e5348606ca09709f210e15", null ],
     [ "nextHeadIndex", "group__Internal.html#ga6903cd55b080d86591040659ed762640", null ],
     [ "nextHighestPriority", "group__Internal.html#ga2e2c888184119622170bfb83453e322d", null ],
-    [ "nextIndex", "group__Internal.html#ga366ccea549bbc6a19953eaa3c6b4a9d6", null ],
+    [ "nextIndex", "group__Internal.html#ga43ec514eaad587cc97e72989f27c56ae", null ],
     [ "nextTailIndex", "group__Internal.html#ga9ff9ed75bb6e4b8b09b58069b5b8a6ec", null ],
     [ "overwriteElementIndex", "group__Internal.html#gad2262b885049b7a5b2dc9788c218453f", null ],
     [ "readData", "group__Internal.html#ga479267c96199b6ef96410bac46a6786e", null ],
@@ -38,6 +38,6 @@ var test_8h =
     [ "writeData", "group__Internal.html#ga094a72d34fb14e52ab82ec100e398d32", null ],
     [ "writeElementIndex", "group__Internal.html#ga0f002713195e930d012d6f25226c2e20", null ],
     [ "writeHead", "group__Internal.html#ga3dd0bec574f240e0206d32f70070dc2b", null ],
-    [ "writeNextIndex", "group__Internal.html#ga6e7e1ec9b159f6251ea7b301b3f3e1a2", null ],
+    [ "writeNextIndex", "group__Internal.html#ga36d753cbda4b52649c4e11c4971ba728", null ],
     [ "writeTail", "group__Internal.html#gae1d6cf89c1d2cecc5b27e8b1da9e9a18", null ]
 ];

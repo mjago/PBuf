@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <inttypes.h>
 #include "priority_buffer.h"
 #include "defs.h"
@@ -6,8 +5,8 @@
 //////////////////////////////// index ////////////////////////////////
 
 STATIC check_t checkIndex(index_t index);
-STATIC check_t nextIndex(index_t * index, priority_t priority);
-STATIC check_t writeNextIndex(index_t current, index_t next);
+STATIC check_t nextIndex(index_t * nextIdx, index_t currentIdx);
+STATIC check_t writeNextIndex(index_t currentIdx, index_t nextIdx);
 STATIC check_t firstFreeElementIndex(index_t * index);
 STATIC index_t headIndex(priority_t priority);
 STATIC index_t nextHeadIndex(priority_t priority);
@@ -89,14 +88,12 @@ STATIC check_t incTail(void)
 {
   check_t returnVal = INVALID_INDEX;
   index_t index;
-  if(nextTailIndex(&index) == VALID_INDEX)
+
+  if((nextTailIndex(&index) == VALID_INDEX) &&
+     (writeTail(index) == VALID_INDEX))
     {
-      if(writeTail(index) == VALID_INDEX)
-        {
-          returnVal = VALID_INDEX;
-        }
+      returnVal = VALID_INDEX;
     }
-  nextTailIndex(&index);
 
   return returnVal;
 }
@@ -117,11 +114,12 @@ STATIC index_t tailIndex(void)
 
 STATIC index_t writeTail(index_t index)
 {
-  check_t returnVal = checkIndex(index);
+  check_t returnVal = INVALID_INDEX;
 
-  if(returnVal == VALID_INDEX)
+  if(checkIndex(index) == VALID_INDEX)
     {
       bf.ptr.tail = index;
+      returnVal = VALID_INDEX;
     }
 
   return returnVal;
@@ -135,8 +133,17 @@ STATIC index_t writeTail(index_t index)
 
 STATIC check_t nextTailIndex(index_t * index)
 {
-  *index = bf.element[tailIndex()].next;
-  return VALID_INDEX;
+  check_t returnVal = INVALID_INDEX;
+
+    {
+      *index = bf.element[tailIndex()].next;
+      if(checkIndex(*index) == VALID_INDEX)
+        {
+          returnVal = VALID_INDEX;
+        }
+    }
+
+    return returnVal;
 }
 
 /**
@@ -144,13 +151,13 @@ STATIC check_t nextTailIndex(index_t * index)
    from the current index passed in. Returns index validity.
    \return VALID_INDEX or INVALID_INDEX */
 
-STATIC check_t nextIndex(index_t * next, index_t current)
+STATIC check_t nextIndex(index_t * nextIdx, index_t currentIdx)
 {
   check_t returnVal = INVALID_INDEX;
 
-  if(current < BUFFER_SIZE)
+  if(checkIndex(currentIdx) == VALID_INDEX)
     {
-      *next = bf.element[current].next;
+      *nextIdx = bf.element[currentIdx].next;
       returnVal = VALID_INDEX;
     }
 
@@ -162,15 +169,14 @@ STATIC check_t nextIndex(index_t * next, index_t current)
    the current index passed in.
    \return VALID_INDEX or INVALID_INDEX */
 
-
-STATIC check_t writeNextIndex(index_t current, index_t next)
+STATIC check_t writeNextIndex(index_t currentIdx, index_t nextIdx)
 {
   check_t returnVal = INVALID_INDEX;
 
-  if((current < BUFFER_SIZE) &&
-     (next < BUFFER_SIZE))
+  if((checkIndex(currentIdx) == VALID_INDEX) &&
+     (checkIndex(nextIdx) == VALID_INDEX))
     {
-      bf.element[current].next = next;
+      bf.element[currentIdx].next = nextIdx;
       returnVal = VALID_INDEX;
     }
 
@@ -237,7 +243,7 @@ STATIC check_t writeHead(index_t index, priority_t priority)
   check_t returnVal = INVALID_WRITE;
 
   if((validatePriority(priority) == VALID_PRIORITY) &&
-     (index < BUFFER_SIZE))
+     (checkIndex(index) == VALID_INDEX))
     {
       bf.ptr.head[priority] = index;
       returnVal = VALID_WRITE;
@@ -253,18 +259,20 @@ STATIC check_t writeHead(index_t index, priority_t priority)
 STATIC check_t lowestPriority(priority_t * priority)
 {
   check_t returnVal = INVALID_PRIORITY;
-  priority_t priCount;
+  priority_t priCount = 0;
+  uint8_t mask = 0x01;
 
   if(bufferEmpty() == BUFFER_NOT_EMPTY)
     {
       for(priCount = LOW_PRI ;priCount < PRIORITY_SIZE ;priCount++)
         {
-          if(activeStatus(priCount) == ACTIVE)
+          if(bf.activity & mask)
             {
               *priority = priCount;
               returnVal = VALID_PRIORITY;
               break;
             }
+          mask *= 2u;
         }
     }
 
@@ -354,19 +362,18 @@ STATIC check_t highestPriority(priority_t * priority)
 {
   check_t returnVal = INVALID_PRIORITY;
   priority_t priCount;
+  uint8_t mask = 1 << (PRIORITY_SIZE - 1);
 
-  for(priCount = HIGH_PRI ; ; priCount--)
+  for(priCount = PRIORITY_SIZE ; priCount > 0; priCount--)
     {
-      if(activeStatus(priCount) == ACTIVE)
+      if(bf.activity & mask)
         {
-          *priority = priCount;
+          *priority = priCount - 1;
           returnVal = VALID_PRIORITY;
           break;
         }
-      if(priCount == LOW_PRI)
-        {
-          break;
-        }
+
+      mask /= 2u;
     }
 
   return returnVal;
@@ -381,14 +388,16 @@ STATIC check_t resetBufferPointers(void)
   check_t returnVal = VALID_RESET;
   priority_t count;
 
-  writeTail(BUFFER_SIZE - 1);
-
-  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
+  bf.activity = 0u;
+  if(writeTail(BUFFER_SIZE - 1) == VALID_INDEX)
     {
-      if(writeHead(BUFFER_SIZE - 1u, count) != VALID_WRITE)
+      for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
         {
-          returnVal = INVALID_RESET;
-          break;
+          if(writeHead(BUFFER_SIZE - 1u, count) != VALID_WRITE)
+            {
+              returnVal = INVALID_RESET;
+              break;
+            }
         }
     }
 
@@ -414,15 +423,6 @@ STATIC check_t resetBuffer(void)
         }
     }
 
-  for(count = LOW_PRI; count < PRIORITY_SIZE; count++)
-    {
-      if(setInactive(count) != VALID_ACTIVE)
-        {
-          returnVal = INVALID_RESET;
-          break;
-        }
-    }
-
   return returnVal;
 }
 
@@ -433,12 +433,13 @@ STATIC check_t writeElementIndex(index_t * index, priority_t priority)
 
   if(bufferFull() == BUFFER_NOT_FULL)
     {
-      if(lowestPriority(&lowestPri) != VALID_PRIORITY)
+      if(bufferEmpty() == BUFFER_EMPTY)
         {
           nextTailIndex(index);
         }
       else
         {
+          lowestPriority(&lowestPri);
           nextIndex(index, headIndex(lowestPri));
         }
 
@@ -463,15 +464,17 @@ check_t nextHighestPriority(priority_t * nextPriority, priority_t priority)
 {
   check_t returnVal = INVALID_PRIORITY;
   priority_t priCount;
+  priority_t mask = 1u << (priority + 1);
 
   for(priCount = priority + 1u; priCount < PRIORITY_SIZE; priCount++)
     {
-      if(activeStatus(priCount) == ACTIVE)
+      if(bf.activity & mask)
         {
           *nextPriority = priCount;
           returnVal = VALID_PRIORITY;
           break;
         }
+      mask *= 2;
     }
 
   return returnVal;
@@ -485,15 +488,16 @@ STATIC uint8_t activePriorityCount(void)
 {
   uint8_t returnVal = 0;
   priority_t priority;
+  priority_t mask = 1u;
 
-  for(priority = LOW_PRI; priority < PRIORITY_SIZE; priority++){
+  for(priority = LOW_PRI; priority < PRIORITY_SIZE; priority++)
     {
-      if(activeStatus(priority) == ACTIVE)
+      if(bf.activity & mask)
         {
           returnVal++;
         }
+      mask *= 2;
     }
-  }
 
   return returnVal;
 }
@@ -505,11 +509,11 @@ STATIC uint8_t activePriorityCount(void)
 STATIC index_t lowestPriorityTail(void)
 {
   priority_t lowestButOnePri;
-  priority_t lowPri;
+  priority_t lowestPri;
   index_t lowestTail;
 
-  lowestPriority(&lowPri);
-  nextHighestPriority(&lowestButOnePri, lowPri);
+  lowestPriority(&lowestPri);
+  nextHighestPriority(&lowestButOnePri, lowestPri);
   nextIndex(&lowestTail, headIndex(lowestButOnePri));
   return lowestTail;
 }
@@ -654,7 +658,7 @@ STATIC check_t bufferEmpty(void)
 {
   check_t returnVal = BUFFER_NOT_EMPTY;
 
-  if(!bf.activity)
+  if( ! bf.activity)
     {
       returnVal = BUFFER_EMPTY;
     }
@@ -797,17 +801,25 @@ STATIC check_t remap(index_t a1, index_t a2, index_t b)
      (checkIndex(a2) == VALID_INDEX) &&
      (checkIndex(b) == VALID_INDEX))
     {
-      nextIndex(&a1ptr, a1);
-      nextIndex(&bptr, b);
-      nextIndex(&a2ptr, a2);
-      // don't remap if it is not needed
-      if(a1ptr != b)
+      if((nextIndex(&a1ptr, a1) == VALID_INDEX) &&
+         (nextIndex(&bptr, b) == VALID_INDEX) &&
+         (nextIndex(&a2ptr, a2) == VALID_INDEX))
         {
-          writeNextIndex(a1, b);
-          nextIndex(&bptr, b);
-          writeNextIndex(a2, bptr);
-          writeNextIndex(b, a1ptr);
-          returnVal = VALID_REMAP;
+          // don't remap if it is not needed
+          if(a1ptr != b)
+            {
+              if((writeNextIndex(a1, b) == VALID_INDEX) &&
+                 (nextIndex(&bptr, b) == VALID_INDEX) &&
+                 (writeNextIndex(a2, bptr) == VALID_INDEX) &&
+                 (writeNextIndex(b, a1ptr) == VALID_INDEX))
+                {
+                  returnVal = VALID_REMAP;
+                }
+            }
+          else
+            {
+              returnVal = VALID_REMAP;
+            }
         }
     }
 
@@ -918,16 +930,16 @@ STATIC check_t remapNotFull(index_t newIndex, priority_t priority)
     {
       if(remap(insertPt, bridgePt, newIndex) == VALID_REMAP)
         {
-          if(tailIndex() == newIndex)
+          if(tailIndex() != newIndex)
+            {
+              returnVal = VALID_REMAP;
+            }
+          else
             {
               if(writeTail(bridgePt) == VALID_INDEX)
                 {
                   returnVal = VALID_REMAP;
                 }
-            }
-          else
-            {
-              returnVal = VALID_REMAP;
             }
         }
     }
@@ -946,7 +958,7 @@ STATIC check_t remapFull(index_t index, priority_t priority)
   index_t insertPt = insertPointFull(priority);
   index_t bridgePt = bridgePointFull();
   index_t lowestPriTailIdx = lowestPriorityTail();
-  priority_t lowPri;
+  priority_t lowestPri;
 
   if((writeHead(index, priority) == VALID_WRITE) &&
      (setActive(priority) == VALID_ACTIVE))
@@ -955,18 +967,18 @@ STATIC check_t remapFull(index_t index, priority_t priority)
         {
           if(index == tailIndex())
             {
-              if((lowestPriority(&lowPri) == VALID_PRIORITY) &&
-                 (lowPri != priority) &&
+              if((lowestPriority(&lowestPri) == VALID_PRIORITY) &&
+                 (lowestPri != priority) &&
                  (lowestPriTailIdx  == tailIndex()))
                 {
-                  setInactive(lowPri);
+                  setInactive(lowestPri);
                 }
             }
 
-          // reset tail
-          if(lowestPriority(&lowPri) == VALID_PRIORITY)
+          // reset tail to possibly new lowest pri
+          if(lowestPriority(&lowestPri) == VALID_PRIORITY)
             {
-              if(writeTail(headIndex(lowPri)) == VALID_INDEX)
+              if(writeTail(headIndex(lowestPri)) == VALID_INDEX)
                 {
                   returnVal = VALID_REMAP;
                 }
@@ -1091,7 +1103,7 @@ int PBUF_bufferSize(void)
 
 int PBUF_insert(element_t element, priority_t priority)
 {
-  return !(insert(element, priority) == VALID_INSERT);
+  return ! (insert(element, priority) == VALID_INSERT);
 }
 
 /**
@@ -1127,7 +1139,7 @@ int PBUF_retrieve(element_t * element)
 
 int PBUF_insertIndex(int * index, priority_t priority)
 {
-  return !(insertIndex((index_t *) index, priority) == VALID_INSERT);
+  return ! (insertIndex((index_t *) index, priority) == VALID_INSERT);
 }
 
 /**
@@ -1159,6 +1171,7 @@ int PBUF_retrieveIndex(int * index)
 
 #ifdef DEBUG
 
+#include <stdio.h>
 
 #ifndef EXTERNAL_DATA_BUFFER
 
@@ -1179,7 +1192,6 @@ void PBUF_print(void)
   priority_t vmh;
 
   printf("buffer:\n path: ");
-
   if(bufferEmpty() == BUFFER_NOT_EMPTY)
     {
       index = tailIndex();

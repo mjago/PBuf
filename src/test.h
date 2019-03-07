@@ -12,8 +12,8 @@
 //////////////////////////////// index ////////////////////////////////
 
 check_t checkIndex(index_t index);
-check_t nextIndex(index_t * index, priority_t priority);
-check_t writeNextIndex(index_t current, index_t next);
+check_t nextIndex(index_t * nextIdx, index_t currentIdx);
+check_t writeNextIndex(index_t currentIdx, index_t nextIdx);
 check_t firstFreeElementIndex(index_t * index);
 index_t headIndex(priority_t priority);
 index_t nextHeadIndex(priority_t priority);
