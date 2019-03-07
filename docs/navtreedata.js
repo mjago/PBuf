@@ -1,7 +1,6 @@
 var NAVTREE =
 [
   [ "PBuf", "index.html", [
-    [ "PBuf (v0.2.0)", "index.html", null ],
     [ "Changelog", "md_CHANGELOG.html", null ],
     [ "Adding Data to the Buffer", "md_docs_dox_adding_data_to_the_buffer.html", null ],
     [ "Command Line Evaluation program (cli)", "md_docs_dox_cli.html", null ],
@@ -33,7 +32,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"modules.html"
+"pages.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

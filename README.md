@@ -1,4 +1,4 @@
-# PBuf (v0.2.0)
+# PBuf
 
 *PBuf* is a Prioritised buffer intended for use in an embedded environment,
 with processors or controllers as small as 8-bit.

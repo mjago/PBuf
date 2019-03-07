@@ -4,16 +4,17 @@ All notable changes to PBuf will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.2.1] - 07-03-2019
 
 ### Fixed
 - Some refactorings
 
 ### Added
-- n/a
+- documentation
 
 ### Changed
-- n/a
+- Removed unused overwriteSinglePriority()
+- Removed unused readElement()
 
 ## [0.2.0] - 06-03-2019
 

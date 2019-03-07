@@ -3,7 +3,7 @@
 
 #include <inttypes.h>
 
-#define VERSION 0.2.0
+#define VERSION 0.2.1
 
 /**
    Set Buffer Size Here - Size may be anything between 3 and 256 buffer elements */
